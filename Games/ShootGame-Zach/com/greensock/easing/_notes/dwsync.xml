@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="Back.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403220000000" Dst="2" />
+<file name="BackIn.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403230000000" Dst="2" />
+<file name="BackInOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403230000000" Dst="2" />
+<file name="BackOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403230000000" Dst="2" />
+<file name="Bounce.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403240000000" Dst="2" />
+<file name="BounceIn.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403240000000" Dst="2" />
+<file name="BounceInOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403250000000" Dst="2" />
+<file name="BounceOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403250000000" Dst="2" />
+<file name="Circ.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403250000000" Dst="2" />
+<file name="CircIn.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403260000000" Dst="2" />
+<file name="CircInOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403260000000" Dst="2" />
+<file name="CircOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403260000000" Dst="2" />
+<file name="Cubic.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403290000000" Dst="2" />
+<file name="Ease.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403290000000" Dst="2" />
+<file name="EaseLookup.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403290000000" Dst="2" />
+<file name="Elastic.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403300000000" Dst="2" />
+<file name="ElasticIn.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403300000000" Dst="2" />
+<file name="ElasticInOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403300000000" Dst="2" />
+<file name="ElasticOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403310000000" Dst="2" />
+<file name="Expo.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403310000000" Dst="2" />
+<file name="ExpoIn.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403310000000" Dst="2" />
+<file name="ExpoInOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403320000000" Dst="2" />
+<file name="ExpoOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403320000000" Dst="2" />
+<file name="Linear.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403320000000" Dst="2" />
+<file name="Power0.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403330000000" Dst="2" />
+<file name="Power1.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403330000000" Dst="2" />
+<file name="Power2.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403340000000" Dst="2" />
+<file name="Power3.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403340000000" Dst="2" />
+<file name="Power4.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403340000000" Dst="2" />
+<file name="Quad.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403350000000" Dst="2" />
+<file name="Quart.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403350000000" Dst="2" />
+<file name="Quint.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403350000000" Dst="2" />
+<file name="RoughEase.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403360000000" Dst="2" />
+<file name="Sine.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403360000000" Dst="2" />
+<file name="SineIn.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403360000000" Dst="2" />
+<file name="SineInOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403370000000" Dst="2" />
+<file name="SineOut.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403370000000" Dst="2" />
+<file name="SlowMo.as" server="52.15.76.244//var/www/html/" local="131511744650000000" remote="131968403370000000" Dst="2" />
+<file name="SteppedEase.as" server="52.15.76.244//var/www/html/" local="131511744660000000" remote="131968403380000000" Dst="2" />
+<file name="Strong.as" server="52.15.76.244//var/www/html/" local="131511744660000000" remote="131968403380000000" Dst="2" />
+</dwsync>

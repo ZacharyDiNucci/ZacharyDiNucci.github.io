@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AwayFromWallZ.as" server="52.15.76.244//var/www/html/" local="131968843719733630" remote="131968888370000000" Dst="2" />
+<file name="IAgentAttackZ.as" server="52.15.76.244//var/www/html/" local="131968843719903191" remote="131968888370000000" Dst="2" />
+<file name="IAgentStateZ.as" server="52.15.76.244//var/www/html/" local="131968843720062760" remote="131968888380000000" Dst="2" />
+<file name="ZAttackState.as" server="52.15.76.244//var/www/html/" local="131968843720282178" remote="131968888380000000" Dst="2" />
+<file name="ZChaseState.as" server="52.15.76.244//var/www/html/" local="131968843720451714" remote="131968888380000000" Dst="2" />
+<file name="ZConfusionState.as" server="52.15.76.244//var/www/html/" local="131968843720611293" remote="131968888390000000" Dst="2" />
+<file name="ZFleeState.as" server="52.15.76.244//var/www/html/" local="131968843720830704" remote="131968888390000000" Dst="2" />
+<file name="ZIdleState.as" server="52.15.76.244//var/www/html/" local="131968843721000251" remote="131968888390000000" Dst="2" />
+<file name="ZWanderState.as" server="52.15.76.244//var/www/html/" local="131968843721159819" remote="131968888400000000" Dst="2" />
+</dwsync>
