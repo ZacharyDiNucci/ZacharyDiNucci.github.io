@@ -6,19 +6,25 @@
 /*	--accentColor: #445349;*/
 	--accentColor: #444959;
 	--borderColor: Black;
-	--backgroundColor: #46AFAA;
+	--backgroundColor:#46AFAA;
 	--sideColor: white;
 }
-/*Chrome Hide Scroll-Bar*/
-body::-webkit-scrollbar { width: 0 !important }
-/*FireFox Hide Scroll-Bar*/
-html{
-    scrollbar-width: none;
-}
+
+body {
+	overflow-y: scroll;
+	overflow-x: hidden; /* Hide scrollbars */
+  }
 .bioImage{
 	margin-top: 15%;
 	border-radius: 30%;
 	border: solid 2px var(--borderColor);
+	width: 70%;
+	margin-bottom: 3%;
+	margin-left: auto;
+  	margin-right: auto;
+}
+.image{
+	margin-top: 15%;
 	width: 70%;
 	margin-bottom: 3%;
 	margin-left: auto;
@@ -56,13 +62,4 @@ body{
 }
 .logo{
 	width: 65%;
-}
-.image{
-	margin-top: 15%;
-	border-radius: 5%;
-	border: solid 2px var(--borderColor);
-	width: 80%;
-	margin-bottom: 3%;
-	margin-left: auto;
-  	margin-right: auto;
 }
