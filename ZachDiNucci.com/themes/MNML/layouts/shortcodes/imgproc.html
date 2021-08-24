@@ -1,0 +1,29 @@
+{{/* https://gohugo.io/content-management/image-processing/
+   Instead of checking content... see if 'headless... or if has a permalink, not equivalent but maybe good enough.'
+   {{ .Page.Permalink }}
+{{ if in .Page.Path "\\content\\" }}
+   
+   */}}
+{{ if eq .Page.Permalink "" }}
+{{ .Scratch.Set "original" (.Page.Parent.Resources.GetMatch (printf "*%s*" (.Get 0))) }}
+
+{{ else }}
+    {{ .Scratch.Set "original" (.Page.Resources.GetMatch (printf "*%s*" (.Get 0))) }}
+    
+ {{ end }}
+
+ {{ $original := .Scratch.Get "original" }}
+
+ {{ $command := .Get 1 }}
+    {{ $options := .Get 2 }}
+    {{ if eq $command "Fit"}}
+    {{ .Scratch.Set "image" ($original.Fit $options) }}
+    {{ else if eq $command "Resize"}}
+    {{ .Scratch.Set "image" ($original.Resize $options) }}
+    {{ else if eq $command "Fill"}}
+    {{ .Scratch.Set "image" ($original.Fill $options) }}
+    {{ else }}
+    {{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
+    {{ end }}
+    {{ $image := .Scratch.Get "image" }}
+    <img style="max-width: 100%; width: auto; height: auto;" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" />

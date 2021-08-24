@@ -1,0 +1,13 @@
+{{ define "main" }}
+	{{ .Content }}
+{{ end }}
+
+
+{{ define "devInfo" }}
+	{{ if eq .Site.Params.showtemplateinfo "true" }}
+	<p>Page Resources:  {{ .Page.Resources }}</p>
+	<p>IsPage: {{ .IsPage }} </p>
+	<p>IsSection: {{ .IsSection }}</p>
+		{{ partial "templateInfo"  (dict "Which" .Kind "Template" "layouts/_default/list.html") }}
+	{{ end }}
+{{ end }}

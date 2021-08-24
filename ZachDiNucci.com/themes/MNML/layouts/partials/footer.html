@@ -1,0 +1,16 @@
+<footer class="bg-secondary">
+    <div class="container text-center">
+        <div class="row vcenter">
+            <div class="col-md-8 footer-left-area">
+                <p>
+                    {{ with .Site.Copyright | default .Site.Title }}&copy; {{ now.Format "2006"}} <span class="text-regular">{{ . | safeHTML }}</span> {{ end }}
+                </p>
+            </div>
+            <div class="col-md-4 social-icons footer-right-area">
+                <a href="#x"><i class="fab fa-facebook-f"></i></a>
+                <a href="#x"><i class="fab fa-twitter"></i></a>
+                <a href="#x"><i class="fab fa-instagram"></i></a>
+            </div><!-- / social-icons -->
+        </div><!-- / row -->
+    </div><!-- / container -->
+</footer>

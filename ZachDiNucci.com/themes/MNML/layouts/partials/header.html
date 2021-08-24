@@ -1,0 +1,13 @@
+<header class="page-header">
+    <div class="container">
+        <div class="header-content text-center">
+            <div class="title-background">
+                <h1 class="header-title font-light">
+                    {{ with .Params.Title }}{{ . }}{{ end }}
+                    {{ with .Params.SubTitle }}<span class="d-block h4 font-light mt-1">{{ . }}</span>{{ end }}
+                    
+                </h1>
+            </div><!-- / title-background -->
+        </div>
+    </div><!-- / container -->
+</header>

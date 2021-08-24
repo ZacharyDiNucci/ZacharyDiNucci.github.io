@@ -1,0 +1,12 @@
+{{ if .Page.IsHome }}
+    {{ $resource := substr (.Get "src") 5 }}    
+    {{ $homepage := .Site.GetPage "/home" }}
+    {{ with $homepage.Resources.GetMatch $resource }}
+        {{ .Content }}
+    {{ end }}
+{{ else }}
+    {{ $resource := .Get "src" }}
+    {{ with .Page.Resources.GetMatch $resource }}
+        {{ .Content }}
+    {{ end }}
+{{ end }}
