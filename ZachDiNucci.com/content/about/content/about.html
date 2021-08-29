@@ -10,31 +10,51 @@ description: "description?"
                 <h4 class="section-title mb-3">Who I am</h4>
                 <p class="mb-3">Proin vitae orci imperdiet, aliquam libero vel, semper lectus. Aeneaneta bibendum lacus in vulputate vulputate. Etiam in ligula sed nisl feugiat vitae eu orci. Nam scelerisque tellus sed magna commodo, eleifend eleifend turpis fermentum, nullam eget tristique orci. Nam fermon nislisqua augue, ac venenatis libero pellentesque ac malesuada. </p>
                 <p class="mb-0">Quisque euismod vehicula metus in auctor. Donec finibus hendreritus imperdiet nibh luctus quis. Proin dignissim mollis molestie. Phasellus malesuada sem magna, eget scelerisque nunc varius eget. Vivamus ornare diam sit amet orci malesuada pharetra. Nunc feugiat ornare.</p>
-                <div style="background-color:pink; min-height:200px;">
-                    {{< imgproc "content/images/IMG_20130330_133418.jpg" Resize "500x" >}}
-                </div>
             </div><!-- / column -->
-            <div class="col-md-6 right-section">
-                <h6 class="mb-3">GRAPHIC DESIGN <span class="pull-right">90%</span></h6>
-                <div class="progress">
-                    <div class="progress-bar bg-primary animated fadeInLeft first" role="progressbar" style="width: 90%; height: 10px" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div><!-- / progress -->
-
-                <h6 class="mb-3">WEB DESIGN <span class="pull-right">80%</span></h6>
-                <div class="progress">
-                    <div class="progress-bar bg-primary animated fadeInLeft second" role="progressbar" style="width: 80%; height: 10px" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div><!-- / progress -->
-
-                <h6 class="mb-3">PHOTOGRAPHY <span class="pull-right">95%</span></h6>
-                <div class="progress">
-                    <div class="progress-bar bg-primary animated fadeInLeft third" role="progressbar" style="width: 95%; height: 10px" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                </div><!-- / progress -->
-
-                <h6 class="mb-3">ILLUSTRATIONS <span class="pull-right">75%</span></h6>
-                <div class="progress mb-0">
-                    <div class="progress-bar bg-primary animated fadeInLeft fourth" role="progressbar" style="width: 75%; height: 10px" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div><!-- / progress -->
-            </div><!-- / column -->           
+            <div class="col-md-6 blog-content">
+            <div class="blog block">
+                <div id="slider-post" class="owl-carousel owl-theme carousel-full-nav">
+                    {{< imgproc "content/images/IMG_20130330_133418.jpg" Resize "500x" >}}
+                    {{< imgproc "content/images/IMG_20130330_133418.jpg" Resize "800x" "500x" >}}
+                    {{< imgproc "content/images/IMG_20130330_133418.jpg" Resize "500x" >}}
+                </div><!-- / owl-carousel -->
+            </div>
+        </div>
         </div><!-- / row -->
     </div><!-- / container -->
 </section><!-- / about -->
+
+
+
+
+<!-- Core JavaScript -->
+<script src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- / Core JavaScript -->
+
+
+<!-- menu-toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+<!-- / menu-toggle Script -->
+
+<!-- Owl Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<script>
+$('#slider-post').owlCarousel({
+    loop:true,
+    margin:0,
+    nav:true,
+    dots:false,
+    navText:["<i class='lnr lnr-arrow-left'></i>","<i class='lnr lnr-arrow-right'></i>"],
+    items:1,
+    animateIn: 'slideInRight',
+    animateOut: 'slideOutLeft'
+})
+</script>
+<!-- / Owl Carousel -->
