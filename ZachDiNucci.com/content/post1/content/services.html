@@ -3,45 +3,18 @@ title: "Test 1"
 description: "description?"
 ---
 
+
 <section id="posts">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 blog-content">
-                <div class="blog block">
-                    <div id="slider-post" class="owl-carousel owl-theme carousel-full-nav">
-                    {{< imgproc "content/images/IMG_20130330_133418.jpg" Resize "500x" >}}
-                    </div><!-- / owl-carousel -->
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <p class="text-sm text-primary">ADMIN <span class="ml-3 mr-3 text-black opc-50">/</span> PHOTOGRAPHY <span class="ml-3 mr-3 text-black opc-50">/</span> 22 SEP 2018</p>
-                        </div><!-- / post-meta -->
-                        <h4 class="post-title">SLIDER POST</h4>
-                        <p class="mb-3">Duis posuere orci id augue dapibus, non ullamcorper dui auctor. Vestibulum lobortis. Fusce vestibulum leo ut risus finibus vestibulum. Pellentesque fringilla iaculis neque, non pharetra ipsum lacinia eu. Praesent sed volutpat ex aliquam condimentum.</p>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">Etiam sit amet diam varius, fringilla justo at, eleifend metus. Nunc efficitur gravida metus at consectetur. Proin porttitor quis nunc sit amet viverra. Proin tortor tellus, sollicitudin.</p>
-                            <footer class="blockquote-footer">Someone Famous</footer>
-                        </blockquote>
-                        <p class="mt-3 pt-3 mb-3 pb-3">Quisque a commodo leo. Nunc lobortis dolor non mollis rhoncus. Donec finibus hendrerit lorem, vitae laoreet lacus mollis vel. Nullam consequat, metus sit amet sagittis lobortis, diam erat vulputate nisl, nec ultricies orci dolor suscipit felis. Praesent eleifend consequat ligula, non porttitor ligula volutpat et. Vestibulum facilisis non lectus in varius.</p>
-                        <h3>Praesent luctus mi fringilla</h3>
-                        <p class="mb-3 pb-3">Aliquam nunc lorem, hendrerit quis diam ut, dapibus rutrum ligula. Donec semper pellentesque sapien, vitae sodales tortor maximus nec. Pellentesque eu cursus sapien. Nunc magna urna, condimentum non tincidunt quis, auctor vitae lorem.</p>
-                        <h6 class="post-tags"><span class="va-middle">TAGS:</span> <a href="#x" class="btn btn-sm btn-outline-secondary rectangle mt-1">#photography</a> <a href="#x" class="btn btn-sm btn-outline-secondary rectangle mt-1">#tavel</a> <a href="#x" class="btn btn-sm btn-outline-secondary rectangle mt-1">#art</a> <a href="#x" class="btn btn-sm btn-outline-secondary rectangle mt-1">#tech</a></h6>
-
-                        <div id="share-post">
-                            <a href="#x" class="btn-social btn-primary mr-1 mb-2 rectangle"><i class="fab fa-facebook-f"></i> <span>Share - 13K</span></a>
-                            <a href="#x" class="btn-social btn-primary mr-1 mb-2 rectangle"><i class="fab fa-twitter"></i> <span>Tweet - 3.6K</span></a>
-                            <a href="#x" class="btn-social btn-primary mr-1 mb-2 rectangle"><i class="fab fa-google-plus-g"></i> <span>Share - 575</span></a>
-                        </div><!-- share-post -->
-                    </div><!-- / post-content -->
-                </div><!-- / blog-block -->
-            </div><!-- / blog-content -->
-
             <div class="col-md-4 blog-sidebar mt-3">
                 <div class="sidebar-widget">
                     <h4 class="widget-title pb-3">SEARCH</h4>
                     <div class="input-group mt-3">
                         <input type="text" class="form-control border-faded" placeholder="Search for...">
                         <span class="input-group-btn">
-                            <a href="#x" class="btn btn-w-icon btn-primary rectangle ml-2"><span><i class="lnr lnr-magnifier"></i></span></a>
+                            <a href="#x" class="btn btn-w-icon btn-primary rectangle ml-2"><span><i
+                                        class="lnr lnr-magnifier"></i></span></a>
                         </span>
                     </div><!-- / input-group -->
                 </div><!-- / sidebar-widget -->
@@ -89,7 +62,8 @@ description: "description?"
                     <div class="input-group mt-3">
                         <input type="text" class="form-control border-faded" placeholder="Email Address">
                         <span class="input-group-btn">
-                            <a href="#x" class="btn btn-w-icon btn-primary rectangle ml-2"><span><i class="lnr lnr-envelope"></i></span></a>
+                            <a href="#x" class="btn btn-w-icon btn-primary rectangle ml-2"><span><i
+                                        class="lnr lnr-envelope"></i></span></a>
                         </span>
                     </div><!-- / input-group -->
                 </div><!-- / sidebar-widget -->
@@ -113,26 +87,3 @@ description: "description?"
         </div><!-- / row -->
     </div><!-- / container -->
 </section><!-- / posts -->
-
-
-<!-- Core JavaScript -->
-<script src="js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- / Core JavaScript -->
-
-<!-- Owl Carousel -->
-<script src="js/owl.carousel.min.js"></script>
-<script>
-$('#slider-post').owlCarousel({
-    loop:true,
-    margin:0,
-    nav:true,
-    dots:false,
-    navText:["<i class='lnr lnr-arrow-left'></i>","<i class='lnr lnr-arrow-right'></i>"],
-    items:1,
-    animateIn: 'slideInRight',
-    animateOut: 'slideOutLeft'
-})
-</script>
-<!-- / Owl Carousel -->
