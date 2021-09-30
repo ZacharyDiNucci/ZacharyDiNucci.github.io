@@ -12,11 +12,11 @@ $lsp-extra: 0.2rem;
 
 // Color Palette
 
-$primary: #024e5c;
+$primary: #09697a;
 $primary-hover: #f2cc9b; //Unknown use
-$primary-transparent: #024e5c; //For main nav header
+$primary-transparent: #000000; //For main nav header
 $primary-transparent-2: #007072; //Hero color
-$secondary: #007e85;
+$secondary: #049aa1;
 $secondary-hover: #007e85;
 $success: #80c77b;
 $success-hover: #5e985a;
@@ -26,7 +26,7 @@ $warning: #da9755;
 $warning-hover: #b27941;
 $danger: #d54a4a;
 $danger-hover: #ad3636;
-$title-color: #333;
+$title-color: #000;
 $text-color: #000;
 $light-bg-color: #f7f7f7;
 $dark-bg-color: #222;
@@ -35,8 +35,8 @@ $light-body-bg: #fff;
 $dark-body-bg: #111;
 $white: #fff;
 $light-grey: #fafafa;
-$light-mid-grey: #ddd;
-$grey: #aaa;
+$light-mid-grey: rgb(182, 182, 182);
+$grey: rgb(219, 219, 219);
 $mid-grey: #999;
 $dark-grey: #333;
 $deep-grey: #222;
