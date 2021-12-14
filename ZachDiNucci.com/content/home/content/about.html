@@ -25,7 +25,7 @@ description: "description?"
             <li class="col-lg-6 col-lg-3 project" data-groups='["games"]'>
                 <figure class="portfolio-item">
                     <div class="hovereffect">
-                    {{< imgproc "sections/images/RoboBeatdownMenu.png" Resize "800x" >}}
+                    {{< imgproc "content/images/RoboBeatdownMenu.png" Resize "800x" >}}
                         <div class="overlay">
                             <div class="hovereffect-title">
                                  <a  href="/post1">
@@ -42,7 +42,7 @@ description: "description?"
             <li class="col-lg-6 col-lg-3 project" data-groups='["games", "virtual reality"]'>
                 <figure class="portfolio-item">
                     <div class="hovereffect">
-                    {{< imgproc "sections/images/FoodFightAttacking2.png" Resize "800x" >}}
+                    {{< imgproc "content/images/FoodFightAttacking2.png" Resize "800x" >}}
                         <div class="overlay">
                             <div class="hovereffect-title">
                                 <a href="/post2">
@@ -59,7 +59,7 @@ description: "description?"
             <li class="col-lg-6 col-lg-3 project" data-groups='["games"]'>
                 <figure class="portfolio-item">
                     <div class="hovereffect">
-                    {{< imgproc "sections/images/PigMenu.png" Resize "800x" >}}
+                    {{< imgproc "content/images/PigMenu.png" Resize "800x" >}}
                         <div class="overlay">
                             <div class="hovereffect-title">
                                 <a href="/post3">
@@ -76,7 +76,7 @@ description: "description?"
             <li class="col-lg-6 col-lg-3 project" data-groups='["games"]'>
                 <figure class="portfolio-item">
                     <div class="hovereffect">
-                    {{< imgproc "sections/images/QuackAttackMenu.png" Resize "800x" >}}
+                    {{< imgproc "content/images/QuackAttackMenu.png" Resize "800x" >}}
                         <div class="overlay">
                             <div class="hovereffect-title">
                                 <a href="/post4">
@@ -93,7 +93,7 @@ description: "description?"
             <li class="col-lg-6 col-lg-3 project" data-groups='["games"]'>
                 <figure class="portfolio-item">
                     <div class="hovereffect">
-                    {{< imgproc "sections/images/Multiplayer.png" Resize "800x" >}}
+                    {{< imgproc "content/images/Multiplayer.png" Resize "800x" >}}
                         <div class="overlay">
                             <div class="hovereffect-title">
                                 <a href="/post5">
@@ -110,7 +110,7 @@ description: "description?"
             <li class="col-lg-6 col-lg-3 project" data-groups='["augmented reality"]'>
                 <figure class="portfolio-item">
                     <div class="hovereffect">
-                        {{< imgproc "sections/images/ARAPP4.png" Resize "800x" >}}
+                        {{< imgproc "content/images/ARAPP4.png" Resize "800x" >}}
                         <div class="overlay">
                             <div class="hovereffect-title">
                                 <a href="/post6">
@@ -131,69 +131,4 @@ description: "description?"
     </div><!-- / container -->
 </section>
 <!-- / portfolio -->
-
-
-<!-- Core JavaScript -->
-<script src="js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- / Core JavaScript -->
-
-
-
-<!-- Portfolio Script -->
-<script src="js/jquery.shuffle.min.js"></script>
-<script src="js/portfolio.js"></script>
-<script>
-$(document).ready(function(){
-    if (Modernizr.touch) {
-        // show the close overlay button
-        $(".close-overlay").removeClass("hidden");
-        // handle the adding of hover class when clicked
-        $(".img").click(function(e){
-            if (!$(this).hasClass("hover")) {
-                $(this).addClass("hover");
-            }
-        });
-        // handle the closing of the overlay
-        $(".close-overlay").click(function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            if ($(this).closest(".img").hasClass("hover")) {
-                $(this).closest(".img").removeClass("hover");
-            }
-        });
-    } else {
-        // handle the mouseenter functionality
-        $(".img").mouseenter(function(){
-            $(this).addClass("hover");
-        })
-        // handle the mouseleave functionality
-        .mouseleave(function(){
-            $(this).removeClass("hover");
-        });
-    }
-});
-</script>
-<!-- / Portfolio Script -->
-
-
-
-<!-- LightBox -->
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script>
-// This will create a single gallery from all elements that have class "lightbox"
-$('.lightbox').each(function() {
-    $(this).magnificPopup({
-        delegate: 'a.image-lightbox', // the selector for gallery item
-        type: 'image',
-        removalDelay: 500,
-        mainClass: 'mfp-fade',
-        gallery: {
-          enabled:true
-        }
-    });
-});
-</script>
-<!-- / LightBox -->
 
