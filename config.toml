@@ -3,7 +3,6 @@ languageCode = "en-us"
 title = "Zach DiNucci"
 theme = "MNML"
 cleanDestinationDir = true
-publishDir = "/docs"
 
 [params]
 showtemplateinfo = "false"
