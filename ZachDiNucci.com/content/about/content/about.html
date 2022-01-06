@@ -2,32 +2,102 @@
 title: "Test 1"
 description: "description?"
 ---
-
-<section id="about" class="big-section bg-light">
+<section id="posts">
     <div class="container">
-        <div class="row Vcenter">
-            <div class="col-md-6 left-section">
-                <h4 class="section-title mb-3">Hello!</h4>
-                <p class="mb-3">My name is Zach DiNucci I am a junior developer, a game designer, a history buff, and a gamer. I grew up in Boise, Idaho where I attend Boise State University.I expanded my knowledge and built some of my first games through a new program at Boise State called GIMM. Along with attending classes I joined a Dungeons and Dragons club where I became a dungeon master and player. As a dungeon master I was able to fabricate worlds and stories for my players that helped me grow as a game designer.</p>
-                <p class="mb-3">My enjoyment and love of gaming and game designing started at a young age with the game Dinosaur 3D for the PC. My family would gather around and we would run around the island and save baby dinosaurs. Since then I have played all sorts of games from simple indie games like Unturned or Always Sometimes Monsters to big AAA games like Battlefield or Apex Legends. I have also been able to create many different themes of games and you will see those in my portfolio.</p>
-                <p class="mb-3">Then came Minecraft; I have hosted and modded my own servers along with creating my own special mods since I was in Junior High School around 2012. I had the opportunity to attend Minecon in 2010 in Las Vegas, Nevada where I was able to talk to game developers and listen to panels. My experience at Minecon showed me that the world of gaming technology is always growing and I became determined to become a developer in the field. </p>
-                <p class="mb-3">I want to continue telling stories, whether that be in my Dungeons and Dragon campaigns, stories from historical facts, or in games that I've developed. I am ready to start working with and building games with a team that also shares my love of gaming. </p>
-            </div><!-- / column -->
-            <div class="col-md-6 blog-content">
-            <div class="blog block">
-                <div id="slider-post" class="owl-carousel owl-theme carousel-full-nav" align="center">
-                    {{< imgproc "content/images/Wedding2.png" Resize "400x" >}}
-                    {{< imgproc "content/images/Band2.png" Resize "385x" >}}
-                    {{< imgproc "content/images/IMG_20130330_133418.jpg" Resize "800x" >}}
-                </div><!-- / owl-carousel -->
+        <div class="row">
+            <div class="col-md-8">
+                <div id="about" class="bg-light" style="padding: 60px 0;">
+                    <div class="container">
+                        <div class="blog block">
+                            <div id="slider-post" class="owl-carousel owl-theme carousel-full-nav" align="center">
+                                {{< imgproc "content/images/Wedding2.png" Resize "400x" >}}
+                                {{< imgproc "content/images/Band2.png" Resize "385x" >}}
+                                {{< imgproc "content/images/IMG_20130330_133418.jpg" Resize "800x" >}}
+                            </div><!-- / owl-carousel -->
+                        </div>
+                            <div class="left-section" style="padding:1rem">
+                                <h4 class="section-title mb-3">Hello!</h4>
+                                <p class="mb-3">My name is Zach DiNucci I am a junior developer, a game designer, a history buff, and a gamer. I grew up in Boise, Idaho where I attend Boise State University.I expanded my knowledge and built some of my first games through a new program at Boise State called GIMM. Along with attending classes I joined a Dungeons and Dragons club where I became a dungeon master and player. As a dungeon master I was able to fabricate worlds and stories for my players that helped me grow as a game designer.</p>
+                                <p class="mb-3">My enjoyment and love of gaming and game designing started at a young age with the game Dinosaur 3D for the PC. My family would gather around and we would run around the island and save baby dinosaurs. Since then I have played all sorts of games from simple indie games like Unturned or Always Sometimes Monsters to big AAA games like Battlefield or Apex Legends. I have also been able to create many different themes of games and you will see those in my portfolio.</p>
+                                <p class="mb-3">Then came Minecraft; I have hosted and modded my own servers along with creating my own special mods since I was in Junior High School around 2012. I had the opportunity to attend Minecon in 2010 in Las Vegas, Nevada where I was able to talk to game developers and listen to panels. My experience at Minecon showed me that the world of gaming technology is always growing and I became determined to become a developer in the field. </p>
+                                <p class="mb-3">I want to continue telling stories, whether that be in my Dungeons and Dragon campaigns, stories from historical facts, or in games that I've developed. I am ready to start working with and building games with a team that also shares my love of gaming. </p>
+                                <div class="social-icons pull-right">
+                                    <a style="color: #777a8f;"href="https://www.linkedin.com/in/zachary-dinucci/"><i class="fab fa-linkedin" style="font-size: 2rem;"></i></a>
+                                    <a style="color: #777a8f;" href="https://github.com/ZacharyDiNucci"><i class="fab fa-github" style="font-size: 2rem;"></i></a>
+                                    <a style="color: #777a8f;" href="https://zachary-dinucci.itch.io/"><i class="fab fa-itch-io" style="font-size: 2rem;"></i></a>
+                                </div><!-- / social-icons -->
+
+                        </div><!-- / row -->
+                    </div><!-- / container -->
+                </div><!-- / about -->
+
+
+
+
+                
             </div>
+
+            <div class="col-md-4 blog-sidebar">
+                <div class="sidebar-widget">
+                    <h4 class="widget-title pb-3">FAVORITE LOCATIONS VISITED</h4>
+                    <div class="tag-cloud">
+                        <div class=" outline-secondary rectangle mt-1">Paris and Normandy</div>
+                        <div  class="outline-secondary rectangle mt-1">Boston Mass. and Provincetown</div>
+                        <div  class="outline-secondary rectangle mt-1">Orcas Island Wash.</div>
+                        <div  class="outline-secondary rectangle mt-1">San Fransisco Cal</div>
+                        <div  class="outline-secondary rectangle mt-1">Yellowstone National Park</div>
+                        <div  class="outline-secondary rectangle mt-1">Cabo San Lucas, Mexico</div>
+                    </div><!-- / tag-cloud -->
+                </div><!-- / sidebar-widget -->
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">FAVORITE SPORTS TEAMS</h4>
+                    <div class="tag-cloud">
+                        <div class=" outline-secondary rectangle mt-1">Boise State Broncos</div>
+                        <div  class="outline-secondary rectangle mt-1">Michigan State Spartans</div>
+                        <div  class="outline-secondary rectangle mt-1">Dallas Cowboys</div>
+                        <div  class="outline-secondary rectangle mt-1">Chicago Bears</div>
+                        <div  class="outline-secondary rectangle mt-1">Seattle Mariners</div>
+                    </div><!-- / tag-cloud -->
+                </div><!-- / sidebar-widget -->
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title pb-3">FAVORITE BANDS</h4>
+                    <div class="tag-cloud">
+                        <div class=" outline-secondary rectangle mt-1">Boise State Broncos</div>
+                        <div  class="outline-secondary rectangle mt-1">Michigan State Spartans</div>
+                        <div  class="outline-secondary rectangle mt-1">Dallas Cowboys</div>
+                        <div  class="outline-secondary rectangle mt-1">Chicago Bears</div>
+                        <div  class="outline-secondary rectangle mt-1">Seattle Mariners</div>
+                    </div><!-- / tag-cloud -->
+                </div><!-- / sidebar-widget -->
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title pb-2">FAVORITE TABLE TOP GAMES</h4>
+                    <div class="tag-cloud">
+                        <div class=" outline-secondary rectangle mt-1">Munchkin</div>
+                        <div  class="outline-secondary rectangle mt-1">Dungeons & Dragons</div>
+                        <div  class="outline-secondary rectangle mt-1">Magic the Gathering</div>
+                        <div  class="outline-secondary rectangle mt-1">Secret Hitler</div>
+                        <div  class="outline-secondary rectangle mt-1">Betrayal at House on the Hill</div>
+                    </div><!-- / tag-cloud -->
+                    <!-- / tags-widget -->
+                </div><!-- / sidebar-widget -->
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title pb-3">FAVORITE GAMES</h4>
+                    <div class="tag-cloud">
+                        <div class=" outline-secondary rectangle mt-1">Minecraft</div>
+                        <div  class="outline-secondary rectangle mt-1">Apex Legends</div>
+                        <div  class="outline-secondary rectangle mt-1">RimWorld</div>
+                        <div  class="outline-secondary rectangle mt-1">Half Life Alyx</div>
+                        <div  class="outline-secondary rectangle mt-1">Civilization V</div>
+                    </div><!-- / tag-cloud -->
+                </div><!-- / sidebar-widget -->
+            </div><!-- / blog-sidebar -->
         </div>
-        </div><!-- / row -->
-    </div><!-- / container -->
-</section><!-- / about -->
-
-
-
+    </div>
+</section
 
 <!-- Core JavaScript -->
 <script src="js/jquery.min.js"></script>
