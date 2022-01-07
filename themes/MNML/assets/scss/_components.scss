@@ -196,7 +196,7 @@ a.btn, a.btn-social {
     border-color: $primary !important;
 }
 
-.btn-primary:hover, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+.btn-primary:hover, .btn-primary:active, .show>.btn-primary.dropdown-toggle { //here
     color: $white !important;
     background-color: $primary-hover !important;
     border-color: $primary-hover !important;
@@ -235,10 +235,10 @@ a.btn, a.btn-social {
 }
 
 .btn-outline-secondary, .btn-outline-secondary:focus, .btn-outline-secondary.active, .btn-outline-secondary:active {
-    color: $secondary-hover !important;
+    color: $secondary !important;
     background-image: none;
     background-color: transparent;
-    border-color: $secondary-hover !important;
+    border-color: $secondary !important;
 }
 
 .btn-outline-secondary:hover, .show>.btn-outline-secondary.dropdown-toggle {
@@ -2956,7 +2956,7 @@ nav .btn-xs {
 .progress {
     font-size: .75rem;
     line-height: 1rem;
-    background-color: $secondary;
+    background-color: $primary;
     border-radius: 0;
     height: auto;
 }
@@ -2964,7 +2964,7 @@ nav .btn-xs {
 .progress-bar {
     height: 1rem;
     color: $white;
-    background-color: $primary;
+    background-color: $secondary;
 }
 
 .progress-bar.animated {

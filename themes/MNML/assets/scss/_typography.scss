@@ -31,7 +31,6 @@ h6 {
 }
 
 a {
-    color: $primary;
     font-size: 1.1rem;
     @include transition(.2s);
     &:hover, &:active, &:focus {
