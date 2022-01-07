@@ -1353,10 +1353,10 @@ a.btn, a.btn-social {
 }
 
 .btn-outline-secondary, .btn-outline-secondary:focus, .btn-outline-secondary.active, .btn-outline-secondary:active {
-  color: #d3d1d1 !important;
+  color: #4d4d4d !important;
   background-image: none;
   background-color: transparent;
-  border-color: #d3d1d1 !important;
+  border-color: #5a5a5a !important;
 }
 
 .btn-outline-secondary:hover, .show > .btn-outline-secondary.dropdown-toggle {
