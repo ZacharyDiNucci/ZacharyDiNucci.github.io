@@ -4,41 +4,63 @@ description: "description?"
 ---
 
 
-<section id="contact-form" class="big-section bg-light">
-    <div class="container w50" style="padding-bottom: 20px;">
-        <form id="contactForm" data-toggle="validator">
-            <div class="row">
-                <div class="col-md-6 sub-col-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="*Name" required>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div><!-- / sub-column -->
-                <div class="col-md-6 sub-col-right">
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="*Email" required>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div><!-- / sub-column -->
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="msg_subject" placeholder="Subject">
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div><!-- / sub-column -->
-                <div class="col-md-12">
-                    <div class="form-group mb-2">
-                        <textarea id="message" class="form-control" rows="5" placeholder="*Message" required></textarea>
-                        <div class="help-block with-errors text-area"></div>
-                    </div>
-                </div><!-- / sub-column -->
-            </div><!-- / row -->
+<section id="contact-form" class="big-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 contact-info-area">
+                <div class="contact-info text-left">
+                    <h5 class="box-title mb-3 text-primary">MESSAGE</h5>
+                    <a class ="btn btn-sm btn-outline-secondary rectangle mt-1" style="color: #777a8f;" href="https://www.linkedin.com/in/zachary-dinucci/"><div style="font-size: 1.5rem;">LinkedIn<i class="fab fa-linkedin" style="font-size: 1.5rem;"></i></div></a>
+                </div><!-- / contact-info -->
 
-            <div class="text-center">
-                <button type="submit" id="form-submit" class="btn btn-submit btn-primary rectangle"><span>Send Message</span></button>
-                <div id="msgSubmit" class="h3 text-center hidden"></div>
-                <div class="clearfix"></div>
-            </div><!-- / text-center -->
-        </form><!-- / contactform -->
+                <div class="contact-info text-left">
+                    <h5 class="box-title mb-3 text-primary">PHONE</h5>
+                    <p class="box-description"><a href="tel:2088672670">(208)867-2670</a></p>
+                </div><!-- / contact-info -->
+
+                <div class="contact-info text-left">
+                    <h5 class="box-title mb-3 text-primary">EMAIL</h5>
+                    <p class="box-description"><a href="mailto:zdinucci@gmail.com">zdinucci@gmail.com</a></p>
+                </div><!-- / contact-info -->
+
+            </div><!-- / column -->
+
+            <div class="col-md-8">
+                <form id="my-form" action="https://formspree.io/f/mgedvgla" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 sub-col-left">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="*Name" required name="from">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div><!-- / sub-column -->
+                        <div class="col-md-6 sub-col-right">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="*Email" required name="_replyto">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div><!-- / sub-column -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="msg_subject" placeholder="Subject" name="subject">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div><!-- / sub-column -->
+                        <div class="col-md-12">
+                            <div class="form-group mb-2">
+                                <textarea id="message" class="form-control" rows="5" placeholder="*Message" required name="message"></textarea>
+                                <div class="help-block with-errors text-area"></div>
+                            </div>
+                        </div><!-- / sub-column -->
+                    </div><!-- / row -->
+
+                    <div class="text-center">
+                        <button type="submit" id="my-form-button" class="btn btn-submit btn-primary rectangle"><span>Send Message</span></button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div><!-- / text-center -->
+                </form><!-- / contactform -->
+            </div><!-- / column -->
+        </div><!-- / row -->
     </div><!-- / container -->
 </section><!-- / contact-form -->
