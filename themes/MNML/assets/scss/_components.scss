@@ -235,16 +235,17 @@ a.btn, a.btn-social {
 }
 
 .btn-outline-secondary, .btn-outline-secondary:focus, .btn-outline-secondary.active, .btn-outline-secondary:active {
-    color: $secondary !important;
+    color: $black !important;
     background-image: none;
     background-color: transparent;
     border-color: $secondary !important;
+    border-radius: 5px !important;
 }
 
 .btn-outline-secondary:hover, .show>.btn-outline-secondary.dropdown-toggle {
-    color: $title-color !important;
-    background-color: $primary-hover !important;
-    border-color: $secondary-hover !important;
+    color: #ffffff !important;
+    background-color: $primary !important;
+    border-color: $black !important;
 }
 
 .btn-secondary.disabled, .btn-secondary:disabled {

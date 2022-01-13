@@ -10,9 +10,18 @@
     color: #000000 !important;
     background-image: none;
     background-color: transparent;
-    border-color: #b2b5bc !important;
+    border-color: $secondary !important;
     border: 2px solid transparent;
     padding: 9px 8px;
     margin-bottom:5px;
     display: inline-block;
+    border-radius: 5px;
+}
+
+.secondary{
+    background-color:$secondary !important;
+}
+
+.text-secondary{
+    color:$secondary !important;
 }
