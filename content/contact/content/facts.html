@@ -5,6 +5,7 @@ description: "description?"
 
 
 <section id="contact-form" class="big-section">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <div class="container">
         <div class="row">
             <div class="col-md-4 contact-info-area">
@@ -53,9 +54,8 @@ description: "description?"
                             </div>
                         </div><!-- / sub-column -->
                     </div><!-- / row -->
-
                     <div class="text-center">
-                        <button type="submit" id="my-form-button" class="btn btn-submit btn-primary rectangle" style="border: 2px solid black !important;"><span>Send Message</span></button>
+                        <button type="submit" id="my-form-button" class="btn btn-submit btn-primary rectangle g-recaptcha" data-sitekey="6LdSyOQeAAAAAO01fY_TQxiKWEZ_eGMpPi5HO1z9" data-callback='onSubmit' data-action='submit' style="border: 2px solid black !important;"><span>Send Message</span></button>
                         <div id="msgSubmit" class="h3 text-center hidden"></div>
                         <div class="clearfix"></div>
                     </div><!-- / text-center -->
