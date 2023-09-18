@@ -8,18 +8,20 @@ description: "description?"
         <div class="row">
             <div class="col-md-8 blog-content">
                 <div class="blog block post-content">
-                    <h1 class="section-title" style >Freeman AR</h4>
+                    <h1 class="section-title" style >Arena Shooter</h4>
                     <div id="slider-post" class="owl-carousel owl-theme carousel-full-nav">
                         <iframe width="800" height="448" src="https://www.youtube.com/embed/t-vPgVt6lzk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <iframe width="800" height="448" src="https://www.youtube.com/embed/ODwBDhjG3XY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {{< imgproc "content/images/ArenaShooter1.png" Resize "800x" >}}
+                        {{< imgproc "content/images/ArenaShooter2.png" Resize "800x" >}}
+                        {{< imgproc "content/images/ArenaShooter3.png" Resize "800x" >}}
                     </div><!-- / owl-carousel -->
                     <div class="post-content">
                         <div class="post-meta">
-                            <p class="text-sm text-secondary">Unity AR App<span class="ml-3 mr-3 text-black opc-50">/</span>Summer 2023</p>
+                            <p class="text-sm text-secondary">Unreal Third Person Shooter<span class="ml-3 mr-3 text-black opc-50">/</span>Fall 2023 - Present</p>
                         </div><!-- / post-meta -->
                         <h4 class="post-title">About this Game</h4>
-                        <p class="mb-3">This Application was created for my job at the GIMM development team. It is created as a touring app for downtown Boise. This app uses Unity's AR foundation to work for both Apple and Android applications. For it I was responsible for programming the Augmented reality portions as well as helping designing parts of the app's mechanics, and while there are some bugs and some things, I am going to continue working on I am happy with where it is now.</p>
-                        <p class="mb-3">The App is split into 4 different sections each representing a different location in downtown Boise. The Basque Block Scene is the main scene and is a walk through the block telling the user about the block and the Baque people through their culture. The Jump scene is used to talk about JR Simplot and the farming origins of the Boise Area. It uses a more stationary game where you do various farm chores. The last two are smaller scenes about Treefort and the Egyptian theater. </p>
+                        <p class="mb-3">This game is currently a work in progress, I am using Unreal Engine and C++ to create a Multiplayer Shooter following a Udemy tutorial for most of the basics. I am still working through the tutorials but when I finish there will be more weapons and features. My plan after is to create a few new game modes and see if I can change some aspects of the game like teams and hosting. The goal of this game initially is to get better familiarity with Unreal along with C++. I hope to have almost everything done by the winter so I can play the game with friends to test and enjoy it. </p>
+                        <p class="mb-3">The game currently works by having 1 player click host in the main menu and opens a listen server waiting for other players to join in the lobby. Once a threshold has been reached, we move the players into the lobby where they get 10 seconds to fly around and explore. Then the players’ Pawns are spawned in, and this enables them to move around, pick up guns and shoot each other. As players get eliminations, they are given points and at the end of the game, depending on who has the most points, they get displayed on the winning screen. After, the game cools down for 10 seconds and then restarts into a new round. The game uses replicated variables and RPC events to get data to and from each other player and makes sure gameplay is smooth. While I haven’t gotten to the lag compensation parts of the tutorials it is upcoming and should make things even smoother. All the visual assets come from an asset pack I bought from Synty and I plan to make my own map for the gameplay using these assets.</p>
                         <br/>
                         <!-- <a class ="btn btn-sm btn-outline-secondary rectangle mt-1" style="color: #777a8f;" href="https://github.com/ZacharyDiNucci/UnityMultiplayerTPS"><div style="font-size: 1.5rem;">See The Code <i class="fab fa-github" style="font-size: 1.5rem;"></i></div></a> -->
                         <!-- <div id="share-post">
@@ -58,7 +60,7 @@ description: "description?"
                             <li>
                                 <div class="recent-posts">
                                     <div class="recent-post-content">
-                                        <h5 class="mb-0"><a href="https://zachdinucci.com/post6/" class="recent-post-title btn btn-sm btn-outline-secondary rectangle mt-1  " style=" font-size: 1rem;">AR DEMO</a></h5>
+                                        <h5 class="mb-0"><a href="https://zachdinucci.com/post1/" class="recent-post-title btn btn-sm btn-outline-secondary rectangle mt-1  " style=" font-size: 1rem;">Unreal Top Down Shooter</a></h5>
                                     </div><!-- / recent-post-content -->
                                 </div><!-- / recent-posts -->
                             </li>
