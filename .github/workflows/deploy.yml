@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: Clear template pre-built content
-      run: npm run resume:clear
+        run: npm run resume:clear
       
       - name: Build project
         run: npm run build
