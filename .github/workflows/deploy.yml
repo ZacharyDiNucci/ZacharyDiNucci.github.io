@@ -28,6 +28,9 @@ jobs:
       
       - name: Install dependencies
         run: npm ci
+
+      - name: Clear template pre-built content
+      run: npm run resume:clear
       
       - name: Build project
         run: npm run build
