@@ -3,12 +3,11 @@
         "debugMode": false,
         "fakeEmailRequests": false,
         "stayOnThePreloaderScreen": false,
-        "version": "2.0.3"
+        "version": "1.0.0"
     },
-
     "preloaderSettings": {
         "enabled": true,
-        "title": "React <strong>Portfolio</strong>",
+        "title": "React <b>Portfolio</b>",
         "subtitle": "by Ryan Balieiro",
         "logoOffset": {
             "right": 14,
@@ -16,7 +15,6 @@
             "bottom": 0
         }
     },
-
     "templateSettings": {
         "animatedCursorEnabled": true,
         "backgroundStyle": "animated",
@@ -25,40 +23,25 @@
         "fullscreenEnabled": true,
         "showSpinnerOnThemeChange": false
     },
-
     "supportedLanguages": [
         {
             "name": "English",
             "id": "en",
             "flagUrl": "images/flags/en-us.png"
-        },
-        {
-            "name": "Español",
-            "id": "es",
-            "flagUrl": "images/flags/es.png"
-        },
-        {
-            "name": "Français",
-            "id": "fr",
-            "flagUrl": "images/flags/fr.png"
-        },
-        {
-            "name": "한국어",
-            "id": "ko",
-            "flagUrl": "images/flags/ko.png"
         }
     ],
-
     "supportedThemes": [
         {
             "id": "dark",
             "icon": "fa-solid fa-moon",
             "dark": true,
             "locales": {
-                "en": {"name": "Dark Mode"},
-                "es": {"name": "Modo Oscuro"},
-                "fr": {"name": "Mode Sombre"},
-                "ko": {"name": "다크 모드"}
+                "en": {
+                    "name": "Dark Mode"
+                },
+                "es": {
+                    "name": "Modo Oscuro"
+                }
             }
         },
         {
@@ -66,16 +49,17 @@
             "icon": "fa-solid fa-sun",
             "dark": false,
             "locales": {
-                "en": {"name": "Light Mode"},
-                "es": {"name": "Modo Claro"},
-                "fr": {"name": "Mode Clair"},
-                "ko": {"name": "라이트 모드"}
+                "en": {
+                    "name": "Light Mode"
+                },
+                "es": {
+                    "name": "Modo Claro"
+                }
             }
         }
     ],
-
     "consoleMessageForDevelopers": {
-        "title": "\uD83D\uDDA5️ Hey there, fellow developer!",
+        "title": "🖥️ Hey there, fellow developer!",
         "items": [
             {
                 "description": "This is an open-source template based on the React framework.",
@@ -83,34 +67,14 @@
                 "listStyle": "none"
             },
             {
-                "description": "Other frameworks and plugins used in the project include:",
+                "description": "Like what you see? Let's connect!",
                 "list": [
-                    "Bootstrap 5: https://getbootstrap.com/",
-                    "Smooth Scrollbar: https://tinyurl.com/4yhm4n4a",
-                    "Swiper: https://swiperjs.com/",
-                    "EmailJS: https://www.emailjs.com/",
-                    "Font Awesome: https://fontawesome.com/",
-                    "PrimeIcons: https://primefaces.org/"
-                ],
-                "listStyle": "bulleted"
-            },
-            {
-                "description": "Clone it and customize it for your own portfolio:",
-                "list": [
-                    "https://github.com/ryanbalieiro/react-portfolio-template"
-                ],
-                "listStyle": "none"
-            },
-            {
-                "description": "Developer Info:",
-                "list": [
-                    "GitHub: https://github.com/ryanbalieiro",
-                    "Website: https://ryanbalieiro.com"
+                    "GitHub: https://github.com/username",
+                    "Website: https://website.com"
                 ],
                 "listStyle": "bulleted"
             }
         ]
     },
-
     "imagesToCache": []
 }
