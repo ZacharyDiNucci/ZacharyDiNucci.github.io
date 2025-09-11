@@ -36,28 +36,15 @@
         },
         {
             "id": 2,
-            "component": "ArticleVideo", 
+            "component": "ArticleVideo",
             "locales": {},
             "settings": {
                 "youtube_video_id": "w9NHHDXGGKU",
-                "video_width": "600px",
-                "video_height": "400px",
-                "order_items_by": "id",
-                "order_items_sort": "asc"
-            },
-            "items": [
-                {
-                    "id": 1,
-                    "img": "",
-                    "faIcon": "",
-                    "faIconColors": {"bg": "", "fill": ""},
-                    "locales": {
-                        "en": {
-                            "title": "Game Trailer"
-                        }
-                    }
-                }
-            ]
+                "video_width": "600",
+                "video_height": "400", 
+                "video_border_radius": "12px",
+                "overlay_text": "My Latest Game Project"
+            }
         },
         {
             "id": 3,
