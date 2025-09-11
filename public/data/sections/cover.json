@@ -38,13 +38,13 @@
             "id": 2,
             "component": "ArticleVideo",
             "locales": {},
-            "items": {
+            "items": [{
                 "youtube_video_id": "w9NHHDXGGKU",
                 "video_width": "600",
                 "video_height": "400", 
                 "video_border_radius": "12px",
                 "overlay_text": "My Latest Game Project"
-            }
+            }]
         },
         {
             "id": 3,
