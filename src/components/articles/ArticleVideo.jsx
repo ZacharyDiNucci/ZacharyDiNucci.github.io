@@ -15,7 +15,13 @@ function ArticleVideo({ dataWrapper, id }) {
     const videoHeight = settings.video_height || "400"
     const borderRadius = settings.video_border_radius || "12px"
     const overlayText = settings.overlay_text
-
+    
+    console.log("Rendering ArticleVideo with settings:", settings);
+    console.log("YouTube Video ID:", youtubeVideoId);
+    console.log("Video dimensions:", videoWidth, "x", videoHeight);
+    console.log("Border radius:", borderRadius);
+    console.log("Overlay text:", overlayText);
+    
     // If no video ID provided, show placeholder
     if (!youtubeVideoId) {
         return (
