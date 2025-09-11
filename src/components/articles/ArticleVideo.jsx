@@ -52,9 +52,15 @@ function ArticleVideoItems({ dataWrapper, selectedItemCategoryId }) {
  */
 
 function ArticleVideoItem({ itemWrapper }) {
+    // Add this debugging line
+    console.log("ArticleVideoItem received:", itemWrapper);
+    
     // Check if it's a YouTube video or local video file
     const isYouTubeVideo = itemWrapper.youtube_video_id
     const isLocalVideo = itemWrapper.video_src
+    
+    console.log("YouTube video ID:", itemWrapper.youtube_video_id);
+    console.log("Is YouTube video:", isYouTubeVideo);
     
     if (isYouTubeVideo) {
         return (
