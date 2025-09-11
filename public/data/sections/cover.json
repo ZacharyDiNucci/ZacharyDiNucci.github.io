@@ -38,7 +38,7 @@
             "id": 2,
             "component": "ArticleVideo",
             "locales": {},
-            "settings": {
+            "items": {
                 "youtube_video_id": "w9NHHDXGGKU",
                 "video_width": "600",
                 "video_height": "400", 
