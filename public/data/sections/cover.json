@@ -42,21 +42,26 @@
                 "order_items_by": "id",
                 "order_items_sort": "asc"
             },
-            "items": {
-                "id": 1,
-                "youtube_video_id": "https://youtu.be/w9NHHDXGGKU",
-                "video_width": "600px",
-                "video_height": "400px",
-                "video_border_radius": "12px",
-                "video_box_shadow": true,
-                "overlay_text": "My Latest Game Project",
-                "overlay_position": "bottom-left",
-                "locales": {
-                    "en": {
-                        "title": "Game Trailer"
+            "items": [
+                {
+                    "id": 1,
+                    "youtube_video_id": "YOUR_YOUTUBE_VIDEO_ID",
+                    "video_width": "600px",
+                    "video_height": "400px",
+                    "video_border_radius": "12px",
+                    "video_box_shadow": true,
+                    "overlay_text": "My Latest Game Project",
+                    "overlay_position": "bottom-left",
+                    "img": "",
+                    "faIcon": "",
+                    "faIconColors": {"bg": "", "fill": ""},
+                    "locales": {
+                        "en": {
+                            "title": "Game Trailer"
+                        }
                     }
                 }
-            }
+            ]
         },
         {
             "id": 3,
