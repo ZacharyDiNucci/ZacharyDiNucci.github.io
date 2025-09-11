@@ -52,15 +52,15 @@ function ArticleVideoItems({ dataWrapper, selectedItemCategoryId }) {
  */
 
 function ArticleVideoItem({ itemWrapper }) {
-    // Add this debugging line
-    console.log("ArticleVideoItem received:", itemWrapper);
+    // Try different ways to access the video ID
+    const videoId = itemWrapper.youtube_video_id || 
+                   itemWrapper.settings?.youtube_video_id || 
+                   itemWrapper.locales?.youtube_video_id;
     
-    // Check if it's a YouTube video or local video file
-    const isYouTubeVideo = itemWrapper.youtube_video_id
-    const isLocalVideo = itemWrapper.video_src
+    console.log("Found video ID:", videoId);
     
-    console.log("YouTube video ID:", itemWrapper.youtube_video_id);
-    console.log("Is YouTube video:", isYouTubeVideo);
+    const isYouTubeVideo = videoId;
+    const isLocalVideo = itemWrapper.video_src || itemWrapper.settings?.video_src;
     
     if (isYouTubeVideo) {
         return (
@@ -68,7 +68,7 @@ function ArticleVideoItem({ itemWrapper }) {
                 <div className={`article-video-wrapper`}>
                     <iframe
                         className="article-video-youtube-embed"
-                        src={`https://www.youtube.com/embed/${itemWrapper.youtube_video_id}`}
+                        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=1&rel=0&modestbranding=1`}
                         title={itemWrapper.locales?.title || "Game Video"}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
