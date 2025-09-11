@@ -62,7 +62,7 @@ function ArticleVideoItem({ itemWrapper }) {
                 <div className={`article-video-wrapper`}>
                     <iframe
                         className="article-video-youtube-embed"
-                        src={`https://www.youtube.com/embed/${itemWrapper.youtube_video_id}?autoplay=1&mute=1&loop=1&playlist=${itemWrapper.youtube_video_id}&controls=0&showinfo=0&rel=0&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&iv_load_policy=3`}
+                        src={`https://www.youtube.com/embed/${itemWrapper.youtube_video_id}`}
                         title={itemWrapper.locales?.title || "Game Video"}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
