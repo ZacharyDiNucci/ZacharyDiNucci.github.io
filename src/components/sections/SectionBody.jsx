@@ -12,6 +12,7 @@ import ArticleStack from "/src/components/articles/ArticleStack.jsx"
 import ArticleSkills from "/src/components/articles/ArticleSkills.jsx"
 import ArticleTestimonials from "/src/components/articles/ArticleTestimonials.jsx"
 import ArticleText from "/src/components/articles/ArticleText.jsx"
+import ArticleVideo from "/src/components/articles/ArticleVideo.jsx"
 import ArticleThread from "/src/components/articles/ArticleThread.jsx"
 import ArticleTimeline from "/src/components/articles/ArticleTimeline.jsx"
 
@@ -43,6 +44,7 @@ SectionBody.ARTICLES = {
     ArticleStack,
     ArticleTestimonials,
     ArticleText,
+    ArticleVideo,
     ArticleThread,
     ArticleTimeline
 }
