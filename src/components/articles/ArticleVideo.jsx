@@ -9,18 +9,12 @@ import Article from "/src/components/articles/base/Article.jsx"
  * @constructor
  */
 function ArticleVideo({ dataWrapper, id }) {
-    const settings = dataWrapper.items
-    const youtubeVideoId = items.youtube_video_id
-    const videoWidth = items.video_width || "600"
-    const videoHeight = items.video_height || "400"
-    const borderRadius = items.video_border_radius || "12px"
-    const overlayText = items.overlay_text
-    
-    console.log("Rendering ArticleVideo with settings:", settings);
-    console.log("YouTube Video ID:", youtubeVideoId);
-    console.log("Video dimensions:", videoWidth, "x", videoHeight);
-    console.log("Border radius:", borderRadius);
-    console.log("Overlay text:", overlayText);
+    const settings = dataWrapper.settings
+    const youtubeVideoId = settings.youtube_video_id
+    const videoWidth = settings.video_width || "600"
+    const videoHeight = settings.video_height || "400"
+    const borderRadius = settings.video_border_radius || "12px"
+    const overlayText = settings.overlay_text
 
     // If no video ID provided, show placeholder
     if (!youtubeVideoId) {
