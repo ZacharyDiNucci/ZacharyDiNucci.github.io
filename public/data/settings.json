@@ -8,7 +8,7 @@
     "preloaderSettings": {
         "enabled": true,
         "title": "React <b>Portfolio</b>",
-        "subtitle": "by Ryan Balieiro",
+        "subtitle": "for Zachary DiNucci",
         "logoOffset": {
             "right": 14,
             "top": 2,
@@ -69,8 +69,8 @@
             {
                 "description": "Like what you see? Let's connect!",
                 "list": [
-                    "GitHub: https://github.com/username",
-                    "Website: https://website.com"
+                    "GitHub: https://github.com/ZacharyDiNucci",
+                    "Website: https://zachdinucci.com"
                 ],
                 "listStyle": "bulleted"
             }
