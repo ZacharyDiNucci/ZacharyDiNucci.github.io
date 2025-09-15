@@ -10,26 +10,57 @@ import Article from "/src/components/articles/base/Article.jsx"
  */
 function ArticleVideo({ dataWrapper, id }) {
     console.log("=== ArticleVideo Debug ===")
-    console.log("dataWrapper:", dataWrapper)
+    console.log("Full dataWrapper:", dataWrapper)
+    console.log("dataWrapper keys:", Object.keys(dataWrapper))
+    console.log("dataWrapper.data:", dataWrapper.data)
     console.log("dataWrapper.items:", dataWrapper.items)
+    console.log("dataWrapper.settings:", dataWrapper.settings)
+    console.log("dataWrapper._data:", dataWrapper._data)
     
-    // Get the first item from the items array
-    const items = dataWrapper.items || []
-    const firstItem = items[0] || {}
+    // Try different ways to access the data
+    let videoData = null;
     
-    console.log("items array:", items)
-    console.log("first item:", firstItem)
+    // Method 1: Direct items access
+    if (dataWrapper.items && dataWrapper.items.length > 0) {
+        videoData = dataWrapper.items[0];
+        console.log("Found data via items:", videoData);
+    }
     
-    const videoSrc = firstItem.video_src
-    const videoPoster = firstItem.video_poster
-    const videoWidth = firstItem.video_width || "600"
-    const videoHeight = firstItem.video_height || "400"
-    const borderRadius = firstItem.video_border_radius || "12px"
-    const overlayText = firstItem.overlay_text
-    const autoplay = firstItem.autoplay !== false // default true
-    const muted = firstItem.muted !== false // default true
-    const loop = firstItem.loop !== false // default true
-    const controls = firstItem.controls || false // default false
+    // Method 2: Check if items are in _data or data
+    else if (dataWrapper.data && dataWrapper.data.items && dataWrapper.data.items.length > 0) {
+        videoData = dataWrapper.data.items[0];
+        console.log("Found data via data.items:", videoData);
+    }
+    
+    // Method 3: Check if items are in _data
+    else if (dataWrapper._data && dataWrapper._data.items && dataWrapper._data.items.length > 0) {
+        videoData = dataWrapper._data.items[0];
+        console.log("Found data via _data.items:", videoData);
+    }
+    
+    // Method 4: Check settings
+    else if (dataWrapper.settings) {
+        videoData = dataWrapper.settings;
+        console.log("Found data via settings:", videoData);
+    }
+    
+    console.log("Final videoData:", videoData);
+    
+    if (!videoData) {
+        console.log("No video data found anywhere!")
+        videoData = {};
+    }
+    
+    const videoSrc = videoData.video_src
+    const videoPoster = videoData.video_poster
+    const videoWidth = videoData.video_width || "600"
+    const videoHeight = videoData.video_height || "400"
+    const borderRadius = videoData.video_border_radius || "12px"
+    const overlayText = videoData.overlay_text
+    const autoplay = videoData.autoplay !== false // default true
+    const muted = videoData.muted !== false // default true
+    const loop = videoData.loop !== false // default true
+    const controls = videoData.controls || false // default false
 
     console.log("video_src:", videoSrc)
     console.log("video_poster:", videoPoster)
