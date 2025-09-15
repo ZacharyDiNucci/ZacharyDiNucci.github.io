@@ -22,7 +22,7 @@
             "items": [
                 {
                     "id": 1,
-                    "label": "Boise – ID",
+                    "label": "Boise, ID",
                     "link": {"href": "", "tooltipString": ""},
                     "faIcon": "pi pi-map-marker"
                 },
