@@ -9,15 +9,39 @@ import Article from "/src/components/articles/base/Article.jsx"
  * @constructor
  */
 function ArticleVideo({ dataWrapper, id }) {
-    const settings = dataWrapper.settings
-    const youtubeVideoId = settings.youtube_video_id
-    const videoWidth = settings.video_width || "600"
-    const videoHeight = settings.video_height || "400"
-    const borderRadius = settings.video_border_radius || "12px"
-    const overlayText = settings.overlay_text
+    console.log("=== ArticleVideo Debug ===")
+    console.log("dataWrapper:", dataWrapper)
+    console.log("dataWrapper.items:", dataWrapper.items)
+    
+    // Get the first item from the items array
+    const items = dataWrapper.items || []
+    const firstItem = items[0] || {}
+    
+    console.log("items array:", items)
+    console.log("first item:", firstItem)
+    
+    const videoSrc = firstItem.video_src
+    const videoPoster = firstItem.video_poster
+    const videoWidth = firstItem.video_width || "600"
+    const videoHeight = firstItem.video_height || "400"
+    const borderRadius = firstItem.video_border_radius || "12px"
+    const overlayText = firstItem.overlay_text
+    const autoplay = firstItem.autoplay !== false // default true
+    const muted = firstItem.muted !== false // default true
+    const loop = firstItem.loop !== false // default true
+    const controls = firstItem.controls || false // default false
 
-    // If no video ID provided, show placeholder
-    if (!youtubeVideoId) {
+    console.log("video_src:", videoSrc)
+    console.log("video_poster:", videoPoster)
+    console.log("video_width:", videoWidth)
+    console.log("video_height:", videoHeight)
+    console.log("overlay_text:", overlayText)
+    console.log("autoplay:", autoplay, "muted:", muted, "loop:", loop, "controls:", controls)
+    console.log("========================")
+
+    // If no video source provided, show placeholder
+    if (!videoSrc) {
+        console.log("No video source found, showing placeholder")
         return (
             <Article id={dataWrapper.uniqueId}
                      type={Article.Types.SPACING_DEFAULT}
@@ -30,7 +54,7 @@ function ArticleVideo({ dataWrapper, id }) {
         )
     }
 
-    console.log("Video ID found, rendering iframe with URL:", `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=1&rel=0`)
+    console.log("Video source found, rendering video element with src:", videoSrc)
 
     return (
         <Article id={dataWrapper.uniqueId}
@@ -46,18 +70,23 @@ function ArticleVideo({ dataWrapper, id }) {
                     position: "relative",
                     boxShadow: "0 8px 32px rgba(0,0,0,0.3)"
                 }}>
-                    <iframe
-                        src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=1&rel=0`}
-                        title="Game Video"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
+                    <video
+                        src={videoSrc}
+                        poster={videoPoster}
+                        width={videoWidth}
+                        height={videoHeight}
+                        autoPlay={autoplay}
+                        muted={muted}
+                        loop={loop}
+                        controls={controls}
                         style={{
                             width: "100%",
                             height: "100%",
-                            border: "none"
+                            objectFit: "cover"
                         }}
-                    />
+                    >
+                        Your browser does not support the video tag.
+                    </video>
                     {overlayText && (
                         <div className="article-video-overlay">
                             <h3>{overlayText}</h3>

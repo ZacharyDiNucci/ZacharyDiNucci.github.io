@@ -39,11 +39,16 @@
             "component": "ArticleVideo",
             "locales": {},
             "items": [{
-                "youtube_video_id": "w9NHHDXGGKU",
+                "video_src": "videos/ZachDiNucciGameReel.mp4",
+                "video_poster": "videos/my-game-thumbnail.jpg",
                 "video_width": "600",
-                "video_height": "400", 
+                "video_height": "400",
                 "video_border_radius": "12px",
-                "overlay_text": "My Latest Game Project"
+                "overlay_text": "My Latest Game Project",
+                "autoplay": true,
+                "muted": true,
+                "loop": true,
+                "controls": false
             }]
         },
         {
