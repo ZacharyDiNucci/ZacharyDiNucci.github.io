@@ -11,56 +11,54 @@ import Article from "/src/components/articles/base/Article.jsx"
 function ArticleVideo({ dataWrapper, id }) {
     console.log("=== ArticleVideo Debug ===")
     console.log("Full dataWrapper:", dataWrapper)
-    console.log("dataWrapper keys:", Object.keys(dataWrapper))
-    console.log("dataWrapper.data:", dataWrapper.data)
-    console.log("dataWrapper.items:", dataWrapper.items)
-    console.log("dataWrapper.settings:", dataWrapper.settings)
-    console.log("dataWrapper._data:", dataWrapper._data)
     
-    // Try different ways to access the data
-    let videoData = null;
+    // Try to access items the same way other components do
+    const filteredItems = dataWrapper.getOrderedItemsFilteredBy ? dataWrapper.getOrderedItemsFilteredBy(null) : []
+    console.log("getOrderedItemsFilteredBy result:", filteredItems)
     
-    // Method 1: Direct items access
-    if (dataWrapper.items && dataWrapper.items.length > 0) {
-        videoData = dataWrapper.items[0];
-        console.log("Found data via items:", videoData);
+    // Fallback to direct items access
+    const directItems = dataWrapper.items || []
+    console.log("direct items:", directItems)
+    
+    // Use whichever method returns data
+    const items = filteredItems.length > 0 ? filteredItems : directItems
+    console.log("using items:", items)
+    
+    // Get the first item
+    const firstItemWrapper = items[0]
+    console.log("first item wrapper:", firstItemWrapper)
+    
+    // Try to access video properties from the item wrapper
+    let videoData = {};
+    if (firstItemWrapper) {
+        // If it's a wrapper object, try different access methods
+        videoData = {
+            video_src: firstItemWrapper.video_src || firstItemWrapper.data?.video_src || firstItemWrapper.settings?.video_src,
+            video_poster: firstItemWrapper.video_poster || firstItemWrapper.data?.video_poster || firstItemWrapper.settings?.video_poster,
+            video_width: firstItemWrapper.video_width || firstItemWrapper.data?.video_width || firstItemWrapper.settings?.video_width || "600",
+            video_height: firstItemWrapper.video_height || firstItemWrapper.data?.video_height || firstItemWrapper.settings?.video_height || "400",
+            video_border_radius: firstItemWrapper.video_border_radius || firstItemWrapper.data?.video_border_radius || firstItemWrapper.settings?.video_border_radius || "12px",
+            overlay_text: firstItemWrapper.overlay_text || firstItemWrapper.data?.overlay_text || firstItemWrapper.settings?.overlay_text,
+            autoplay: firstItemWrapper.autoplay !== false,
+            muted: firstItemWrapper.muted !== false,
+            loop: firstItemWrapper.loop !== false,
+            controls: firstItemWrapper.controls || false
+        };
     }
-    
-    // Method 2: Check if items are in _data or data
-    else if (dataWrapper.data && dataWrapper.data.items && dataWrapper.data.items.length > 0) {
-        videoData = dataWrapper.data.items[0];
-        console.log("Found data via data.items:", videoData);
-    }
-    
-    // Method 3: Check if items are in _data
-    else if (dataWrapper._data && dataWrapper._data.items && dataWrapper._data.items.length > 0) {
-        videoData = dataWrapper._data.items[0];
-        console.log("Found data via _data.items:", videoData);
-    }
-    
-    // Method 4: Check settings
-    else if (dataWrapper.settings) {
-        videoData = dataWrapper.settings;
-        console.log("Found data via settings:", videoData);
-    }
-    
-    console.log("Final videoData:", videoData);
-    
-    if (!videoData) {
-        console.log("No video data found anywhere!")
-        videoData = {};
-    }
-    
+
+    console.log("Final video data:", videoData)
+    console.log("========================")
+
     const videoSrc = videoData.video_src
     const videoPoster = videoData.video_poster
-    const videoWidth = videoData.video_width || "600"
-    const videoHeight = videoData.video_height || "400"
-    const borderRadius = videoData.video_border_radius || "12px"
+    const videoWidth = videoData.video_width
+    const videoHeight = videoData.video_height
+    const borderRadius = videoData.video_border_radius
     const overlayText = videoData.overlay_text
-    const autoplay = videoData.autoplay !== false // default true
-    const muted = videoData.muted !== false // default true
-    const loop = videoData.loop !== false // default true
-    const controls = videoData.controls || false // default false
+    const autoplay = videoData.autoplay
+    const muted = videoData.muted
+    const loop = videoData.loop
+    const controls = videoData.controls
 
     console.log("video_src:", videoSrc)
     console.log("video_poster:", videoPoster)

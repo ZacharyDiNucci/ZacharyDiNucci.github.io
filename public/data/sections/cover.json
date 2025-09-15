@@ -36,10 +36,8 @@
         },
         {
             "id": 2,
-            "component": "ArticlePortfolio",
-            "locales": {
-                "en": {"title": "My {{Game}} Videos"}
-            },
+            "component": "ArticleVideo",
+            "locales": {},
             "settings": {
                 "order_items_by": "id",
                 "order_items_sort": "asc"
@@ -47,20 +45,22 @@
             "items": [
                 {
                     "id": 1,
+                    "video_src": "videos/my-game-trailer.mp4",
+                    "video_poster": "videos/my-game-thumbnail.jpg",
+                    "video_width": "600",
+                    "video_height": "400",
+                    "video_border_radius": "12px",
+                    "overlay_text": "My Latest Game Project",
+                    "autoplay": true,
+                    "muted": true,
+                    "loop": true,
+                    "controls": false,
                     "img": "",
-                    "faIcon": "fa-solid fa-video",
-                    "faIconColors": {"bg": "red", "fill": "white"},
-                    "preview": {
-                        "links": [],
-                        "screenshots": [],
-                        "screenshotsAspectRatio": "16:9",
-                        "youtubeVideo": "https://www.youtube.com/watch?v=w9NHHDXGGKU"
-                    },
+                    "faIcon": "",
+                    "faIconColors": {"bg": "", "fill": ""},
                     "locales": {
                         "en": {
-                            "title": "My Latest Game Project",
-                            "text": "Check out this gameplay trailer!",
-                            "tags": ["Game", "Unity", "Trailer"]
+                            "title": "Game Video"
                         }
                     }
                 }
