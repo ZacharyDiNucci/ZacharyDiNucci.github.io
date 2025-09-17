@@ -45,22 +45,19 @@
             "items": [
                 {
                     "id": 1,
-                    "video_src": "videos/ZachDiNucciGameReel.mp4",
-                    "video_poster": "videos/my-game-thumbnail.jpg",
-                    "video_width": "600",
-                    "video_height": "400",
-                    "video_border_radius": "12px",
-                    "overlay_text": "My Latest Game Project",
-                    "autoplay": true,
-                    "muted": true,
-                    "loop": true,
-                    "controls": false,
                     "img": "",
-                    "faIcon": "",
-                    "faIconColors": {"bg": "", "fill": ""},
+                    "faIcon": "fa-solid fa-video",
+                    "faIconColors": {"bg": "red", "fill": "white"},
+                    "preview": {
+                        "links": [],
+                        "screenshots": [],
+                        "screenshotsAspectRatio": "16:9",
+                        "youtubeVideo": "https://www.youtube.com/watch?v=w9NHHDXGGKU"
+                    },
                     "locales": {
                         "en": {
-                            "title": "Game Video"
+                            "title": "",
+                            "text": ""
                         }
                     }
                 }

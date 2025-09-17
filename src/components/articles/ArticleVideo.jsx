@@ -1,6 +1,7 @@
 import "./ArticleVideo.scss"
 import React from 'react'
 import Article from "/src/components/articles/base/Article.jsx"
+import {useUtils} from "/src/hooks/utils.js"
 
 /**
  * @param {ArticleDataWrapper} dataWrapper
@@ -9,6 +10,8 @@ import Article from "/src/components/articles/base/Article.jsx"
  * @constructor
  */
 function ArticleVideo({ dataWrapper, id }) {
+    const utils = useUtils()
+    
     console.log("=== ArticleVideo Debug ===")
     console.log("Full dataWrapper:", dataWrapper)
     
@@ -28,62 +31,60 @@ function ArticleVideo({ dataWrapper, id }) {
     const firstItemWrapper = items[0]
     console.log("first item wrapper:", firstItemWrapper)
     
-    // Try to access video properties from the item wrapper
+    // Try to access video properties from the item wrapper's preview section
     let videoData = {};
-    if (firstItemWrapper) {
-        // If it's a wrapper object, try different access methods
+    let titleText = "";
+    let descriptionText = "";
+    
+    if (firstItemWrapper && firstItemWrapper.preview) {
+        console.log("Preview object found:", firstItemWrapper.preview)
         videoData = {
-            video_src: firstItemWrapper.video_src || firstItemWrapper.data?.video_src || firstItemWrapper.settings?.video_src,
-            video_poster: firstItemWrapper.video_poster || firstItemWrapper.data?.video_poster || firstItemWrapper.settings?.video_poster,
-            video_width: firstItemWrapper.video_width || firstItemWrapper.data?.video_width || firstItemWrapper.settings?.video_width || "600",
-            video_height: firstItemWrapper.video_height || firstItemWrapper.data?.video_height || firstItemWrapper.settings?.video_height || "400",
-            video_border_radius: firstItemWrapper.video_border_radius || firstItemWrapper.data?.video_border_radius || firstItemWrapper.settings?.video_border_radius || "12px",
-            overlay_text: firstItemWrapper.overlay_text || firstItemWrapper.data?.overlay_text || firstItemWrapper.settings?.overlay_text,
-            autoplay: firstItemWrapper.autoplay !== false,
-            muted: firstItemWrapper.muted !== false,
-            loop: firstItemWrapper.loop !== false,
-            controls: firstItemWrapper.controls || false
+            // YouTube video from preview (like ArticlePortfolio)
+            youtube_url: firstItemWrapper.preview.youtubeVideo,
+            video_width: "600",
+            video_height: "400",
+            video_border_radius: "12px"
         };
+        
+        // Get title and text from locales
+        titleText = firstItemWrapper.locales?.title || "";
+        descriptionText = firstItemWrapper.locales?.text || "";
     }
 
     console.log("Final video data:", videoData)
+    console.log("Title text:", titleText)
+    console.log("Description text:", descriptionText)
     console.log("========================")
 
-    const videoSrc = videoData.video_src
-    const videoPoster = videoData.video_poster
+    // Check if we have YouTube URL
+    const youtubeUrl = videoData.youtube_url
     const videoWidth = videoData.video_width
     const videoHeight = videoData.video_height
     const borderRadius = videoData.video_border_radius
-    const overlayText = videoData.overlay_text
-    const autoplay = videoData.autoplay
-    const muted = videoData.muted
-    const loop = videoData.loop
-    const controls = videoData.controls
 
-    console.log("video_src:", videoSrc)
-    console.log("video_poster:", videoPoster)
-    console.log("video_width:", videoWidth)
-    console.log("video_height:", videoHeight)
-    console.log("overlay_text:", overlayText)
-    console.log("autoplay:", autoplay, "muted:", muted, "loop:", loop, "controls:", controls)
-    console.log("========================")
+    console.log("YouTube URL:", youtubeUrl)
 
-    // If no video source provided, show placeholder
-    if (!videoSrc) {
-        console.log("No video source found, showing placeholder")
+    // If no YouTube URL provided, show placeholder
+    if (!youtubeUrl) {
+        console.log("No YouTube URL found, showing placeholder")
         return (
             <Article id={dataWrapper.uniqueId}
                      type={Article.Types.SPACING_DEFAULT}
                      dataWrapper={dataWrapper}
                      className={`article-video`}>
                 <div className="article-video-placeholder">
-                    <p>No video source specified</p>
+                    <p>No YouTube video specified</p>
                 </div>
             </Article>
         )
     }
 
-    console.log("Video source found, rendering video element with src:", videoSrc)
+    // Convert YouTube URL to embed using the same method as YoutubeVideoModal
+    console.log("Converting YouTube URL to embed using modal's method:", youtubeUrl)
+    const parsedUrl = utils.url.toYoutubeEmbed(youtubeUrl)
+    // Add YouTube parameters for autoplay, mute, loop, no controls
+    const finalUrl = parsedUrl + "?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+    console.log("Final embed URL with parameters:", finalUrl)
 
     return (
         <Article id={dataWrapper.uniqueId}
@@ -91,36 +92,39 @@ function ArticleVideo({ dataWrapper, id }) {
                  dataWrapper={dataWrapper}
                  className={`article-video`}>
             <div className="article-video-container">
+                {/* Title and Description Section */}
+                {(titleText || descriptionText) && (
+                    <div className="article-video-header">
+                        {titleText && (
+                            <h3 className="article-video-title" dangerouslySetInnerHTML={{__html: titleText}} />
+                        )}
+                        {descriptionText && (
+                            <p className="article-video-description" dangerouslySetInnerHTML={{__html: descriptionText}} />
+                        )}
+                    </div>
+                )}
+                
+                {/* Video Section */}
                 <div className="article-video-wrapper" style={{
                     width: videoWidth + "px",
                     height: videoHeight + "px",
                     borderRadius: borderRadius,
                     overflow: "hidden",
-                    position: "relative",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.3)"
+                    position: "relative"
                 }}>
-                    <video
-                        src={videoSrc}
-                        poster={videoPoster}
-                        width={videoWidth}
-                        height={videoHeight}
-                        autoPlay={autoplay}
-                        muted={muted}
-                        loop={loop}
-                        controls={controls}
+                    <iframe 
+                        src={finalUrl}
+                        className="article-video-youtube-iframe"
+                        title="YouTube Video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
                         style={{
                             width: "100%",
                             height: "100%",
-                            objectFit: "cover"
+                            border: "none"
                         }}
-                    >
-                        Your browser does not support the video tag.
-                    </video>
-                    {overlayText && (
-                        <div className="article-video-overlay">
-                            <h3>{overlayText}</h3>
-                        </div>
-                    )}
+                    />
                 </div>
             </div>
         </Article>
