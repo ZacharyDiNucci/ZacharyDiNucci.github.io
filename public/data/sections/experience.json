@@ -2,12 +2,78 @@
     "title": {
         "locales": {
             "en": {
-                "title_short": "Title",
-                "title_short_nav": "Title Nav",
+                "title_short": "Experience",
+                "title_short_nav": "Experience",
                 "title_long_prefix": "This is a",
-                "title_long": "Placeholder {{Title}}"
+                "title_long": "{{Experience}}"
             }
         }
     },
-    "articles": []
+    "articles": [
+        {
+        "id": 2,
+            "component": "ArticleTimeline",
+            "locales": {},
+            "settings": {
+                "order_items_by": "dateStart",
+                "order_items_sort": "desc"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "img": "images/pictures/timeline-place-udacity.png",
+                    "faIcon": "",
+                    "faIconColors": {"bg": "", "fill": ""},
+                    "dateStart": {"year": 2023, "month": 1},
+                    "dateEnd": {"year": 2025, "month": 12},
+                    "locales": {
+                        "en": {
+                            "title": "Mixed Reality Developer",
+                            "province": "",
+                            "country": "",
+                            "institution": "Boise State University",
+                            "text": "Led development of an [[augmented reality touring application]] for downtown Boise using Unity, featuring image anchor recognition and plane detection to showcase local history and culture. Collaborated with community stakeholders including the Basque block to gather authentic content and resources. Expanded the project for the City of Boise to include the parks system. Additionally, contributed to a [[Virtual Reality hunter's safety simulation]], providing immersive training experiences for firearm safety education.",
+                            "tags": ["Unity", "Augmented Reality", "Virtual Reality", "AR Foundation", "Image Tracking", "React"]
+                        }
+                    }
+                },
+                {
+                    "id": 3,
+                    "img": "images/pictures/timeline-place-udacity.png",
+                    "faIcon": "",
+                    "faIconColors": {"bg": "", "fill": ""},
+                    "dateStart": {"year": 2023, "month": 1},
+                    "dateEnd": {"year": 2024, "month": 6},
+                    "locales": {
+                        "en": {
+                            "title": "Onramp Student Mentor",
+                            "province": "Idaho",
+                            "country": "United States",
+                            "institution": "Onramp Program, Boise State University",
+                            "text": "Mentored at-risk and underprivileged students through hands-on technology education programs in local schools and libraries. Designed and delivered curriculum for [[robotics and programming courses]], teaching fundamental concepts including loops, conditionals, and robot-to-robot communication using Sphero block programming. Developed strong communication and instructional skills while making STEAM education accessible to underserved communities.",
+                            "tags": ["Education", "Robotics", "Block Programming", "STEAM", "Curriculum Design"]
+                        }
+                    }
+                },
+                {
+                    "id": 3,
+                    "img": "images/pictures/timeline-place-udacity.png",
+                    "faIcon": "",
+                    "faIconColors": {"bg": "", "fill": ""},
+                    "dateStart": {"year": 2020, "month": 9},
+                    "dateEnd": {"year": 2022, "month": 9},
+                    "locales": {
+                        "en": {
+                            "title": "Software Developer",
+                            "province": "Idaho",
+                            "country": "United States",
+                            "institution": "Best Day HR",
+                            "text": "Contributed to a team developing [[HR management software]] for local municipalities, utilizing .NET Framework, .NET Core, and MS SQL. Implemented key features including document management systems, task automation, and case tracking workflows using object-oriented design principles. Gained hands-on experience building enterprise-level web applications with Microsoft Azure Database integration and robust authentication systems.",
+                            "tags": [".NET Core", ".NET Framework", "MS SQL", "Azure", "OOP"]
+                        }
+                    }
+                }
+            ]
+        }   
+    ]
 }
