@@ -1,0 +1,37 @@
+{
+    "title": {
+        "locales": {
+            "en": {
+                "title_short": "Portfolio",
+                "title_short_nav": "Portfolio",
+                "title_long_prefix": "Take a look at",
+                "title_long": "My {{Portfolio}}"
+            }
+        }
+    },
+    "articles": [
+        {
+            "id": 1,
+            "component": "ArticlePortfolio",
+            "locales": {
+                "en": {
+                    "category_all": "All",
+                    "category_unreal": "Unreal Projects",
+                    "category_unity": "Unity Projects",
+                    "category_vr": "Virtual Reality",
+                    "category_ar": "Augmented Reality",
+                    "category_web": "Web Dev"                }
+            },
+            "settings": {                
+                "categorize_by": ["category_unreal", "category_unity", "category_vr", "category_ar", "category_web"],
+                "order_items_by": "id",
+                "order_items_sort": "asc"
+            },
+            "items": [
+                {
+
+                }
+            ]
+        }
+    ]
+}
