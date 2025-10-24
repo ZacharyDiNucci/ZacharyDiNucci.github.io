@@ -8,6 +8,7 @@ import AvatarView from "/src/components/generic/AvatarView.jsx"
 import {Tag, Tags} from "/src/components/generic/Tags.jsx"
 import ArticleItemPreviewMenu from "/src/components/articles/partials/ArticleItemPreviewMenu.jsx"
 import {useLanguage} from "/src/providers/LanguageProvider.jsx"
+import {useUtils} from "/src/hooks/utils.js"
 
 /**
  * @param {ArticleDataWrapper} dataWrapper
@@ -41,6 +42,7 @@ function ArticlePortfolioItems({ dataWrapper, selectedItemCategoryId }) {
     const constants = useConstants()
     const language = useLanguage()
     const viewport = useViewport()
+    const utils = useUtils()
 
     const filteredItems = dataWrapper.getOrderedItemsFilteredBy(selectedItemCategoryId)
     const customBreakpoint = viewport.getCustomBreakpoint(constants.SWIPER_BREAKPOINTS_FOR_THREE_SLIDES)
@@ -61,6 +63,7 @@ function ArticlePortfolioItems({ dataWrapper, selectedItemCategoryId }) {
                             className={`article-portfolio-items ${itemsPerRowClass}`}>
                 {filteredItems.map((itemWrapper, key) => (
                     <ArticlePortfolioItem itemWrapper={itemWrapper}
+                                          utils={utils}
                                           key={key}/>
                 ))}
             </Transitionable>
@@ -71,6 +74,7 @@ function ArticlePortfolioItems({ dataWrapper, selectedItemCategoryId }) {
             <div className={`article-portfolio-items ${itemsPerRowClass} mb-3 mb-lg-2`}>
                 {filteredItems.map((itemWrapper, key) => (
                     <ArticlePortfolioItem itemWrapper={itemWrapper}
+                                          utils={utils}
                                           key={key}/>
                 ))}
             </div>
@@ -80,10 +84,15 @@ function ArticlePortfolioItems({ dataWrapper, selectedItemCategoryId }) {
 
 /**
  * @param {ArticleItemDataWrapper} itemWrapper
+ * @param {Object} utils
  * @return {JSX.Element}
  * @constructor
  */
-function ArticlePortfolioItem({ itemWrapper }) {
+function ArticlePortfolioItem({ itemWrapper, utils }) {
+    // Get the first screenshot from preview
+    const firstImage = itemWrapper.preview?.screenshots?.[0]
+    const imageUrl = typeof firstImage === 'string' ? firstImage : firstImage?.url
+    
     return (
         <div className={`article-portfolio-item`}>
             <AvatarView src={itemWrapper.img}
@@ -93,6 +102,15 @@ function ArticlePortfolioItem({ itemWrapper }) {
                         className={`article-portfolio-item-avatar`}/>
 
             <ArticlePortfolioItemTitle itemWrapper={itemWrapper}/>
+            
+            {/* Add first gallery image here */}
+            {imageUrl && (
+                <div className={`article-portfolio-item-preview-image`}>
+                    <img src={utils.file.resolvePath(imageUrl)} 
+                         alt={itemWrapper.locales.title || 'Preview'} />
+                </div>
+            )}
+            
             <ArticlePortfolioItemBody itemWrapper={itemWrapper}/>
             <ArticlePortfolioItemFooter itemWrapper={itemWrapper}/>
         </div>

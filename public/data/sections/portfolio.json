@@ -39,9 +39,18 @@
                             {"href": "https://github.com", "tooltipString": "see_on_github", "faIcon": "fa-brands fa-github"}
                         ],
                         "screenshots": [
-                            "images/pictures/UnrealEngineShooter/UES_Lobby.png",
-                            "images/pictures/UnrealEngineShooter/UES_Enemy.png",
-                            "images/pictures/UnrealEngineShooter/UES_Damage.png"
+                            {
+                                "url": "images/pictures/UnrealEngineShooter/UES_Lobby.png",
+                                "description": "Main lobby area where players gather before matches"
+                            },
+                            {
+                                "url": "images/pictures/UnrealEngineShooter/UES_Enemy.png",
+                                "description": "Enemy AI engagement and combat system"
+                            },
+                            {
+                                "url": "images/pictures/UnrealEngineShooter/UES_Damage.png",
+                                "description": "Damage feedback and health indicator UI"
+                            }
                         ],
                         "screenshotsAspectRatio": "16:9",
                         "youtubeVideo": "https://www.youtube.com/watch?v=oYXQitY9csg"
@@ -49,7 +58,7 @@
                     "locales": {
                         "en": {
                             "title": "Unreal Engine Third-Person Shooter",
-                            "text": "A <b>RESTful API</b> backend built with <b>Node.js</b>, designed for high-performance data processing and real-time event handling.",
+                            "text": "[[Multiplayer third-person shooter]] developed in Unreal Engine 5 with C++ following industry best practices. Features include dedicated server architecture with listen server hosting, lobby system, player elimination tracking, and networked gameplay using replicated variables and RPC events. Currently implements core mechanics including weapon pickup systems, player spawning, and round-based game loops with victory conditions. Built with Synty asset packs and planned expansions include custom game modes, team systems, and original level design.",
                             "tags": ["UE5", "Game", "Solo"]
                         }
                     }

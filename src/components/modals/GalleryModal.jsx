@@ -99,18 +99,33 @@ function GalleryModalSwiper({ className, images, type }) {
     return (
         <Swiper slidesPerView={"auto"}
                 direction={"horizontal"}
-                spaceBetween={15}
+                spaceBetween={20}
                 pagination={{ clickable: true }}
                 modules={[Pagination]}
                 className={`gallery-swiper gallery-swiper-${type} ${className}`}>
-            {images.map((image, key) => (
-                <SwiperSlide key={key}
-                             className={`gallery-swiper-slide`}>
-                    <img className={`swiper-image`}
-                         alt={`img-` + key}
-                         src={utils.file.resolvePath(image)}/>
-                </SwiperSlide>
-            ))}
+            {images.map((image, key) => {
+                // Handle both string URLs and objects with url/description
+                const imageUrl = typeof image === 'string' ? image : image.url
+                const imageDescription = typeof image === 'object' ? image.description : null
+                
+                return (
+                    <SwiperSlide key={key}
+                                 className={`gallery-swiper-slide`}>
+                        <div className={`gallery-image-card`}>
+                            <div className={`gallery-image-container`}>
+                                <img className={`swiper-image`}
+                                     alt={`img-` + key}
+                                     src={utils.file.resolvePath(imageUrl)}/>
+                            </div>
+                            {imageDescription && (
+                                <div className={`gallery-image-description`}>
+                                    <p>{imageDescription}</p>
+                                </div>
+                            )}
+                        </div>
+                    </SwiperSlide>
+                )
+            })}
         </Swiper>
     )
 }
@@ -120,14 +135,28 @@ function GalleryModalImageStack({ className, images }) {
 
     return (
         <div className={`gallery-modal-image-stack ${className}`}>
-            {images.map((image, key) => (
-                <div key={key}
-                     className={`gallery-modal-image-stack-item`}>
-                    <img className={`swiper-image`}
-                         alt={`img-` + key}
-                         src={utils.file.resolvePath(image)}/>
-                </div>
-            ))}
+            {images.map((image, key) => {
+                const imageUrl = typeof image === 'string' ? image : image.url
+                const imageDescription = typeof image === 'object' ? image.description : null
+                
+                return (
+                    <div key={key}
+                         className={`gallery-modal-image-stack-item`}>
+                        <div className={`gallery-image-card`}>
+                            <div className={`gallery-image-container`}>
+                                <img className={`swiper-image`}
+                                     alt={`img-` + key}
+                                     src={utils.file.resolvePath(imageUrl)}/>
+                            </div>
+                            {imageDescription && (
+                                <div className={`gallery-image-description`}>
+                                    <p>{imageDescription}</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )
+            })}
         </div>
     )
 }

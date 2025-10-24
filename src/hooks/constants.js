@@ -36,10 +36,10 @@ export const useConstants = () => {
     /** @const */
     const SWIPER_BREAKPOINTS_FOR_THREE_SLIDES = {
         0:    { id: "bp-0", slidesPerView: 1 },
-        650:  { id: "bp-1", slidesPerView: 2 },
+        650:  { id: "bp-1", slidesPerView: 1 },
         991:  { id: "bp-2", slidesPerView: 1 },
         1050: { id: "bp-3", slidesPerView: 2 },
-        1600: { id: "bp-4", slidesPerView: 3 }
+        1600: { id: "bp-4", slidesPerView: 2 }
     }
 
     /** @const */
