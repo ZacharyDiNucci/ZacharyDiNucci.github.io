@@ -45,11 +45,11 @@
                             },
                             {
                                 "url": "images/pictures/UnrealEngineShooter/UES_Enemy.png",
-                                "description": "Enemy AI engagement and combat system"
+                                "description": "Enemy Player Character controlled by a remote user"
                             },
                             {
                                 "url": "images/pictures/UnrealEngineShooter/UES_Damage.png",
-                                "description": "Damage feedback and health indicator UI"
+                                "description": "Damage feedback and health indicator UI when the player is shot."
                             }
                         ],
                         "screenshotsAspectRatio": "16:9",
