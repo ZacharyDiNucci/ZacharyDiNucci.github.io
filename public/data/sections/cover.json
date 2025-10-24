@@ -4,7 +4,7 @@
             "en": {
                 "title_short": "Hello World!",
                 "title_short_nav": "About Me",
-                "title_long_prefix": "Hello ...",
+                "title_long_prefix": "Hello World!",
                 "title_long": "About {{Zachary DiNucci}}"
             }
         }
@@ -76,12 +76,12 @@
             "items": [
                 {
                     "id": 2,
-                    "img": "images/pictures/about-texts-image-1.png",
+                    "img": "images/pictures/General/Headshot-Square.jpg",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
                     "locales": {
                         "en": {
-                            "text": "<p>I'm Zach DiNucci, a Unity developer and game designer passionate about crafting immersive digital experiences with nearly a decade of experience in programming and design.</p> <p>Currently pursuing my second degree in Computer Science at Boise State University, I've been expanding my skills through BSU's innovative GIMM program, where I've developed some of my first games.</p> <p>My passion for strategic thinking and world-building extends beyond development—I'm an active member of the Warhammer club and regularly play Warhammer 40K with friends in my free time.</p> <p>The tactical depth and rich lore of the game continually inspire my approach to game design, teaching me about balance, player engagement, and creating compelling fictional universes.</p> <p>When I'm not developing or designing, you'll find me exploring history or diving into new games for inspiration.</p> <p>Born and raised in Boise, Idaho, I bring both technical expertise and strategic thinking to every project I tackle.</p> <p> Feel free to explore my portfolio to see how I blend creativity and technology to bring ideas to life!</p>"
+                            "text": "<p>I'm Zachary DiNucci, a Unity developer and game designer passionate about crafting immersive digital experiences with nearly a decade of experience in programming and design.</p> <p>Currently pursuing my second degree in Computer Science at Boise State University, I've been expanding my skills through BSU's innovative GIMM program, where I've developed some of my first games.</p> <p>My passion for strategic thinking and world-building extends beyond development—I'm an active member of the Warhammer club and regularly play Warhammer 40K with friends in my free time.</p> <p>The tactical depth and rich lore of the game continually inspire my approach to game design, teaching me about balance, player engagement, and creating compelling fictional universes.</p> <p>When I'm not developing or designing, you'll find me exploring history or diving into new games for inspiration.</p> <p>Born and raised in Boise, Idaho, I bring both technical expertise and strategic thinking to every project I tackle.</p> <p> Feel free to explore my portfolio to see how I blend creativity and technology to bring ideas to life!</p>"
                         }
                     }
                 }

@@ -21,7 +21,7 @@
             "items": [
                 {
                     "id": 1,
-                    "img": "images/pictures/timeline-place-udacity.png",
+                    "img": "images/pictures/General/boisestate-B-2color-rgb.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
                     "dateStart": {"year": 2023, "month": 1},
@@ -29,8 +29,8 @@
                     "locales": {
                         "en": {
                             "title": "Mixed Reality Developer",
-                            "province": "",
-                            "country": "",
+                            "province": "Idaho",
+                            "country": "United States",
                             "institution": "Boise State University",
                             "text": "Led development of an [[augmented reality touring application]] for downtown Boise using Unity, featuring image anchor recognition and plane detection to showcase local history and culture. Collaborated with community stakeholders including the Basque block to gather authentic content and resources. Expanded the project for the City of Boise to include the parks system. Additionally, contributed to a [[Virtual Reality hunter's safety simulation]], providing immersive training experiences for firearm safety education.",
                             "tags": ["Unity", "Augmented Reality", "Virtual Reality", "AR Foundation", "Image Tracking", "React"]
@@ -39,7 +39,7 @@
                 },
                 {
                     "id": 3,
-                    "img": "images/pictures/timeline-place-udacity.png",
+                    "img": "images/pictures/General/boisestate-B-2color-rgb.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
                     "dateStart": {"year": 2023, "month": 1},
@@ -57,7 +57,7 @@
                 },
                 {
                     "id": 3,
-                    "img": "images/pictures/timeline-place-udacity.png",
+                    "img": "images/pictures/General/BestDaySoftware.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
                     "dateStart": {"year": 2020, "month": 9},

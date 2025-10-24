@@ -20,7 +20,7 @@
             "items": [
                 {
                     "id": 1,
-                    "img": "images/pictures/timeline-place-university-paris.png",
+                    "img": "images/pictures/General/boisestate-B-2color-rgb.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
                     "dateStart": {"year": 2017, "month": 9},
@@ -38,7 +38,7 @@
                 },
                 {
                     "id": 2,
-                    "img": "images/pictures/timeline-place-mit.png",
+                    "img": "images/pictures/General/boisestate-B-2color-rgb.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
                     "dateStart": {"year": 2022, "month": 9},
