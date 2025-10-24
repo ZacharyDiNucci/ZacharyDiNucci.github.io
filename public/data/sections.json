@@ -13,9 +13,9 @@
             "faIcon": "fa-solid fa-graduation-cap"
         },
         {
-            "id": "skills",
+            "id": "portfolio",
             "categoryId": "showcase",
-            "jsonPath": "/data/sections/skills.json",
+            "jsonPath": "/data/sections/portfolio.json",
             "faIcon": "fa-solid fa-tools"
         },
         {
