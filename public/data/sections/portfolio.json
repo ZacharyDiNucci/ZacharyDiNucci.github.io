@@ -16,21 +16,19 @@
             "locales": {
                 "en": {
                     "category_all": "All",
-                    "category_unreal": "Unreal Projects",
-                    "category_unity": "Unity Projects",
+                    "category_traditional": "Traditional Games",
                     "category_vr": "Virtual Reality",
-                    "category_ar": "Augmented Reality",
-                    "category_web": "Web Dev"                }
+                    "category_ar": "Augmented Reality"           }
             },
             "settings": {                
-                "categorize_by": ["category_unreal", "category_unity", "category_vr", "category_ar", "category_web"],
+                "categorize_by": ["category_traditional", "category_vr", "category_ar"],
                 "order_items_by": "id",
                 "order_items_sort": "asc"
             },
             "items": [
                 {
                     "id": 1,
-                    "categoryId": "category_unreal",
+                    "categoryId": "category_traditional",
                     "img": "images/pictures/General/Unreal.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
@@ -59,13 +57,48 @@
                         "en": {
                             "title": "Unreal Engine Third-Person Shooter",
                             "text": "[[Multiplayer third-person shooter]] developed in Unreal Engine 5 with C++ following industry best practices. Features include dedicated server architecture with listen server hosting, lobby system, player elimination tracking, and networked gameplay using replicated variables and RPC events. Currently implements core mechanics including weapon pickup systems, player spawning, and round-based game loops with victory conditions. Built with Synty asset packs and planned expansions include custom game modes, team systems, and original level design.",
-                            "tags": ["UE5", "Game", "Solo"]
+                            "tags": ["UE5", "Game", "Solo", "C++", "Multiplayer", "Networking", "Game Design"]
                         }
                     }
                 },
                 {
                     "id": 2,
-                    "categoryId": "category_unity",
+                    "categoryId": "category_vr",
+                    "img": "images/pictures/General/Unity.png",
+                    "faIcon": "",
+                    "faIconColors": {"bg": "", "fill": ""},
+                    "preview": {
+                        "links": [
+                            {"href": "https://sidequestvr.com/app/41817/fish-game-hunter-safety-vr", "tooltipString": "see_on_github", "faIcon": "fa-brands fa-github"}
+                        ],
+                        "screenshots": [
+                            {
+                                "url": "images/pictures/UnityHunterSim/cabin.PNG",
+                                "description": "Main lobby area where the player begins their training. Here they will gather their needed equipment, and read up on the safety rules and the instructions for the current hunt."
+                            },
+                            {
+                                "url": "images/pictures/UnityHunterSim/tutorial.PNG",
+                                "description": "This tutorial level teaches the player the basics of firearm safety, including how to properly handle, load, and fire a rifle in a controlled environment."
+                            },
+                            {
+                                "url": "images/pictures/UnityHunterSim/hog2.PNG",
+                                "description": "The wild hog hunting scenario, where the player must track and ethically harvest a wild hog using the skills they have learned throughout the training program. This scenario specifically focuses on avoiding shooting into private property and ensuring a safe backstop."
+                            }
+                        ],
+                        "screenshotsAspectRatio": "16:9",
+                        "youtubeVideo": "https://www.youtube.com/watch?v=-Li2C3tUYcs"
+                    },
+                    "locales": {
+                        "en": {
+                            "title": "Fish & Game Hunter Safety VR",
+                            "text": "[[Immersive VR training application]] developed in collaboration with Fish & Game Departments to teach safe and responsible hunting practices. Built comprehensive firearms systems including interactive reloading mechanics and physics-based hitscan ballistics. Developed lobby systems with save/load functionality, inventory management, and equipment validation. Integrated AI behavior systems across 10 hunting scenarios (Hog, Javelina, White Tail Deer, Moose, Pronghorn, Bear, Elk, Mule Deer, Turkey, Pheasant) with ethical shot placement grading mechanics. Successfully deployed to over 2,000 users on SideQuest.",
+                            "tags": ["Unity", "Game", "GIMM Dev Team", "Client Work", "VR", "AI Systems, Physics"]
+                        }
+                    }
+                },
+                {
+                    "id": 3,
+                    "categoryId": "category_vr",
                     "img": "images/pictures/General/Unity.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
@@ -74,25 +107,46 @@
                             {"href": "https://github.com", "tooltipString": "see_on_github", "faIcon": "fa-brands fa-github"}
                         ],
                         "screenshots": [
-                            "images/pictures/UnrealEngineShooter/UES_Lobby.png",
-                            "images/pictures/UnrealEngineShooter/UES_Enemy.png",
-                            "images/pictures/UnrealEngineShooter/UES_Damage.png"
+                            {
+                                "url": "images/pictures/UnityFoodFlingers/FoodFightAttacking.png",
+                                "description": "The enemies would try attacking the player by throwing food items while you tried to throw food back using a special hand gesture."
+                            },
+                            {
+                                "url": "images/pictures/UnityFoodFlingers/FoodFightMenu.png",
+                                "description": "Within the Main Menu, players could customize their player character by selecting the classes they as a student would be taking. Each class gave different buffs such as increased damage or health."
+                            },
+                            {
+                                "url": "images/pictures/UnityFoodFlingers/FoodFightFood.png",
+                                "description": "You and the AI's would pick up food items found at food troughs scattered around the cafateria."
+                            },
+                            {
+                                "url": "images/pictures/UnityFoodFlingers/FoodFightAllies.png",
+                                "description": "Allies within the game would help you by throwing food at enemies and distracting them. You could also throw water at the allies to heal them if they were low on health."
+                            },
+                            {
+                                "url": "images/pictures/UnityFoodFlingers/FoodFightResources.png",
+                                "description": "Water was collected from water fountains and you could see your current water and food resources on your right wrist."
+                            },
+                            {
+                                "url": "images/pictures/UnityFoodFlingers/FoodFightScore.png",
+                                "description": "There was a score board found in the cafateria which displayed the current score for the two teams."
+                            }
                         ],
                         "screenshotsAspectRatio": "16:9",
-                        "youtubeVideo": "https://www.youtube.com/watch?v=oYXQitY9csg"
+                        "youtubeVideo": "https://www.youtube.com/watch?v=MZKjC8TQOoc"
                     },
                     "locales": {
                         "en": {
-                            "title": "Unreal Engine Third-Person Shooter",
-                            "text": "A <b>RESTful API</b> backend built with <b>Node.js</b>, designed for high-performance data processing and real-time event handling.",
-                            "tags": ["UE5", "Game", "Solo"]
+                            "title": "Food Flingers",
+                            "text": "[[Team-based VR FPS]] set in a school cafeteria food fight scenario. Developed comprehensive AI state machine systems for allied and enemy NPCs with tactical behaviors. Implemented dual-mechanic gameplay: offensive food projectiles to eliminate opponents and defensive water mechanics to heal teammates. Created all visual assets from scratch using Blender, including character modeling, rigging, and environment design. Features character customization and strategic team-based combat inspired by Valve Index hand-tracking capabilities.",
+                            "tags": ["Unity", "Game", "Solo", "VR", "AI Systems", "Blender", "Game Design", "3D Modeling"]
                         }
                     }
                 },
                 {
-                    "id": 3,
-                    "categoryId": "category_unity",
-                    "img": "images/pictures/portfolio-project-logo-3.png",
+                    "id": 5,
+                    "categoryId": "category_traditional",
+                    "img": "images/pictures/General/Unreal.png",
                     "faIcon": "",
                     "faIconColors": {"bg": "", "fill": ""},
                     "preview": {
@@ -100,9 +154,22 @@
                             {"href": "https://github.com", "tooltipString": "see_on_github", "faIcon": "fa-brands fa-github"}
                         ],
                         "screenshots": [
-                            "images/pictures/UnrealEngineShooter/UES_Lobby.png",
-                            "images/pictures/UnrealEngineShooter/UES_Enemy.png",
-                            "images/pictures/UnrealEngineShooter/UES_Damage.png"
+                            {
+                                "url": "images/pictures/UnrealTopDown/RoboMenu.png",
+                                "description": "This Main Menu was one of the first Visually detailed Menus I created. It tries to help set the mood for the game displaying the Mobot enemies and allies."
+                            },
+                            {
+                                "url": "images/pictures/UnrealTopDown/RoboAI.png",
+                                "description": "This game featured 2 different types of AI enemies. A melee enemy and a ranged enemy. Both had their own unique behaviors and attack patterns."
+                            },
+                            {
+                                "url": "images/pictures/UnrealTopDown/RoboUI.png",
+                                "description": "UI was the first time I had created a full HUD within Unreal Engine."
+                            },
+                            {
+                                "url": "images/pictures/UnrealTopDown/RoboLoading.png",
+                                "description": "This game features multiple levels with a loading screen between each level. Your Score would persist between levels and help provide a final score at the end of the game, or if the player died before finishing all levels."
+                            }
                         ],
                         "screenshotsAspectRatio": "16:9",
                         "youtubeVideo": "https://www.youtube.com/watch?v=oYXQitY9csg"
@@ -110,34 +177,8 @@
                     "locales": {
                         "en": {
                             "title": "Unreal Engine Third-Person Shooter",
-                            "text": "A <b>RESTful API</b> backend built with <b>Node.js</b>, designed for high-performance data processing and real-time event handling.",
-                            "tags": ["UE5", "Game", "Solo"]
-                        }
-                    }
-                },
-                {
-                    "id": 4,
-                    "categoryId": "category_unity",
-                    "img": "images/pictures/portfolio-project-logo-3.png",
-                    "faIcon": "",
-                    "faIconColors": {"bg": "", "fill": ""},
-                    "preview": {
-                        "links": [
-                            {"href": "https://github.com", "tooltipString": "see_on_github", "faIcon": "fa-brands fa-github"}
-                        ],
-                        "screenshots": [
-                            "images/pictures/UnrealEngineShooter/UES_Lobby.png",
-                            "images/pictures/UnrealEngineShooter/UES_Enemy.png",
-                            "images/pictures/UnrealEngineShooter/UES_Damage.png"
-                        ],
-                        "screenshotsAspectRatio": "16:9",
-                        "youtubeVideo": "https://www.youtube.com/watch?v=oYXQitY9csg"
-                    },
-                    "locales": {
-                        "en": {
-                            "title": "Unreal Engine Third-Person Shooter",
-                            "text": "A <b>RESTful API</b> backend built with <b>Node.js</b>, designed for high-performance data processing and real-time event handling.",
-                            "tags": ["UE5", "Game", "Solo"]
+                            "text": "Escape-themed [[top-down shooter]] developed in Unreal Engine as a senior capstone project. Implemented wave-based combat system with 10 progressively challenging waves featuring escalating enemy counts and AI difficulty. Built comprehensive Blueprint systems for player health, score persistence across multiple levels, enemy spawning, and AI behavior trees. Designed and created all visual assets using Blender, utilizing low-poly aesthetic for robot enemies and environments. Successfully integrated custom animations, including character-rigged melee robots—marking first animation pipeline from Blender to Unreal Engine. Features strategic gameplay requiring resource management and tactical positioning as enemy numbers overwhelm you in later waves.",
+                            "tags": ["UE5", "Game", "Solo", "Blueprints", "Blender", "Game Design", "3D Modeling", "AI"]
                         }
                     }
                 }
