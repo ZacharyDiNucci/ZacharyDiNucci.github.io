@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zachary DiNucci - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        
+        @page {
+            margin: 0.5in 0 0.75in 0;
+        }
+        
+        @page :first {
+            margin-top: 0;
+        }
+        
+        .resume {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+        
+        .contact-info span {
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-right: 3px solid #667eea;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+            font-weight: 600;
+        }
+        
+        .sidebar .section-title {
+            font-size: 1.1em;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .item-date {
+            color: #666;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        
+        .item-subtitle {
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .item-description {
+            color: #555;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+        
+        .item-description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        
+        .item-description li {
+            margin-bottom: 5px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .reference-item {
+            margin-bottom: 35px;
+            padding: 18px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .reference-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .reference-name {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .reference-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+            font-size: 0.95em;
+        }
+        
+        .reference-company {
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        
+        .reference-contact {
+            color: #666;
+            font-size: 0.85em;
+            line-height: 1.8;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .resume {
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 3px solid #667eea;
+            }
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .item-date {
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <div class="header">
+            <div class="name">Zachary DiNucci</div>
+            <div class="title">Software Developer | Mixed Reality Engineer</div>
+            <div class="contact-info">
+                <span>Email: Zdinucci@gmail.com</span>
+                <span>Location: Boise, Idaho</span>
+                <span>Web: zachdinucci.com</span>
+                <span>LinkedIn: linkedin.com/in/zachary-dinucci</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="sidebar">
+                <div class="section">
+                    <div class="section-title">Technical Skills</div>
+                    
+                    <div class="skill-category">
+                        <div class="skill-category-title">Languages</div>
+                        <div class="skills-list">
+                            <span class="skill-tag">C/C++/C#</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Bash</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <div class="skill-category-title">Frameworks & Tools</div>
+                        <div class="skills-list">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">.NET</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <div class="skill-category-title">Game Engines & 3D Tools</div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Unity</span>
+                            <span class="skill-tag">Unreal</span>
+                            <span class="skill-tag">Blender</span>
+                            <span class="skill-tag">Adobe CC</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Interests</div>
+                    <div class="item-description">
+                        <strong>Warhammer 40K:</strong> Active participant in Crusade, crafting custom lore for my armies<br><br>
+                        <strong>Magic: The Gathering:</strong> Regular Commander and Limited player, built lasting friendships through gaming<br><br>
+                        <strong>Music:</strong> Former band member, continue writing and playing music for creative expression
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">References</div>
+                    <div class="reference-item">
+                        <div class="reference-name">John Smith</div>
+                        <div class="reference-title">Senior Developer</div>
+                        <div class="reference-company">Company Name</div>
+                        <div class="reference-contact">
+                            john.smith@email.com
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <div class="reference-name">Jane Doe</div>
+                        <div class="reference-title">Project Manager</div>
+                        <div class="reference-company">Organization Name</div>
+                        <div class="reference-contact">
+                            jane.doe@email.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="section">
+                    <div class="section-title">Professional Experience</div>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div class="item-title">Mixed Reality Developer</div>
+                            <div class="item-date">May 2023 - Present</div>
+                        </div>
+                        <div class="item-subtitle">Boise State University GIMM Department | On-site</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Develop AR/VR applications using Unity and React for client-based projects</li>
+                                <li>Led development of VR Hunter Safety Simulator featuring realistic firearm mechanics and animal AI, achieving over 2,000 downloads on SideQuest</li>
+                                <li>Collaborated with local community stakeholders to gather cultural insights and authentic resources</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div class="item-title">Student Mentor</div>
+                            <div class="item-date">Jan 2023 - Jun 2024</div>
+                        </div>
+                        <div class="item-subtitle">Boise State Onramp Program | On-site</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Provided STEAM education to underserved youth through community outreach programs</li>
+                                <li>Designed and facilitated robotics courses across three elementary schools, teaching block-based programming concepts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div class="item-title">Junior Developer</div>
+                            <div class="item-date">Sep 2020 - Sep 2022</div>
+                        </div>
+                        <div class="item-subtitle">Best Day HR | On-site</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Developed full-stack HR management web applications using .NET Core, .NET Framework, and Microsoft Azure SQL databases</li>
+                                <li>Implemented secure authentication systems with role-based authorization</li>
+                                <li>Conducted UI/UX testing and collaborated on rapid prototyping initiatives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Education</div>
+                    
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div class="item-title">Bachelor of Science in Computer Science</div>
+                            <div class="item-date">Aug 2022 - Spring 2025</div>
+                        </div>
+                        <div class="item-subtitle">Boise State University | College of Engineering</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div class="item-title">Bachelor of Arts in GIMM</div>
+                            <div class="item-date">Aug 2017 - Dec 2021</div>
+                        </div>
+                        <div class="item-subtitle">Boise State University | College of Innovation and Design</div>
+                        <div class="item-description">
+                            Games, Interactive Media, and Mobile Technology
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Key Projects</div>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div class="item-title">VR Hunter Safety Simulator</div>
+                            <div class="item-date">2024 - 2025</div>
+                        </div>
+                        <div class="item-subtitle">Boise State GIMM Department</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Developed VR training simulation using Unity with realistic firearm mechanics and animal AI behavior systems, achieving over 2,000 downloads on SideQuest</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div class="item-title">AR Park Scavenger Hunt Experience</div>
+                            <div class="item-date">2023 - 2024</div>
+                        </div>
+                        <div class="item-subtitle">Lead AR Developer | Boise State GIMM Department</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Primary AR developer creating 8 interactive mini-games using Unity AR Foundation to showcase local park history through location-based gameplay</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div class="item-title">Multiplayer FPS Game (Unreal Engine)</div>
+                            <div class="item-date">2022 - Present</div>
+                        </div>
+                        <div class="item-subtitle">Personal Project</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Developing multiplayer FPS using Unreal Engine 5 and C++ with Steam integration, featuring networked lobby system, weapon mechanics, and competitive scoring. Ongoing development during free time alongside work and academics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

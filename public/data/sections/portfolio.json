@@ -176,7 +176,7 @@
                     },
                     "locales": {
                         "en": {
-                            "title": "Unreal Engine Third-Person Shooter",
+                            "title": "Robo Beatdown",
                             "text": "Escape-themed [[top-down shooter]] developed in Unreal Engine as a senior capstone project. Implemented wave-based combat system with 10 progressively challenging waves featuring escalating enemy counts and AI difficulty. Built comprehensive Blueprint systems for player health, score persistence across multiple levels, enemy spawning, and AI behavior trees. Designed and created all visual assets using Blender, utilizing low-poly aesthetic for robot enemies and environments. Successfully integrated custom animations, including character-rigged melee robots—marking first animation pipeline from Blender to Unreal Engine. Features strategic gameplay requiring resource management and tactical positioning as enemy numbers overwhelm you in later waves.",
                             "tags": ["UE5", "Game", "Solo", "Blueprints", "Blender", "Game Design", "3D Modeling", "AI"]
                         }
