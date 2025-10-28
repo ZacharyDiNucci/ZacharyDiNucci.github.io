@@ -1,5 +1,5 @@
 /**
- * @author Ryan Balieiro
+ * @author Ryan Balieiro, Zachary DiNucci (Edits)
  * @description Light theme colors.
  *
  * What each color represents:
@@ -33,63 +33,71 @@
 
 @import "theme-variables-builder";
 
-$primary: #269366;
-$secondary: darken(#798287, 10%);
-$dark: #bfe0c5;
-$danger: #932626;
-$muted: #7c8d7f;
+// New purple/blue color scheme based on resume
+$primary: #667eea;
+$secondary: #764ba2;
+$dark: #4a5bc4;
+$danger: #dc3545;
+$muted: #666666;
 
-$base-bg: #91d7aa;
-$base-bg-light: #a6e3b8;
-$base-bg-dark: #7ecb94;
+// Backgrounds - darker with purple tint
+// Base (middle): 10% closer to purple
+$base-bg: #e8e4ee;              // Light purple-gray for main background
+// Light areas (10% closer to purple)
+$base-bg-light: #d3cfe0;        // Purple-tinted gray
+// Dark areas (20% closer to purple)
+$base-bg-dark: #bdb4d1;         // More purple-tinted
 
-$texts: #202521;
-$texts-inverted: #EEE;
+// Text colors
+$texts: #000000;
+$texts-inverted: #ffffff;
 
-$base-container-bg: #d9f5e0;
-$base-container-bg-accent: #c2e9d0;
-$base-popover-bg: #cae1d4;
-$base-boards: #d2eed8;
-$base-info-badges: #c3e3cd;
-$empty: #e8f8ef;
+// Container backgrounds - with purple hints
+$base-container-bg: #ffffff;        // Pure white for cards
+$base-container-bg-accent: #d3cfe0; // Purple-tinted accent
+$base-popover-bg: #ffffff;
+$base-boards: #d3cfe0;              // Purple-tinted
+$base-info-badges: #c4bdd4;         // More purple
 
-$borders: #d9efdc;
-$borders-nav-mobile: rgba(white, 0.15);
-$borders-nav-mobile-accent: rgba(white, 0.2);
-$scrollbar-track: #daf5e1;
-$scrollbar-thumb: #55bd91;
+// Utility colors
+$empty: #ebe7f2;                    // Light purple tint
+$borders: #667eea;
+$borders-nav-mobile: rgba(102, 126, 234, 0.15);
+$borders-nav-mobile-accent: rgba(102, 126, 234, 0.25);
+
+// Scrollbar
+$scrollbar-track: #d3cfe0;
+$scrollbar-thumb: #667eea;
 
 [data-theme="light"] {
     @include build-theme(
         // Theme Config...
         /** DARK MODE: **/                  false,
-
+        
         // Base Colors...
         /** PRIMARY: **/                    $primary,
         /** SECONDARY: **/                  $secondary,
         /** DARK: **/                       $dark,
         /** DANGER: **/                     $danger,
         /** MUTED: **/                      $muted,
-
+        
         // Main Layout Colors...
         /** BG: **/                         $base-bg,
         /** BG CONTRAST: **/                $base-bg-light,
         /** BG CONTRAST DARKEN:**/          $base-bg-dark,
         /** TEXTS: **/                      $texts,
         /** TEXTS (INVERTED): **/           $texts-inverted,
-
+        
         // Nav
         /** NAV MOBILE BG: **/              $base-container-bg-accent,
         /** NAV MOBILE: **/                 $texts,
         /** NAV MOBILE BORDER: **/          $borders-nav-mobile-accent,
-
         /** NAV MOBILE HOVER BG: **/        $base-container-bg-accent,
         /** NAV MOBILE HOVER: **/           $primary,
-
         /** NAV MOBILE SELECTED BG: **/     $primary,
         /** NAV MOBILE SELECTED: **/        $texts-inverted,
         /** NAV MOBILE SELECTED BORDER: **/ $borders-nav-mobile,
-
+        
         // Main Layout Elements...
         /** SECTION BG: **/                 $base-container-bg,
         /** CARD BG: **/                    $base-container-bg,
@@ -98,7 +106,7 @@ $scrollbar-thumb: #55bd91;
         /** INFO BADGE BG: **/              $base-info-badges,
         /** INFO BADGE **/                  $texts,
         /** EMPTY **/                       $empty,
-
+        
         // Other Colors...
         /** DEFAULT BORDERS: **/            $borders,
         /** SCROLLBAR TRACK: **/            $scrollbar-track,
