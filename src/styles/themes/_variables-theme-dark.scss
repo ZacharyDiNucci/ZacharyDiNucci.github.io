@@ -31,34 +31,35 @@
 
 @import "theme-variables-builder";
 
-// Purple/blue color scheme for dark mode
+// Updated dark mode with teal, blue, and purple
 $primary: #8b9ef0;              // Lighter blue for better contrast
-$secondary: #a689c9;            // Lighter purple for dark mode
-$dark: #1a1625;                 // Deep purple-tinted dark
+$secondary: #7dd3c7;            // Lighter teal for dark mode (darkened from #5EEAD4)
+$purple-accent: #a689c9;        // Lighter purple accent
+$dark: #1a1d1e;                 // Deep blue-teal tinted dark
 $danger: #f87171;
 $muted: #b0b0b0;
 
-// Backgrounds - soft dark with purple tint (similar to light theme approach)
-$base-bg: #1a1625;              // Base: purple-tinted dark (middle)
-$base-bg-light: #231d2e;        // Light: 10% more purple
-$base-bg-dark: #120e1a;         // Dark: 20% more purple (for edges)
+// Backgrounds - soft dark with blue-teal tint
+$base-bg: #1a1e1f;              // Base: blue-teal-tinted dark (middle)
+$base-bg-light: #1f2728;        // Light: 10% more teal
+$base-bg-dark: #141818;         // Dark: 20% more teal (for edges)
 
 // Text colors
 $texts: #ffffff;
 $texts-inverted: #000000;
 
-// Container backgrounds - slightly lighter with purple hints
-$base-container-bg: #252030;    // Cards - lighter purple-tinted
-$base-popover-bg: #1f1a28;
-$base-boards: #2a2436;          // Even lighter for boards
-$base-info-badges: #2d2639;
-$empty: #1e1929;
-$empty-accent: #1a1625;
+// Container backgrounds - slightly lighter with teal hints
+$base-container-bg: #222829;    // Cards - lighter teal-tinted
+$base-popover-bg: #1d2223;
+$base-boards: #273132;          // Even lighter for boards
+$base-info-badges: #2a3435;
+$empty: #1e2425;
+$empty-accent: #1a1e1f;
 
-// Borders with purple/blue theme
-$borders: #667eea;              // Your blue for borders
-$scrollbar-track: #1a1625;
-$scrollbar-thumb: #667eea;      // Blue scrollbar
+// Borders with blue/teal theme
+$borders: #667eea;              // Blue for borders
+$scrollbar-track: #1a1e1f;
+$scrollbar-thumb: #7dd3c7;      // Teal scrollbar
 
 :root {
     @include build-theme(
@@ -84,10 +85,10 @@ $scrollbar-thumb: #667eea;      // Blue scrollbar
         /** NAV MOBILE: **/                 $texts,
         /** NAV MOBILE BORDER: **/          $borders,
         /** NAV MOBILE HOVER BG: **/        $empty-accent,
-        /** NAV MOBILE HOVER: **/           $primary,
+        /** NAV MOBILE HOVER: **/           $secondary,
         /** NAV MOBILE SELECTED BG: **/     $borders,
-        /** NAV MOBILE SELECTED: **/        $primary,
-        /** NAV MOBILE SELECTED BORDER: **/ $primary,
+        /** NAV MOBILE SELECTED: **/        $secondary,
+        /** NAV MOBILE SELECTED BORDER: **/ $secondary,
         
         // Main Layout Elements...
         /** SECTION BG: **/                 $base-container-bg,

@@ -33,41 +33,39 @@
 
 @import "theme-variables-builder";
 
-// New purple/blue color scheme based on resume
-$primary: #667eea;
-$secondary: #764ba2;
-$dark: #4a5bc4;
+// Updated color scheme with teal, blue, and purple
+$primary: #667eea;              // Blue (primary)
+$secondary: #5EEAD4;            // Teal (new secondary/accent)
+$purple-accent: #764ba2;        // Purple (for specific accents)
+$dark: #4a5bc4;                 // Dark blue
 $danger: #dc3545;
 $muted: #666666;
 
-// Backgrounds - darker with purple tint
-// Base (middle): 10% closer to purple
-$base-bg: #e8e4ee;              // Light purple-gray for main background
-// Light areas (10% closer to purple)
-$base-bg-light: #d3cfe0;        // Purple-tinted gray
-// Dark areas (20% closer to purple)
-$base-bg-dark: #bdb4d1;         // More purple-tinted
+// Backgrounds - with teal/blue tints
+$base-bg: #e8f0f2;              // Light blue-teal tint for main background
+$base-bg-light: #d4ebe9;        // Teal-tinted light areas (animation circles)
+$base-bg-dark: #b8dcd8;         // Stronger teal tint for dark areas
 
 // Text colors
 $texts: #000000;
 $texts-inverted: #ffffff;
 
-// Container backgrounds - with purple hints
+// Container backgrounds - with subtle teal hints
 $base-container-bg: #ffffff;        // Pure white for cards
-$base-container-bg-accent: #d3cfe0; // Purple-tinted accent
+$base-container-bg-accent: #e0f2f1; // Light teal accent
 $base-popover-bg: #ffffff;
-$base-boards: #d3cfe0;              // Purple-tinted
-$base-info-badges: #c4bdd4;         // More purple
+$base-boards: #d4ebe9;              // Teal-tinted boards
+$base-info-badges: #c2e4e0;         // Teal-tinted badges
 
 // Utility colors
-$empty: #ebe7f2;                    // Light purple tint
-$borders: #667eea;
-$borders-nav-mobile: rgba(102, 126, 234, 0.15);
-$borders-nav-mobile-accent: rgba(102, 126, 234, 0.25);
+$empty: #f0f9f8;                    // Very light teal tint
+$borders: #667eea;                  // Keep blue for borders
+$borders-nav-mobile: rgba(94, 234, 212, 0.15);          // Teal
+$borders-nav-mobile-accent: rgba(94, 234, 212, 0.25);   // Teal
 
 // Scrollbar
-$scrollbar-track: #d3cfe0;
-$scrollbar-thumb: #667eea;
+$scrollbar-track: #d4ebe9;
+$scrollbar-thumb: #5EEAD4;          // Teal scrollbar
 
 [data-theme="light"] {
     @include build-theme(
@@ -76,7 +74,7 @@ $scrollbar-thumb: #667eea;
         
         // Base Colors...
         /** PRIMARY: **/                    $primary,
-        /** SECONDARY: **/                  $secondary,
+        /** SECONDARY: **/                  $purple-accent,
         /** DARK: **/                       $dark,
         /** DANGER: **/                     $danger,
         /** MUTED: **/                      $muted,
@@ -93,7 +91,7 @@ $scrollbar-thumb: #667eea;
         /** NAV MOBILE: **/                 $texts,
         /** NAV MOBILE BORDER: **/          $borders-nav-mobile-accent,
         /** NAV MOBILE HOVER BG: **/        $base-container-bg-accent,
-        /** NAV MOBILE HOVER: **/           $primary,
+        /** NAV MOBILE HOVER: **/           $secondary,
         /** NAV MOBILE SELECTED BG: **/     $primary,
         /** NAV MOBILE SELECTED: **/        $texts-inverted,
         /** NAV MOBILE SELECTED BORDER: **/ $borders-nav-mobile,
