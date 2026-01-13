@@ -32,7 +32,7 @@
                             "province": "Idaho",
                             "country": "United States",
                             "institution": "Boise State University",
-                            "text": "Led development of an [[augmented reality touring application]] for downtown Boise using Unity, featuring image anchor recognition and plane detection to showcase local history and culture. Collaborated with community stakeholders including the Basque block to gather authentic content and resources. Expanded the project for the City of Boise to include the parks system. Additionally, contributed to a [[Virtual Reality hunter's safety simulation]], providing immersive training experiences for firearm safety education.",
+                            "text": "Led development of an [[augmented reality touring application]] for downtown Boise using Unity, featuring image anchor recognition and plane detection to showcase local history and culture. Collaborated with community stakeholders including the Basque block to gather authentic content and resources. Expanded the project for the City of Boise to include the parks system. Additionally, contributed to a [[Virtual Reality hunter's safety simulation]] for Idaho Fish & Game, providing immersive training experiences for firearm safety education. For this application I implemented realistic weapon handling mechanics and interactive scenarios using XR Foundation and Unity's XR Interaction Toolkit.",
                             "tags": ["Unity", "Augmented Reality", "Virtual Reality", "AR Foundation", "Image Tracking", "React"]
                         }
                     }
