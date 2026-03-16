@@ -1,0 +1,559 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_AUTHOR, SITE_TITLE } from '../consts';
+
+const experience = [
+	{
+		company: 'Boise State University - GIMM Department',
+		role: 'Gameplay Developer',
+		type: 'Part-time',
+		start: 'May 2023',
+		end: 'Dec 2025',
+		location: 'Boise, ID',
+		color: '#FFB800',
+		logo: '/images/logo-bsu.png',
+		description:
+			'Developed interactive mixed reality and game experiences for educational and charitable institutions, collaborating directly with faculty, clients, and student teams.',
+		bullets: [
+		'Developed a Basque cultural AR scavenger hunt experience for Boise\'s Basque Block community',
+			'Shipped a JRPG (Gods and Shadows) for the Make-a-Wish Foundation using Unity, C#, and Yarn Spinner',
+			'Mentored incoming student interns on Unity workflows, C# best practices, and version control with Git',
+		],
+		tech: ['Unity', 'C#', 'Unreal Engine 5', 'Vuforia', 'AR Foundation', 'Yarn Spinner', 'Git'],
+	},
+	{
+		company: 'Boise State University - Onramp Program',
+		role: 'Student Mentor',
+		type: 'Part-time',
+		start: 'Jan 2023',
+		end: 'Jun 2024',
+		location: 'Boise, ID',
+		color: '#FF5E8A',
+		logo: '/images/logo-bsu.png',
+		description:
+			'Mentored K–12 students in STEAM education through hands-on robotics and AR programming courses, and represented the program at local tech events.',
+		bullets: [
+			'Designed and led robotics and augmented reality curriculum sessions for K–12 students',
+			'Represented Onramp at Treefort Music Fest and Hackfort, showcasing student-built tech projects',
+			'Supported student learning through one-on-one mentoring and troubleshooting sessions',
+		],
+		tech: ['Robotics', 'AR / Mixed Reality', 'STEAM Education', 'Public Outreach'],
+	},
+	{
+		company: 'Best Day HR',
+		role: 'Software Engineer',
+		type: 'Full-time',
+		start: 'Sep 2020',
+		end: 'Sep 2022',
+		location: 'Boise, ID',
+		color: '#5B7FD4',
+		logo: '/images/logo-bestday.png',
+		description:
+			'Full-stack software engineer building and maintaining enterprise HR management applications using .NET and Azure, with a focus on security, performance, and reliability.',
+		bullets: [
+			'Developed and maintained full-stack HR web applications using .NET Core, .NET Framework, and Azure SQL',
+			'Implemented role-based access control and authentication systems to meet enterprise security requirements',
+			'Collaborated in an agile team environment using Git, Azure DevOps, and code review processes',
+			'Optimised database queries and application performance across multiple production HR modules',
+		],
+		tech: ['.NET Core', '.NET Framework', 'C#', 'Azure SQL', 'JavaScript', 'HTML/CSS', 'Git', 'Azure DevOps'],
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Experience - ${SITE_TITLE}`}
+			description={`Professional history of ${SITE_AUTHOR}`}
+		/>
+	</head>
+	<body>
+		<div class="page-blobs">
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+			<div class="blob blob-4"></div>
+			<div class="blob blob-5"></div>
+			<div class="blob blob-6"></div>
+		</div>
+		<Header />
+
+		<main>
+			<div class="page-header">
+				<span class="page-label">✦ Work History</span>
+				<h1>Experience</h1>
+				<p>Roles, projects, and clients I've worked with over the years.</p>
+			</div>
+
+			<!-- Download CV -->
+			<div class="cv-row reveal">
+				<div class="cv-card">
+					<div>
+						<strong>Looking for my full CV?</strong>
+						<p>Download a PDF version for easy sharing.</p>
+					</div>
+					<a href="/cv.pdf" class="btn-download" download>
+						↓ Download CV
+					</a>
+				</div>
+			</div>
+
+			<!-- Timeline -->
+			<div class="timeline">
+				{experience.map((job, i) => (
+					<div class="timeline-item reveal" style={`transition-delay: ${i * 0.1}s`}>
+						<div class="timeline-line">
+							<div class="timeline-dot" style={`background: ${job.color};`}></div>
+							{i < experience.length - 1 && <div class="timeline-connector"></div>}
+						</div>
+						<div class="job-card" style={`border-color: ${job.color}`}>
+							<div class="job-header">
+								<div class="job-company-row">
+									{job.logo && <img src={job.logo} alt="" class="company-logo" aria-hidden="true" />}
+									<h2 class="job-company">{job.company}</h2>
+									<span class="job-type">{job.type}</span>
+								</div>
+								<h3 class="job-role" style={`color: ${job.color}`}>{job.role}</h3>
+								<div class="job-meta-row">
+									<span class="job-location">📍 {job.location}</span>
+									<span class="job-meta-sep">·</span>
+									<span class="job-type-label">In-Person</span>
+									<span class="job-meta-sep">·</span>
+									<span class="job-dates">{job.start} - {job.end}</span>
+								</div>
+							</div>
+
+							<p class="job-desc">{job.description}</p>
+
+							<ul class="job-bullets">
+								{job.bullets.map((bullet) => (
+									<li>
+										<span class="bullet-dot" style={`background: ${job.color}`}></span>
+										{bullet}
+									</li>
+								))}
+							</ul>
+
+							<div class="job-tech">
+								{job.tech.map((t) => (
+									<span class="tech-tag">{t}</span>
+								))}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<!-- Skills Summary -->
+			<section class="skills-summary reveal">
+				<h2 class="summary-title">Core Competencies</h2>
+				<div class="competencies-grid">
+					{[
+						{ icon: '🎮', title: 'Game Development', color: '#FFB800', desc: 'End-to-end development across Unity and Unreal Engine 5, from prototype to shipped product with real-world users.' },
+						{ icon: '💻', title: 'Software Engineering', color: '#5B7FD4', desc: 'Full-stack experience in C++, C#, .NET, and JavaScript/TypeScript. Clean, maintainable, production-ready code.' },
+						{ icon: '🥽', title: 'Mixed Reality', color: '#3DB553', desc: 'Hands-on AR/VR development for educational and cultural institutions using Vuforia, AR Foundation, and Unity.' },
+						{ icon: '🤝', title: 'Collaboration', color: '#FF5E8A', desc: 'Experienced working in agile teams, mentoring students, and communicating directly with clients and stakeholders.' },
+					].map((c) => (
+						<div class="competency-card" style={`border-color: ${c.color}`}>
+							<span class="comp-icon">{c.icon}</span>
+							<h3>{c.title}</h3>
+							<p>{c.desc}</p>
+						</div>
+					))}
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body { position: relative; overflow-x: hidden; }
+
+	section, main, header, footer { position: relative; z-index: 1; }
+
+	.page-blobs {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+		overflow: hidden;
+	}
+
+	.blob {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(110px);
+		opacity: 0.18;
+		animation: float 8s ease-in-out infinite;
+	}
+	.blob-1 { width: 600px; height: 600px; background: #FFB800; top: -200px; right: -80px; animation-delay: 0s; }
+	.blob-2 { width: 400px; height: 400px; background: #FF5E8A; top: 10%; left: -100px; animation-delay: -3s; }
+	.blob-3 { width: 500px; height: 500px; background: #5B7FD4; top: 35%; right: -80px; animation-delay: -5s; }
+	.blob-4 { width: 350px; height: 350px; background: #FFB800; top: 55%; left: -60px; animation-delay: -2s; }
+	.blob-5 { width: 450px; height: 450px; background: #FF5E8A; top: 72%; right: 5%; animation-delay: -6s; }
+	.blob-6 { width: 300px; height: 300px; background: #3DB553; top: 88%; left: 20%; animation-delay: -4s; }
+
+	/* Blob float animation */
+	@keyframes float {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-20px); }
+	}
+
+
+	main {
+		max-width: 1150px;
+		margin: 0 auto;
+		padding: 0 1.5em 5em;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.page-header {
+		padding: 4em 0 2.5em;
+	}
+
+	.page-label {
+		display: inline-block;
+		background: rgba(200, 30, 90, 0.22);
+		color: #c01560;
+		border-radius: 100px;
+		padding: 0.25em 1em;
+		font-size: 0.78em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.6em;
+	}
+
+	.page-header h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		margin: 0 0 0.3em;
+		color: rgb(15, 18, 25);
+	}
+
+	.page-header p {
+		color: rgb(96, 115, 159);
+		font-size: 1.05em;
+		margin: 0;
+	}
+
+	/* CV Card */
+	.cv-row { margin-bottom: 3em; }
+
+	.cv-card {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5em;
+		background: linear-gradient(135deg, rgba(255,184,0,0.08), rgba(255,98,0,0.06));
+		border: 1px solid rgba(255,184,0,0.2);
+		border-radius: 14px;
+		padding: 1.5em 2em;
+		flex-wrap: wrap;
+	}
+
+	.cv-card strong {
+		display: block;
+		font-size: 1em;
+		color: rgb(15,18,25);
+		margin-bottom: 0.2em;
+	}
+
+	.cv-card p {
+		margin: 0;
+		font-size: 0.88em;
+		color: rgb(96,115,159);
+	}
+
+	.btn-download {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+		background: #FFB800;
+		color: #1a1a1a;
+		font-weight: 700;
+		padding: 0.65em 1.5em;
+		border-radius: 10px;
+		text-decoration: none;
+		font-size: 0.9em;
+		white-space: nowrap;
+		transition: transform 0.2s, box-shadow 0.2s;
+		box-shadow: 0 3px 15px rgba(255,184,0,0.3);
+	}
+
+	.btn-download:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 24px rgba(255,184,0,0.45);
+		color: #1a1a1a;
+	}
+
+	/* Timeline */
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		margin-bottom: 4em;
+	}
+
+	.timeline-item {
+		display: grid;
+		grid-template-columns: 36px 1fr;
+		gap: 1.5em;
+		min-width: 0;
+		overflow: hidden;
+	}
+
+	.timeline-line {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 1.6em;
+	}
+
+	.timeline-dot {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		flex-shrink: 0;
+		box-shadow: 0 0 0 4px white, 0 0 0 6px rgba(0,0,0,0.08);
+		z-index: 1;
+	}
+
+	.timeline-connector {
+		width: 2px;
+		flex: 1;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.05));
+		margin: 0.5em 0;
+		min-height: 2em;
+	}
+
+	/* Job Card */
+	.job-card {
+		background: white;
+		border: 2px solid currentColor;
+		border-radius: 16px;
+		padding: 1.75em 2em;
+		margin-bottom: 1.5em;
+		box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+		transition: box-shadow 0.2s;
+	}
+
+	.job-card:hover {
+		box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+	}
+
+	.job-header {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25em;
+		margin-bottom: 1em;
+	}
+
+	.company-logo {
+		height: 28px;
+		width: auto;
+		object-fit: contain;
+		flex-shrink: 0;
+		opacity: 0.85;
+	}
+
+	.job-company-row {
+		display: flex;
+		align-items: center;
+		gap: 0.6em;
+		margin-bottom: 0.15em;
+	}
+
+	.job-company {
+		font-size: 1.15em;
+		margin: 0;
+		color: rgb(15,18,25);
+		min-width: 0;
+		word-break: break-word;
+		flex: 1;
+	}
+
+	.job-type {
+		font-size: 0.72em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		background: rgba(0,0,0,0.05);
+		color: rgb(96,115,159);
+		padding: 0.15em 0.6em;
+		border-radius: 5px;
+	}
+
+	.job-role {
+		font-size: 1em;
+		font-weight: 600;
+		margin: 0 0 0.3em;
+	}
+
+	.job-meta-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		flex-wrap: wrap;
+	}
+
+	.job-location {
+		font-size: 0.82em;
+		color: rgb(96,115,159);
+	}
+
+	.job-meta-sep {
+		color: rgba(0,0,0,0.2);
+		font-size: 0.85em;
+	}
+
+	.job-type-label {
+		font-size: 0.82em;
+		color: rgb(96,115,159);
+	}
+
+	.job-dates {
+		font-size: 0.82em;
+		font-weight: 600;
+		color: rgb(34,41,57);
+	}
+
+	.job-desc {
+		font-size: 0.92em;
+		color: rgb(96,115,159);
+		line-height: 1.6;
+		margin: 0 0 1em;
+	}
+
+	.job-bullets {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+	}
+
+	.job-bullets li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.6em;
+		font-size: 0.9em;
+		line-height: 1.5;
+		color: rgb(34,41,57);
+	}
+
+	.bullet-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		flex-shrink: 0;
+		margin-top: 0.55em;
+	}
+
+	.job-tech {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4em;
+		padding-top: 0.75em;
+		border-top: 1px solid rgba(0,0,0,0.06);
+	}
+
+	.tech-tag {
+		font-size: 0.75em;
+		font-weight: 600;
+		background: rgba(255,184,0,0.1);
+		color: #cc7700;
+		padding: 0.2em 0.65em;
+		border-radius: 5px;
+	}
+
+	/* Skills Summary */
+	.skills-summary {
+		padding: 3em 0;
+	}
+
+	.skills-summary::before {
+		content: '';
+		display: block;
+		height: 2px;
+		width: 100%;
+		margin: 0 auto 3em;
+		background: #4a4a4a;
+	}
+
+	.summary-title {
+		font-size: 1.4em;
+		margin: 0 0 1.5em;
+		padding-bottom: 0.5em;
+		border-bottom: 2px solid rgba(255,184,0,0.25);
+	}
+
+	.competencies-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25em;
+	}
+
+	.competency-card {
+		background: white;
+		border-radius: 12px;
+		padding: 1.25em;
+		border: 2px solid currentColor;
+	}
+
+	.comp-icon {
+		font-size: 1.75em;
+		display: block;
+		margin-bottom: 0.4em;
+	}
+
+	.competency-card h3 {
+		font-size: 0.95em;
+		margin: 0 0 0.3em;
+		color: rgb(15,18,25);
+	}
+
+	.competency-card p {
+		font-size: 0.85em;
+		color: rgb(96,115,159);
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	@media (max-width: 900px) {
+		.competencies-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (max-width: 720px) {
+		.competencies-grid { grid-template-columns: 1fr; }
+		.timeline-item { grid-template-columns: 28px 1fr; gap: 1em; }
+		.job-card { padding: 1.25em; }
+		.cv-card { flex-direction: column; align-items: flex-start; }
+		.job-tech { flex-wrap: wrap; }
+	}
+
+	@media (max-width: 480px) {
+		.timeline-item { grid-template-columns: 1fr; }
+		.timeline-line { display: none; }
+		.job-card { padding: 1em; margin-bottom: 1em; }
+		.job-company { font-size: 1em; word-break: break-word; }
+		.job-meta-row { flex-direction: column; gap: 0.15em; }
+		.job-meta-sep { display: none; }
+		.competencies-grid { grid-template-columns: 1fr; }
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+		{ threshold: 0.06, rootMargin: '0px 0px -30px 0px' }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

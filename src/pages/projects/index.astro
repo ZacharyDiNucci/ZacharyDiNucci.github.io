@@ -1,0 +1,430 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const allProjects = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const featured = allProjects.filter((p) => p.data.featured);
+const others = allProjects.filter((p) => !p.data.featured);
+
+const statusColors: Record<string, { color: string; bg: string; label: string }> = {
+	completed: { color: '#3DB553', bg: 'rgba(61,181,83,0.1)', label: 'Completed' },
+	'in-progress': { color: '#5B7FD4', bg: 'rgba(91,127,212,0.1)', label: 'In Progress' },
+	archived: { color: '#999', bg: 'rgba(0,0,0,0.05)', label: 'Archived' },
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects — ${SITE_TITLE}`} description="A showcase of my games and projects." />
+	</head>
+	<body>
+		<div class="page-blobs">
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+			<div class="blob blob-4"></div>
+			<div class="blob blob-5"></div>
+			<div class="blob blob-6"></div>
+		</div>
+		<Header />
+
+		<main>
+			<div class="page-header">
+				<span class="page-label">✦ Portfolio</span>
+				<h1>My Projects</h1>
+				<p>Games, experiments, and creative builds — everything I've shipped.</p>
+				<div class="stats-row">
+					<span class="stat-chip">{allProjects.length} projects</span>
+					<span class="stat-chip">{featured.length} featured</span>
+					<span class="stat-chip">{allProjects.filter(p => p.data.status === 'in-progress').length} in progress</span>
+				</div>
+			</div>
+
+			<!-- Featured -->
+			{featured.length > 0 && (
+				<section class="project-section">
+					<h2 class="section-heading">Featured</h2>
+					<div class="projects-grid featured-grid">
+						{featured.map((project, i) => {
+							const status = statusColors[project.data.status ?? 'completed'];
+							return (
+								<article class="project-card reveal" style={`transition-delay: ${(i % 4) * 0.08}s`}>
+									<a href={`/projects/${project.id}/`} class="project-card-link">
+										{(() => {
+											const thumbUrl = project.data.thumbnailUrl
+												?? (project.data.youtubeId ? `https://img.youtube.com/vi/${project.data.youtubeId}/maxresdefault.jpg` : null)
+												?? project.data.media?.find(m => m.type === 'image')?.src
+												?? null;
+											return thumbUrl ? (
+												<div class="project-card-image">
+													<img src={thumbUrl} alt={project.data.title} loading="lazy" />
+													<div class="project-overlay"><span>View Project →</span></div>
+												</div>
+											) : project.data.coverImage ? (
+												<div class="project-card-image">
+													<Image width={720} height={400} src={project.data.coverImage} alt={project.data.title} />
+													<div class="project-overlay"><span>View Project →</span></div>
+												</div>
+											) : (
+												<div class="project-card-placeholder">🎮</div>
+											);
+										})()} 
+										<div class="project-card-body">
+											<div class="project-card-top">
+												{project.data.genre && (
+													<span class="genre-badge">{project.data.genre}</span>
+												)}
+												<span class="status-pill" style={`color: ${status.color}; background: ${status.bg};`}>
+													{status.label}
+												</span>
+											</div>
+											<h3 class="project-title">{project.data.title}</h3>
+											<p class="project-desc">{project.data.description}</p>
+											{project.data.tech && (
+												<div class="tech-row">
+													{project.data.tech.slice(0, 4).map((t) => (
+														<span class="tech-chip">{t}</span>
+													))}
+												</div>
+											)}
+											<div class="project-links-row">
+												{project.data.liveUrl && (
+													<span class="link-hint">🔗 Live demo</span>
+												)}
+												{project.data.githubUrl && (
+													<span class="link-hint">💻 Source</span>
+												)}
+											</div>
+										</div>
+									</a>
+								</article>
+							);
+						})}
+					</div>
+				</section>
+			)}
+
+			<!-- All Others -->
+			{others.length > 0 && (
+				<section class="project-section">
+					<h2 class="section-heading">More Projects</h2>
+					<div class="projects-grid">
+						{others.map((project, i) => {
+							const status = statusColors[project.data.status ?? 'completed'];
+							return (
+								<article class="project-card reveal" style={`transition-delay: ${(i % 4) * 0.08}s`}>
+									<a href={`/projects/${project.id}/`} class="project-card-link">
+										{(() => {
+											const thumbUrl = project.data.thumbnailUrl
+												?? (project.data.youtubeId ? `https://img.youtube.com/vi/${project.data.youtubeId}/maxresdefault.jpg` : null)
+												?? project.data.media?.find(m => m.type === 'image')?.src
+												?? null;
+											return thumbUrl ? (
+												<div class="project-card-image">
+													<img src={thumbUrl} alt={project.data.title} loading="lazy" />
+													<div class="project-overlay"><span>View →</span></div>
+												</div>
+											) : project.data.coverImage ? (
+												<div class="project-card-image">
+													<Image width={720} height={400} src={project.data.coverImage} alt={project.data.title} />
+													<div class="project-overlay"><span>View →</span></div>
+												</div>
+											) : (
+												<div class="project-card-placeholder">🎮</div>
+											);
+										})()} 
+										<div class="project-card-body">
+											<div class="project-card-top">
+												{project.data.genre && <span class="genre-badge">{project.data.genre}</span>}
+												<span class="status-pill" style={`color: ${status.color}; background: ${status.bg};`}>{status.label}</span>
+											</div>
+											<h3 class="project-title">{project.data.title}</h3>
+											<p class="project-desc">{project.data.description}</p>
+											{project.data.tech && (
+												<div class="tech-row">
+													{project.data.tech.slice(0, 3).map((t) => (
+														<span class="tech-chip">{t}</span>
+													))}
+												</div>
+											)}
+										</div>
+									</a>
+								</article>
+							);
+						})}
+					</div>
+				</section>
+			)}
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body { position: relative; }
+
+	section, main, header, footer { position: relative; z-index: 1; }
+
+	.page-blobs {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+		overflow: hidden;
+	}
+
+	.blob {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(110px);
+		opacity: 0.18;
+		animation: float 8s ease-in-out infinite;
+	}
+	.blob-1 { width: 600px; height: 600px; background: #FFB800; top: -200px; right: -80px; animation-delay: 0s; }
+	.blob-2 { width: 400px; height: 400px; background: #FF5E8A; top: 10%; left: -100px; animation-delay: -3s; }
+	.blob-3 { width: 500px; height: 500px; background: #5B7FD4; top: 35%; right: -80px; animation-delay: -5s; }
+	.blob-4 { width: 350px; height: 350px; background: #FFB800; top: 55%; left: -60px; animation-delay: -2s; }
+	.blob-5 { width: 450px; height: 450px; background: #FF5E8A; top: 72%; right: 5%; animation-delay: -6s; }
+	.blob-6 { width: 300px; height: 300px; background: #3DB553; top: 88%; left: 20%; animation-delay: -4s; }
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-20px); }
+	}
+
+	main {
+		max-width: 1350px;
+		margin: 0 auto;
+		padding: 0 1.5em 5em;
+	}
+
+	.page-header {
+		padding: 4em 0 2.5em;
+	}
+
+	.page-label {
+		display: inline-block;
+		background: rgba(200, 30, 90, 0.22);
+		color: #c01560;
+		border-radius: 100px;
+		padding: 0.25em 1em;
+		font-size: 0.78em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.6em;
+	}
+
+	.page-header h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		margin: 0 0 0.3em;
+		color: rgb(15, 18, 25);
+	}
+
+	.page-header p {
+		color: rgb(96, 115, 159);
+		font-size: 1.05em;
+		margin: 0 0 1.25em;
+	}
+
+	.stats-row {
+		display: flex;
+		gap: 0.6em;
+		flex-wrap: wrap;
+	}
+
+	.stat-chip {
+		background: rgba(91,127,212,0.1);
+		color: #5B7FD4;
+		border-radius: 100px;
+		padding: 0.25em 0.9em;
+		font-size: 0.82em;
+		font-weight: 600;
+	}
+
+	.project-section {
+		margin-bottom: 3.5em;
+	}
+
+	.section-heading {
+		font-size: 1.1em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: rgb(96, 115, 159);
+		margin: 0 0 1.25em;
+		padding-bottom: 0.6em;
+		border-bottom: 2px solid #4a4a4a;
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5em;
+	}
+
+	.featured-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.project-card {
+		background: white;
+		border-radius: 16px;
+		overflow: hidden;
+		border: 2px solid #FFB800;
+		box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+		transition: transform 0.3s, box-shadow 0.3s;
+	}
+
+	.project-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+	}
+
+	.project-card-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.project-card-image {
+		position: relative;
+		aspect-ratio: 16/9;
+		overflow: hidden;
+	}
+
+	.project-card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.4s;
+	}
+
+	.project-card:hover .project-card-image img { transform: scale(1.05); }
+
+	.project-overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(15,18,25,0.55);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		transition: opacity 0.3s;
+		color: white;
+		font-weight: 700;
+		font-size: 1em;
+	}
+
+	.project-card:hover .project-overlay { opacity: 1; }
+
+	.project-card-placeholder {
+		aspect-ratio: 16/9;
+		background: linear-gradient(135deg, rgba(255,184,0,0.1), rgba(91,127,212,0.1));
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 3em;
+	}
+
+	.project-card-body {
+		padding: 1.2em 1.4em 1.4em;
+	}
+
+	.project-card-top {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
+	.genre-badge {
+		font-size: 0.72em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #5B7FD4;
+		background: rgba(91,127,212,0.1);
+		padding: 0.15em 0.6em;
+		border-radius: 5px;
+	}
+
+	.status-pill {
+		font-size: 0.72em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding: 0.15em 0.6em;
+		border-radius: 5px;
+	}
+
+	.project-title {
+		font-size: 1.05em;
+		margin: 0 0 0.35em;
+		color: rgb(15, 18, 25);
+		line-height: 1.3;
+	}
+
+	.project-desc {
+		font-size: 0.85em;
+		color: rgb(96, 115, 159);
+		margin: 0 0 0.85em;
+		line-height: 1.5;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.tech-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35em;
+		margin-bottom: 0.75em;
+	}
+
+	.tech-chip {
+		font-size: 0.72em;
+		font-weight: 600;
+		background: rgba(255,184,0,0.1);
+		color: #cc7700;
+		padding: 0.15em 0.55em;
+		border-radius: 5px;
+	}
+
+	.project-links-row {
+		display: flex;
+		gap: 0.75em;
+		font-size: 0.78em;
+		color: rgb(96, 115, 159);
+	}
+
+	.link-hint { font-weight: 500; }
+
+	@media (max-width: 900px) {
+		.projects-grid { grid-template-columns: repeat(2, 1fr); }
+		.featured-grid { grid-template-columns: 1fr; }
+	}
+
+	@media (max-width: 600px) {
+		.projects-grid { grid-template-columns: 1fr; }
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+		{ threshold: 0.06, rootMargin: '0px 0px -30px 0px' }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

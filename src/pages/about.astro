@@ -1,0 +1,788 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import {
+	SITE_AUTHOR,
+	SITE_DESCRIPTION,
+	SITE_EMAIL,
+	SITE_GITHUB,
+	SITE_LINKEDIN,
+	SITE_ROLE,
+	SITE_TITLE,
+} from '../consts';
+
+const projects = (await getCollection('projects'))
+	.filter((p) => p.data.featured)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const skills = [
+	{ group: 'Engines & Frameworks', items: ['Unity 2022 & 6', 'Unreal Engine 5', 'React', '.NET Core', 'Node.js'], color: '#FFB800' },
+	{ group: 'Languages', items: ['C++', 'C#', 'C', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'HTML/CSS'], color: '#FF5E8A' },
+	{ group: 'Tools', items: ['Git / GitHub', 'Visual Studio', 'Blender', 'AWS Tools', 'Adobe CC'], color: '#5B7FD4' },
+	{ group: 'Specialties', items: ['Gameplay Systems', 'Traditional Dev', 'AR/VR Dev', 'Full Stack', 'AI Tools'], color: '#3DB553' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<div class="page-blobs">
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+			<div class="blob blob-4"></div>
+			<div class="blob blob-5"></div>
+			<div class="blob blob-6"></div>
+		</div>
+		<Header />
+
+		<!-- Hero -->
+		<section class="hero">
+			<div class="hero-content">
+				<span class="hero-label">Available for opportunities</span>
+				<h1 class="hero-title">
+					Hello World! I'm <span class="name-gradient">{SITE_AUTHOR}</span>
+				</h1>
+				<p class="hero-role">{SITE_ROLE}</p>
+				<p class="hero-bio">
+					Software &amp; Gameplay Engineer with experience across Unity, Unreal Engine 5, and full-stack
+					development. I've shipped multiple titles including a VR hunter's safety simulator with
+					2,500+ downloads and a classic-styled JRPG for multiple clients.</p>
+				<div class="hero-actions">
+					<a href="/projects" class="btn-primary">View My Work</a>
+					<a href="/experience" class="btn-secondary">My Experience</a>
+					<a href={SITE_GITHUB} target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub">
+						<svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
+							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+						</svg>
+					</a>
+					<a href={SITE_LINKEDIN} target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn">
+						<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+			<div class="hero-visual">
+				<div class="avatar-ring-outer">
+					<div class="avatar-ring-inner">
+						<img src="/images/headshot.png" class="avatar-img" alt="Zachary DiNucci" />
+					</div>
+				</div>
+				<div class="float-badge badge-1">
+					<span>🔀</span> Cross-Platform OOP Dev
+				</div>
+				<div class="float-badge badge-2">
+					<span>⚡</span> Cross-Engine Experience
+				</div>
+				<div class="float-badge badge-3">
+					<span>🎮</span> Shipped & Deployed
+				</div>
+			</div>
+		</section>
+
+		<!-- Skills -->
+		<section class="skills-section">
+			<div class="section-inner">
+				<div class="section-header reveal">
+					<span class="section-label">Technical Skills</span>
+					<h2>What I work with</h2>
+				</div>
+				<div class="skills-grid reveal">
+					{skills.map((group) => (
+						<div class="skill-group" style={`--group-color: ${group.color}`}>
+							<h3 class="skill-group-title" style={`color: ${group.color}`}>{group.group}</h3>
+							<div class="skill-chips">
+								{group.items.map((skill) => (
+									<span class="skill-chip">{skill}</span>
+								))}
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Featured Projects -->
+		{projects.length > 0 && (
+			<section class="featured-section">
+				<div class="section-inner">
+					<div class="section-header reveal">
+						<span class="section-label">Portfolio</span>
+						<h2>Featured Projects</h2>
+						<p>A selection of work I'm proud of.</p>
+					</div>
+					<div class="projects-grid">
+						{projects.map((project, i) => (
+							<article class="project-card reveal" style={`transition-delay: ${i * 0.1}s`}>
+								<a href={`/projects/${project.id}/`} class="project-card-link">
+									{(() => {
+									const thumbUrl = project.data.thumbnailUrl
+										?? (project.data.youtubeId ? `https://img.youtube.com/vi/${project.data.youtubeId}/maxresdefault.jpg` : null)
+										?? project.data.media?.find(m => m.type === 'image')?.src
+										?? null;
+									return thumbUrl ? (
+										<div class="project-card-image">
+											<img src={thumbUrl} alt={project.data.title} loading="lazy" />
+											<div class="project-card-overlay"><span class="overlay-text">View Project →</span></div>
+										</div>
+									) : project.data.coverImage ? (
+										<div class="project-card-image">
+											<Image width={720} height={400} src={project.data.coverImage} alt={project.data.title} />
+											<div class="project-card-overlay"><span class="overlay-text">View Project →</span></div>
+										</div>
+									) : (
+										<div class="project-card-placeholder"><span>🎮</span></div>
+									);
+								})()} 
+									<div class="project-card-body">
+										<div class="project-card-meta">
+											{project.data.genre && (
+												<span class="project-genre">{project.data.genre}</span>
+											)}
+											{project.data.status === 'in-progress' && (
+												<span class="status-badge">In Progress</span>
+											)}
+										</div>
+										<h3 class="project-card-title">{project.data.title}</h3>
+										<p class="project-card-desc">{project.data.description}</p>
+										{project.data.tech && (
+											<div class="project-tech">
+												{project.data.tech.slice(0, 3).map((t) => (
+													<span class="tech-tag">{t}</span>
+												))}
+											</div>
+										)}
+									</div>
+								</a>
+							</article>
+						))}
+					</div>
+					<div class="view-all reveal">
+						<a href="/projects" class="btn-outline">See all projects →</a>
+					</div>
+				</div>
+			</section>
+		)}
+
+		<!-- Quick Links -->
+		<section class="quick-links reveal">
+			<div class="section-inner">
+				<div class="ql-grid">
+					<a href="/experience" class="ql-card" style="border-color: #FFB800;">
+						<div class="ql-icon" style="background: rgba(255,184,0,0.12); color: #cc7700;">💼</div>
+						<div>
+							<h3>Experience</h3>
+							<p>My professional and freelance history</p>
+						</div>
+						<span class="ql-arrow">→</span>
+					</a>
+					<a href="/education" class="ql-card" style="border-color: #5B7FD4;">
+						<div class="ql-icon" style="background: rgba(91,127,212,0.12); color: #5B7FD4;">🎓</div>
+						<div>
+							<h3>Education</h3>
+							<p>Degrees, certifications, and courses</p>
+						</div>
+						<span class="ql-arrow">→</span>
+					</a>
+					<a href={`mailto:${SITE_EMAIL}`} class="ql-card" style="border-color: #3DB553;">
+						<div class="ql-icon" style="background: rgba(61,181,83,0.12); color: #3DB553;">✉️</div>
+						<div>
+							<h3>Get in Touch</h3>
+							<p>Let's talk about your project or role</p>
+						</div>
+						<span class="ql-arrow">→</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body { position: relative; z-index: 1; }
+
+	section, header, footer { position: relative; z-index: 1; }
+
+		/* Hero */
+	.hero {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		max-width: 1350px;
+		margin: 0 auto;
+		padding: 2.5em 1.5em 2.5em;
+		gap: 4em;
+	}
+
+	.page-blobs {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+		overflow: hidden;
+	}
+
+	.blob {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(110px);
+		opacity: 0.18;
+		animation: float 8s ease-in-out infinite;
+	}
+	/* Top area */
+	.blob-1 { width: 600px; height: 600px; background: #FFB800; top: -200px; right: -80px; animation-delay: 0s; }
+	.blob-2 { width: 400px; height: 400px; background: #FF5E8A; top: 10%; left: -100px; animation-delay: -3s; }
+	/* Middle */
+	.blob-3 { width: 500px; height: 500px; background: #5B7FD4; top: 35%; right: -80px; animation-delay: -5s; }
+	.blob-4 { width: 350px; height: 350px; background: #FFB800; top: 50%; left: -60px; animation-delay: -2s; }
+	/* Bottom */
+	.blob-5 { width: 450px; height: 450px; background: #FF5E8A; top: 70%; right: 5%; animation-delay: -6s; }
+	.blob-6 { width: 300px; height: 300px; background: #3DB553; top: 85%; left: 20%; animation-delay: -4s; }
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 600px;
+	}
+
+	.hero-label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		background: rgba(61, 181, 83, 0.12);
+		color: #2a9e42;
+		border: 1px solid rgba(61, 181, 83, 0.25);
+		border-radius: 100px;
+		padding: 0.3em 1em;
+		font-size: 0.82em;
+		font-weight: 600;
+		margin-bottom: 1.25em;
+		animation: fadeInUp 0.5s ease both;
+	}
+
+	.hero-label::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		background: #3DB553;
+		border-radius: 50%;
+		animation: pulse-glow 2s ease-in-out infinite;
+	}
+
+	.hero-title {
+		font-size: clamp(2.8rem, 6vw, 4.5rem);
+		line-height: 1.05;
+		margin: 0 0 0.2em;
+		animation: fadeInUp 0.5s ease 0.1s both;
+	}
+
+	.name-gradient {
+		background: linear-gradient(135deg, #FFB800 0%, #FF5E8A 60%, #FF6200 100%);
+		background-size: 200%;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: gradientShift 4s ease infinite;
+	}
+
+	.hero-role {
+		font-size: 1.1em;
+		font-weight: 600;
+		color: #5B7FD4;
+		margin: 0 0 0.75em;
+		animation: fadeInUp 0.5s ease 0.15s both;
+	}
+
+	.hero-bio {
+		font-size: 1.05em;
+		color: rgb(96, 115, 159);
+		line-height: 1.7;
+		margin: 0 0 2em;
+		max-width: 520px;
+		animation: fadeInUp 0.5s ease 0.2s both;
+	}
+
+	.hero-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.75em;
+		flex-wrap: wrap;
+		animation: fadeInUp 0.5s ease 0.25s both;
+	}
+
+	.btn-primary {
+		display: inline-flex;
+		align-items: center;
+		background: #FFB800;
+		color: #1a1a1a;
+		font-weight: 700;
+		padding: 0.75em 1.75em;
+		border-radius: 12px;
+		text-decoration: none;
+		font-size: 0.95em;
+		transition: transform 0.2s, box-shadow 0.2s;
+		box-shadow: 0 4px 20px rgba(255, 184, 0, 0.4);
+	}
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(255, 184, 0, 0.5);
+		color: #1a1a1a;
+	}
+
+	.btn-secondary {
+		display: inline-flex;
+		background: transparent;
+		color: rgb(34, 41, 57);
+		font-weight: 600;
+		padding: 0.75em 1.5em;
+		border-radius: 12px;
+		text-decoration: none;
+		font-size: 0.95em;
+		border: 2px solid rgba(0, 0, 0, 0.12);
+		transition: border-color 0.2s, background 0.2s;
+	}
+	.btn-secondary:hover {
+		border-color: #5B7FD4;
+		background: rgba(91, 127, 212, 0.06);
+		color: #5B7FD4;
+	}
+
+	.btn-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 10px;
+		border: 2px solid rgba(0, 0, 0, 0.1);
+		color: rgb(96, 115, 159);
+		text-decoration: none;
+		transition: all 0.2s;
+	}
+	.btn-icon:hover {
+		border-color: #FFB800;
+		color: #cc7700;
+		background: rgba(255, 184, 0, 0.08);
+		transform: translateY(-2px);
+	}
+
+	/* Hero Visual */
+	.hero-visual {
+		position: relative;
+		z-index: 1;
+		width: 320px;
+		height: 320px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.avatar-ring-outer {
+		width: 260px;
+		height: 260px;
+		border-radius: 50%;
+		padding: 4px;
+		background: linear-gradient(135deg, #FFB800, #FF5E8A, #5B7FD4);
+		animation: float 5s ease-in-out infinite;
+	}
+
+	.avatar-ring-inner {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 4px;
+	}
+
+	.avatar-img {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		object-fit: cover;
+		object-position: center top;
+	}
+
+	.float-badge {
+		position: absolute;
+		background: white;
+		border-radius: 12px;
+		padding: 0.6em 1em;
+		font-size: 0.8em;
+		font-weight: 600;
+		color: rgb(34, 41, 57);
+		box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		white-space: nowrap;
+	}
+
+	.badge-1 { top: 30px; right: -10px; border-left: 3px solid #FFB800; animation: float 5s ease-in-out infinite; }
+	.badge-2 { bottom: 20px; left: -10px; border-left: 3px solid #FF5E8A; animation: float 6s ease-in-out infinite; animation-delay: -2s; }
+	.badge-3 { top: 58%; right: -40px; border-left: 3px solid #5B7FD4; animation: float 7s ease-in-out infinite; animation-delay: -4s; }
+
+	/* Skills */
+	.skills-section {
+		background: transparent;
+		padding: 5em 0;
+	}
+
+	.skills-section::before {
+		content: '';
+		display: block;
+		height: 2px;
+		width: min(1350px, calc(100% - 3em));
+		margin: 0 auto 5em;
+		background: #4a4a4a;
+	}
+
+	.section-inner {
+		max-width: 1350px;
+		margin: 0 auto;
+		padding: 0 1.5em;
+	}
+
+	.section-header {
+		margin-bottom: 2.5em;
+	}
+
+	.section-label {
+		display: inline-block;
+		background: rgba(200, 30, 90, 0.22);
+		color: #c01560;
+		border-radius: 100px;
+		padding: 0.25em 1em;
+		font-size: 0.78em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.6em;
+	}
+
+	.section-header h2 {
+		font-size: 2.2em;
+		margin: 0 0 0.3em;
+	}
+
+	.section-header p {
+		color: rgb(96, 115, 159);
+		margin: 0;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5em;
+	}
+
+	.skill-group {
+		background: white;
+		border-radius: 14px;
+		padding: 1.5em;
+		border: 1px solid rgba(0,0,0,0.1);
+		border-top: 3px solid var(--group-color);
+		box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+	}
+
+	.skill-group-title {
+		font-size: 0.78em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin: 0 0 0.8em;
+	}
+
+	.skill-chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4em;
+	}
+
+	.skill-chip {
+		background: rgba(0,0,0,0.1);
+		color: rgb(15, 20, 40);
+		border: 1px solid rgba(0,0,0,0.08);
+		border-radius: 6px;
+		padding: 0.25em 0.65em;
+		font-size: 0.82em;
+		font-weight: 500;
+	}
+
+	/* Featured Projects */
+	.featured-section {
+		padding: 5em 0;
+	}
+
+	.featured-section::before,
+	.quick-links::before {
+		content: '';
+		display: block;
+		height: 2px;
+		width: min(1350px, calc(100% - 3em));
+		margin: 0 auto 5em;
+		background: #4a4a4a;
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.75em;
+		margin-bottom: 2.5em;
+	}
+
+	.project-card {
+		background: white;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+		border: 2px solid #FFB800;
+		transition: transform 0.3s, box-shadow 0.3s;
+	}
+
+	.project-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+	}
+
+	.project-card-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.project-card-image {
+		position: relative;
+		aspect-ratio: 16/9;
+		overflow: hidden;
+	}
+
+	.project-card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.4s;
+	}
+
+	.project-card:hover .project-card-image img { transform: scale(1.06); }
+
+	.project-card-overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(15, 18, 25, 0.5);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+
+	.project-card:hover .project-card-overlay { opacity: 1; }
+
+	.overlay-text {
+		color: white;
+		font-weight: 700;
+		font-size: 1em;
+	}
+
+	.project-card-placeholder {
+		aspect-ratio: 16/9;
+		background: linear-gradient(135deg, rgba(255,184,0,0.1), rgba(91,127,212,0.1));
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 3em;
+	}
+
+	.project-card-body {
+		padding: 1.25em 1.4em 1.4em;
+	}
+
+	.project-card-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
+	.project-genre {
+		font-size: 0.75em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: #5B7FD4;
+		background: rgba(91,127,212,0.1);
+		padding: 0.15em 0.6em;
+		border-radius: 6px;
+	}
+
+	.status-badge {
+		font-size: 0.72em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: #3DB553;
+		background: rgba(61,181,83,0.1);
+		padding: 0.15em 0.6em;
+		border-radius: 6px;
+	}
+
+	.project-card-title {
+		font-size: 1.1em;
+		margin: 0 0 0.4em;
+		line-height: 1.25;
+		color: rgb(15, 18, 25);
+	}
+
+	.project-card-desc {
+		font-size: 0.86em;
+		color: rgb(96, 115, 159);
+		margin: 0 0 0.9em;
+		line-height: 1.5;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.project-tech {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35em;
+	}
+
+	.tech-tag {
+		font-size: 0.72em;
+		background: rgba(255,184,0,0.1);
+		color: #cc7700;
+		padding: 0.15em 0.55em;
+		border-radius: 5px;
+		font-weight: 600;
+	}
+
+	.view-all {
+		text-align: center;
+	}
+
+	.btn-outline {
+		display: inline-flex;
+		background: transparent;
+		color: #FF6200;
+		font-weight: 700;
+		padding: 0.75em 2em;
+		border-radius: 12px;
+		text-decoration: none;
+		font-size: 0.95em;
+		border: 2px solid #FF6200;
+		transition: background 0.2s, color 0.2s, transform 0.2s;
+	}
+	.btn-outline:hover {
+		background: #FF6200;
+		color: white;
+		transform: translateY(-2px);
+	}
+
+	/* Quick Links */
+	.quick-links {
+		background: transparent;
+		padding: 4em 0;
+	}
+
+	.ql-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.25em;
+	}
+
+	.ql-card {
+		display: flex;
+		align-items: center;
+		gap: 1.1em;
+		background: white;
+		border-radius: 14px;
+		padding: 1.4em;
+		text-decoration: none;
+		color: inherit;
+		border: 2px solid #FFB800;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+		transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+	}
+
+	.ql-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		border-color: #FFB800;
+	}
+
+	.ql-icon {
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.4em;
+		flex-shrink: 0;
+	}
+
+	.ql-card h3 {
+		font-size: 1em;
+		margin: 0 0 0.15em;
+		color: rgb(15, 18, 25);
+	}
+
+	.ql-card p {
+		font-size: 0.82em;
+		color: rgb(96, 115, 159);
+		margin: 0;
+	}
+
+	.ql-arrow {
+		margin-left: auto;
+		color: rgb(96, 115, 159);
+		font-size: 1.1em;
+		transition: transform 0.2s, color 0.2s;
+		flex-shrink: 0;
+	}
+
+	.ql-card:hover .ql-arrow {
+		transform: translateX(3px);
+		color: #FFB800;
+	}
+
+	@media (max-width: 960px) {
+		.hero { grid-template-columns: 1fr; min-height: auto; }
+		.hero-visual { display: none; }
+		.skills-grid { grid-template-columns: repeat(2, 1fr); }
+		.projects-grid { grid-template-columns: repeat(2, 1fr); }
+		.ql-grid { grid-template-columns: 1fr; }
+	}
+
+	@media (max-width: 600px) {
+		.projects-grid { grid-template-columns: 1fr; }
+		.skills-grid { grid-template-columns: 1fr; }
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+		{ threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

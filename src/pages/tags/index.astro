@@ -1,0 +1,218 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const posts = await getCollection('blog');
+const tagMap = new Map<string, number>();
+
+posts.forEach((post) => {
+	(post.data.tags ?? []).forEach((tag) => {
+		tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
+	});
+});
+
+const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
+
+const tagColors = [
+	{ color: '#cc7700', bg: 'rgba(255,184,0,0.12)' },
+	{ color: '#FF5E8A', bg: 'rgba(255,94,138,0.1)' },
+	{ color: '#FF6200', bg: 'rgba(255,98,0,0.1)' },
+	{ color: '#5B7FD4', bg: 'rgba(91,127,212,0.1)' },
+	{ color: '#3DB553', bg: 'rgba(61,181,83,0.1)' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Tags — ${SITE_TITLE}`} description="Browse posts by topic" />
+	</head>
+	<body>
+		<Header />
+		<div class="accent-bar"></div>
+		<main>
+			<div class="page-header">
+				<span class="page-label">✦ Browse Topics</span>
+				<h1>Tags</h1>
+				<p>Explore posts organised by topic.</p>
+			</div>
+
+			{tags.length === 0 ? (
+				<div class="empty">
+					<span class="empty-icon">🏷️</span>
+					<p>No tags yet. Add tags to your blog posts to see them here.</p>
+					<a href="/blog" class="btn-link">Browse all posts →</a>
+				</div>
+			) : (
+				<div class="tags-grid">
+					{tags.map(([tag, count], i) => {
+						const scheme = tagColors[i % tagColors.length];
+						return (
+							<a
+								href={`/tags/${tag}`}
+								class="tag-card reveal"
+								style={`--tag-color: ${scheme.color}; --tag-bg: ${scheme.bg}; transition-delay: ${(i % 8) * 0.06}s`}
+							>
+								<div class="tag-icon" style={`background: ${scheme.bg}; color: ${scheme.color};`}>
+									#
+								</div>
+								<div class="tag-info">
+									<span class="tag-name">{tag}</span>
+									<span class="tag-count">{count} post{count !== 1 ? 's' : ''}</span>
+								</div>
+								<span class="tag-arrow">→</span>
+							</a>
+						);
+					})}
+				</div>
+			)}
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.accent-bar {
+		height: 5px;
+		background: linear-gradient(90deg, #FFB800, #FF5E8A, #FF6200, #5B7FD4, #3DB553);
+		background-size: 200% 100%;
+		animation: gradientShift 4s ease infinite;
+	}
+
+	main {
+		max-width: 1150px;
+		margin: 0 auto;
+		padding: 0 1.5em 5em;
+	}
+
+	.page-header {
+		padding: 4em 0 2.5em;
+	}
+
+	.page-label {
+		display: inline-block;
+		color: #FF5E8A;
+		font-size: 0.85em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin-bottom: 0.5em;
+	}
+
+	.page-header h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		margin: 0 0 0.3em;
+		color: rgb(15, 18, 25);
+	}
+
+	.page-header p {
+		color: rgb(96, 115, 159);
+		font-size: 1.05em;
+		margin: 0;
+	}
+
+	.tags-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 1em;
+	}
+
+	.tag-card {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+		padding: 1.1em 1.25em;
+		background: white;
+		border: 1.5px solid rgba(0, 0, 0, 0.07);
+		border-radius: 14px;
+		text-decoration: none;
+		color: inherit;
+		transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+	}
+
+	.tag-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+		border-color: var(--tag-color);
+	}
+
+	.tag-icon {
+		width: 40px;
+		height: 40px;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.1em;
+		font-weight: 900;
+		flex-shrink: 0;
+	}
+
+	.tag-info {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1em;
+	}
+
+	.tag-name {
+		font-weight: 700;
+		font-size: 0.95em;
+		color: rgb(15, 18, 25);
+		text-transform: capitalize;
+	}
+
+	.tag-count {
+		font-size: 0.75em;
+		color: rgb(96, 115, 159);
+	}
+
+	.tag-arrow {
+		color: var(--tag-color);
+		font-weight: 700;
+		opacity: 0;
+		transform: translateX(-4px);
+		transition: opacity 0.2s, transform 0.2s;
+	}
+
+	.tag-card:hover .tag-arrow {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.empty {
+		text-align: center;
+		padding: 5em 2em;
+	}
+
+	.empty-icon {
+		font-size: 3em;
+		display: block;
+		margin-bottom: 0.5em;
+	}
+
+	.empty p {
+		color: rgb(96, 115, 159);
+		margin-bottom: 1.5em;
+	}
+
+	.btn-link {
+		color: #FF6200;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.btn-link:hover { color: #FF5E8A; }
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+		{ threshold: 0.08 }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

@@ -1,0 +1,496 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_AUTHOR, SITE_TITLE } from '../consts';
+
+const degrees = [
+	{
+		institution: 'Boise State University - College of Engineering',
+		degree: 'B.S. Computer Science',
+		start: '2022',
+		end: '2025',
+		grade: 'Dec 2025',
+		location: 'Boise, ID',
+		color: '#FFB800',
+		logo: '/images/logo-bsu.png',
+		highlights: [
+			'Focus on software engineering, algorithms, and systems programming in C++ and C#',
+			'Concurrent dual-degree student, balancing technical and creative curricula',
+			'Applied coursework directly to professional mixed reality and game development projects',
+		],
+	},
+	{
+		institution: 'Boise State University - College of Innovation and Design',
+		degree: 'B.A. Games, Interactive Media & Mobile (GIMM) with Minor in History',
+		start: '2017',
+		end: '2021',
+		grade: 'Dec 2021',
+		location: 'Boise, ID',
+		color: '#5B7FD4',
+		logo: '/images/logo-bsu.png',
+		highlights: [
+			'Specialised in game design, interactive media production, and mobile application development',
+			'Minor in History for strengthening narrative design, research, and cultural context skills',
+			'Completed foundational projects in Unity, web technologies, and interactive storytelling',
+		],
+	},
+];
+
+const certifications = [
+	{
+		name: 'Unity Game Development',
+		issuer: 'Boise State GIMM Dept',
+		date: '2021–2025',
+		color: '#5B7FD4',
+		icon: '🎮',
+	},
+	{
+		name: 'Unreal Engine 5 - Blueprints & C++',
+		issuer: 'Professional Experience',
+		date: '2023–2025',
+		color: '#FF6200',
+		icon: '⚡',
+	},
+	{
+		name: 'AR/VR Development',
+		issuer: 'Vuforia & AR Foundation',
+		date: '2023',
+		color: '#3DB553',
+		icon: '🥽',
+	},
+	{
+		name: 'Full Stack Web Development',
+		issuer: 'Best Day HR',
+		date: '2020–2022',
+		color: '#FF5E8A',
+		icon: '💻',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Education - ${SITE_TITLE}`}
+			description={`Academic background of ${SITE_AUTHOR}`}
+		/>
+	</head>
+	<body>
+		<div class="page-blobs">
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+			<div class="blob blob-4"></div>
+			<div class="blob blob-5"></div>
+			<div class="blob blob-6"></div>
+		</div>
+		<Header />
+
+		<main>
+			<div class="page-header">
+				<span class="page-label">✦ Academic Background</span>
+				<h1>Education</h1>
+				<p>Degrees and qualifications that shaped my thinking.</p>
+			</div>
+
+			<!-- Degrees -->
+			<section class="section reveal">
+				<h2 class="section-title">Degrees & Qualifications</h2>
+				<div class="degree-list">
+					{degrees.map((deg, i) => (
+						<div class="degree-card reveal" style={`transition-delay: ${i * 0.1}s; border-color: ${deg.color}`}>
+							<div class="degree-accent" style={`background: ${deg.color}`}></div>
+							<div class="degree-body">
+								<div class="degree-header">
+									<div class="degree-institution-row">
+										{deg.logo && <img src={deg.logo} alt="" class="institution-logo" aria-hidden="true" />}
+										<div>
+											<h3 class="degree-institution">{deg.institution}</h3>
+											<p class="degree-title" style={`color: ${deg.color}`}>{deg.degree}</p>
+										</div>
+									</div>
+
+								</div>
+
+								<ul class="degree-highlights">
+									{deg.highlights.map((h) => (
+										<li>
+											<span class="highlight-dot" style={`background: ${deg.color}`}></span>
+											{h}
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<!-- Philosophy -->
+			<section class="philosophy reveal">
+				<div class="philosophy-inner">
+					<span class="philosophy-emoji">💡</span>
+					<h2>Learning Philosophy</h2>
+					<p>
+						I believe the best developers never stop being students. Outside formal education,
+						I'm constantly building side projects, learning about the latest releases and technology,
+						and learning from the games I play. Every project no matter how small is another step
+						in my learning journey.
+					</p>
+					<div class="philosophy-links">
+						<a href="/projects" class="phil-link">See what I've built →</a>
+						<a href="/experience" class="phil-link">View my experience →</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body { position: relative; overflow-x: hidden; }
+
+	section, main, header, footer { position: relative; z-index: 1; }
+
+	.page-blobs {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+		overflow: hidden;
+	}
+
+	.blob {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(110px);
+		opacity: 0.18;
+		animation: float 8s ease-in-out infinite;
+	}
+	.blob-1 { width: 600px; height: 600px; background: #FFB800; top: -200px; right: -80px; animation-delay: 0s; }
+	.blob-2 { width: 400px; height: 400px; background: #FF5E8A; top: 10%; left: -100px; animation-delay: -3s; }
+	.blob-3 { width: 500px; height: 500px; background: #5B7FD4; top: 40%; right: -80px; animation-delay: -5s; }
+	.blob-4 { width: 350px; height: 350px; background: #FFB800; top: 60%; left: -60px; animation-delay: -2s; }
+	.blob-5 { width: 450px; height: 450px; background: #FF5E8A; top: 78%; right: 5%; animation-delay: -6s; }
+	.blob-6 { width: 300px; height: 300px; background: #3DB553; top: 92%; left: 20%; animation-delay: -4s; }
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-20px); }
+	}
+
+	main {
+		max-width: 1150px;
+		margin: 0 auto;
+		padding: 0 1.5em 5em;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.page-header {
+		padding: 4em 0 2.5em;
+	}
+
+	.page-label {
+		display: inline-block;
+		background: rgba(200, 30, 90, 0.22);
+		color: #c01560;
+		border-radius: 100px;
+		padding: 0.25em 1em;
+		font-size: 0.78em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.6em;
+	}
+
+	.page-header h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		margin: 0 0 0.3em;
+		color: rgb(15, 18, 25);
+	}
+
+	.page-header p {
+		color: rgb(96, 115, 159);
+		font-size: 1.05em;
+		margin: 0;
+	}
+
+	/* Section */
+	.section {
+		margin-bottom: 4em;
+	}
+
+	.section-title {
+		font-size: 1.3em;
+		margin: 0 0 1.5em;
+		padding-bottom: 0.5em;
+		border-bottom: 2px solid #4a4a4a;
+	}
+
+	/* Degrees */
+	.degree-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25em;
+	}
+
+	.degree-card {
+		display: flex;
+		background: white;
+		border: 2px solid currentColor;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+		transition: box-shadow 0.2s, transform 0.2s;
+	}
+
+	.degree-card:hover {
+		box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+		transform: translateY(-2px);
+	}
+
+	.degree-accent {
+		width: 5px;
+		flex-shrink: 0;
+	}
+
+	.degree-body {
+		flex: 1;
+		padding: 1.75em 2em;
+		min-width: 0;
+	}
+
+	.degree-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1em;
+		margin-bottom: 1.1em;
+		flex-wrap: wrap;
+	}
+
+	.degree-institution-row {
+		display: flex;
+		align-items: flex-start;
+		gap: 1em;
+		flex-wrap: wrap;
+	}
+
+	.degree-institution-row > div {
+		min-width: 0;
+		flex: 1;
+	}
+
+	.institution-logo {
+		height: 48px;
+		width: auto;
+		object-fit: contain;
+		flex-shrink: 0;
+		margin-top: 2px;
+		opacity: 0.9;
+	}
+
+	.degree-institution {
+		font-size: 1.15em;
+		margin: 0 0 0.2em;
+		color: rgb(15,18,25);
+		word-break: break-word;
+	}
+
+	.degree-title {
+		font-size: 0.95em;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	.degree-meta {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.3em;
+		flex-shrink: 0;
+	}
+
+	.degree-dates {
+		font-size: 0.85em;
+		font-weight: 600;
+		color: rgb(34,41,57);
+	}
+
+	.degree-location {
+		font-size: 0.8em;
+		color: rgb(96,115,159);
+	}
+
+	.degree-grade {
+		font-size: 0.78em;
+		font-weight: 700;
+		padding: 0.2em 0.7em;
+		border-radius: 6px;
+	}
+
+	.degree-highlights {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+	}
+
+	.degree-highlights li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.6em;
+		font-size: 0.9em;
+		line-height: 1.5;
+		color: rgb(34,41,57);
+	}
+
+	.highlight-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		flex-shrink: 0;
+		margin-top: 0.55em;
+	}
+
+	/* Certifications */
+	.certs-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1em;
+	}
+
+	.cert-card {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+		background: white;
+		border: 1px solid rgba(0,0,0,0.07);
+		border-radius: 14px;
+		padding: 1.25em;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+
+	.cert-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+	}
+
+	.cert-icon {
+		width: 44px;
+		height: 44px;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.3em;
+		flex-shrink: 0;
+	}
+
+	.cert-name {
+		font-size: 0.9em;
+		font-weight: 700;
+		margin: 0 0 0.15em;
+		color: rgb(15,18,25);
+		line-height: 1.3;
+	}
+
+	.cert-issuer {
+		font-size: 0.8em;
+		color: rgb(96,115,159);
+		margin: 0 0 0.25em;
+	}
+
+	.cert-date {
+		font-size: 0.75em;
+		font-weight: 600;
+		color: rgb(96,115,159);
+		background: rgba(0,0,0,0.04);
+		padding: 0.1em 0.5em;
+		border-radius: 4px;
+	}
+
+	/* Philosophy */
+	.philosophy {
+		padding: 3.5em 0;
+		text-align: center;
+	}
+
+	.philosophy::before {
+		content: '';
+		display: block;
+		height: 2px;
+		width: 100%;
+		margin: 0 auto 3.5em;
+		background: #4a4a4a;
+	}
+
+	.philosophy-emoji {
+		font-size: 2.5em;
+		display: block;
+		margin-bottom: 0.4em;
+	}
+
+	.philosophy h2 {
+		font-size: 1.6em;
+		margin: 0 0 0.6em;
+	}
+
+	.philosophy p {
+		color: rgb(96,115,159);
+		font-size: 1em;
+		line-height: 1.7;
+		max-width: 560px;
+		margin: 0 auto 1.5em;
+	}
+
+	.philosophy-links {
+		display: flex;
+		justify-content: center;
+		gap: 1.5em;
+		flex-wrap: wrap;
+	}
+
+	.phil-link {
+		color: #5B7FD4;
+		font-weight: 700;
+		text-decoration: none;
+		font-size: 0.95em;
+		transition: color 0.2s;
+	}
+
+	.phil-link:hover { color: #FF5E8A; }
+
+	@media (max-width: 720px) {
+		.degree-body { padding: 1.25em 1.25em; }
+		.institution-logo { height: 36px; }
+		.degree-header { flex-direction: column; }
+		.degree-meta { align-items: flex-start; }
+		.certs-grid { grid-template-columns: 1fr; }
+	}
+
+	@media (max-width: 480px) {
+		.degree-institution-row { flex-direction: column; }
+		.institution-logo { height: 32px; }
+		.degree-body { padding: 1em; }
+		.degree-institution { font-size: 1em; word-break: break-word; }
+		.degree-accent { width: 4px; }
+		.philosophy-links { flex-direction: column; align-items: center; gap: 0.75em; }
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+		{ threshold: 0.06, rootMargin: '0px 0px -30px 0px' }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

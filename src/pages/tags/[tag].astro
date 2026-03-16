@@ -1,0 +1,232 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const tagSet = new Set(posts.flatMap((p) => p.data.tags ?? []));
+	return [...tagSet].map((tag) => ({
+		params: { tag },
+		props: {
+			tag,
+			posts: posts
+				.filter((p) => p.data.tags?.includes(tag))
+				.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+		},
+	}));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`#${tag} — ${SITE_TITLE}`}
+			description={`Posts tagged with "${tag}"`}
+		/>
+	</head>
+	<body>
+		<Header />
+		<div class="accent-bar"></div>
+		<main>
+			<div class="page-header">
+				<a href="/tags" class="back-link">← All Tags</a>
+				<div class="tag-badge"># {tag}</div>
+				<h1>{posts.length} post{posts.length !== 1 ? 's' : ''}</h1>
+				<p>Everything tagged with <strong>{tag}</strong>.</p>
+			</div>
+
+			<ul class="post-grid">
+				{
+					posts.map((post, i) => (
+						<li class="post-card reveal" style={`transition-delay: ${(i % 6) * 0.08}s`}>
+							<a href={`/blog/${post.id}/`} class="post-card-link">
+								{post.data.heroImage ? (
+									<div class="post-card-image">
+										<Image
+											width={720}
+											height={360}
+											src={post.data.heroImage}
+											alt={post.data.title}
+										/>
+									</div>
+								) : (
+									<div class="post-card-placeholder"></div>
+								)}
+								<div class="post-card-body">
+									<h2 class="post-card-title">{post.data.title}</h2>
+									<p class="post-card-desc">{post.data.description}</p>
+									<div class="post-card-footer">
+										<time class="post-date">
+											<FormattedDate date={post.data.pubDate} />
+										</time>
+										<span class="read-more">Read →</span>
+									</div>
+								</div>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.accent-bar {
+		height: 5px;
+		background: linear-gradient(90deg, #FFB800, #FF5E8A, #FF6200, #5B7FD4, #3DB553);
+		background-size: 200% 100%;
+		animation: gradientShift 4s ease infinite;
+	}
+
+	main {
+		max-width: 1350px;
+		margin: 0 auto;
+		padding: 0 1.5em 5em;
+	}
+
+	.page-header {
+		padding: 3.5em 0 2.5em;
+	}
+
+	.back-link {
+		color: rgb(96, 115, 159);
+		text-decoration: none;
+		font-size: 0.88em;
+		font-weight: 500;
+		transition: color 0.2s;
+		display: inline-block;
+		margin-bottom: 1em;
+	}
+
+	.back-link:hover { color: #FF6200; }
+
+	.tag-badge {
+		display: inline-block;
+		background: rgba(255, 184, 0, 0.12);
+		color: #cc7700;
+		border: 1.5px solid rgba(255, 184, 0, 0.3);
+		border-radius: 100px;
+		padding: 0.3em 1.1em;
+		font-size: 1em;
+		font-weight: 700;
+		text-transform: capitalize;
+		margin-bottom: 0.6em;
+	}
+
+	.page-header h1 {
+		font-size: clamp(2rem, 5vw, 3.5rem);
+		margin: 0 0 0.2em;
+		color: rgb(15, 18, 25);
+	}
+
+	.page-header p {
+		color: rgb(96, 115, 159);
+		font-size: 1.05em;
+		margin: 0;
+	}
+
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.75em;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.post-card {
+		background: white;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+	}
+
+	.post-card-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.post-card-image {
+		aspect-ratio: 16/9;
+		overflow: hidden;
+	}
+
+	.post-card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.4s ease;
+	}
+
+	.post-card:hover .post-card-image img { transform: scale(1.06); }
+
+	.post-card-placeholder {
+		aspect-ratio: 16/9;
+		background: linear-gradient(135deg, rgba(255,184,0,0.08), rgba(255,94,138,0.08));
+	}
+
+	.post-card-body {
+		padding: 1.25em 1.4em 1.4em;
+	}
+
+	.post-card-title {
+		font-size: 1.05em;
+		margin: 0 0 0.4em;
+		line-height: 1.3;
+		color: rgb(15, 18, 25);
+	}
+
+	.post-card-desc {
+		font-size: 0.86em;
+		color: rgb(96, 115, 159);
+		margin: 0 0 0.75em;
+		line-height: 1.5;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.post-card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.8em;
+		padding-top: 0.75em;
+		border-top: 1px solid rgba(0, 0, 0, 0.07);
+	}
+
+	.post-date { color: rgb(96, 115, 159); }
+	.read-more { color: #FF6200; font-weight: 700; }
+	.post-card:hover .read-more { color: #FF5E8A; }
+
+	@media (max-width: 900px) { .post-grid { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 600px) { .post-grid { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+		{ threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

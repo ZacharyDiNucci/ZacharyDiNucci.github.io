@@ -1,0 +1,325 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// Collect all unique tags
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Blog — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Page Header -->
+			<div class="page-header">
+				<div class="page-header-inner">
+					<span class="page-label">✦ All Posts</span>
+					<h1>The Blog</h1>
+					<p>Thoughts on design, development, and everything in between.</p>
+					<div class="post-count">{posts.length} article{posts.length !== 1 ? 's' : ''}</div>
+				</div>
+			</div>
+
+			<!-- Tags Filter -->
+			{allTags.length > 0 && (
+				<div class="tags-filter">
+					<a href="/blog" class="filter-tag active">All</a>
+					{allTags.map((tag) => (
+						<a href={`/tags/${tag}`} class="filter-tag">{tag}</a>
+					))}
+				</div>
+			)}
+
+			<!-- Post Grid -->
+			<ul class="post-grid">
+				{
+					posts.map((post, i) => (
+						<li class="post-card reveal" style={`transition-delay: ${(i % 6) * 0.08}s`}>
+							<a href={`/blog/${post.id}/`} class="post-card-link">
+								{post.data.heroImage ? (
+									<div class="post-card-image">
+										<Image
+											width={720}
+											height={360}
+											src={post.data.heroImage}
+											alt={post.data.title}
+										/>
+										{post.data.tags && post.data.tags.length > 0 && (
+											<div class="post-card-tags">
+												{post.data.tags.slice(0, 2).map((tag) => (
+													<span class="tag">{tag}</span>
+												))}
+											</div>
+										)}
+									</div>
+								) : (
+									<div class="post-card-placeholder">
+										{post.data.tags && post.data.tags.length > 0 && (
+											<div class="post-card-tags">
+												{post.data.tags.slice(0, 2).map((tag) => (
+													<span class="tag">{tag}</span>
+												))}
+											</div>
+										)}
+									</div>
+								)}
+								<div class="post-card-body">
+									<h2 class="post-card-title">{post.data.title}</h2>
+									<p class="post-card-desc">{post.data.description}</p>
+									<div class="post-card-footer">
+										<time class="post-date">
+											<FormattedDate date={post.data.pubDate} />
+										</time>
+										<span class="read-more">Read →</span>
+									</div>
+								</div>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 1350px;
+		margin: 0 auto;
+		padding: 0 1.5em 5em;
+	}
+
+	.page-header {
+		padding: 4em 0 2.5em;
+		position: relative;
+	}
+
+	.page-header::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -1.5em;
+		right: -1.5em;
+		height: 4px;
+		background: linear-gradient(90deg, #FFB800, #FF5E8A, #FF6200, #5B7FD4, #3DB553);
+		background-size: 200% 100%;
+		animation: gradientShift 4s ease infinite;
+	}
+
+	.page-header-inner { max-width: 600px; }
+
+	.page-label {
+		display: inline-block;
+		color: #FF5E8A;
+		font-size: 0.85em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin-bottom: 0.5em;
+	}
+
+	.page-header h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		margin: 0 0 0.3em;
+		color: rgb(15, 18, 25);
+	}
+
+	.page-header p {
+		color: rgb(96, 115, 159);
+		font-size: 1.1em;
+		margin: 0 0 1em;
+	}
+
+	.post-count {
+		display: inline-block;
+		background: rgba(91, 127, 212, 0.1);
+		color: #5B7FD4;
+		border-radius: 100px;
+		padding: 0.2em 0.9em;
+		font-size: 0.82em;
+		font-weight: 600;
+	}
+
+	.tags-filter {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		margin-bottom: 2.5em;
+		padding-bottom: 2em;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+	}
+
+	.filter-tag {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.35em 1em;
+		border-radius: 100px;
+		border: 1.5px solid rgba(0, 0, 0, 0.12);
+		text-decoration: none;
+		color: rgb(96, 115, 159);
+		font-size: 0.85em;
+		font-weight: 500;
+		transition: all 0.2s;
+	}
+
+	.filter-tag:hover, .filter-tag.active {
+		background: #FFB800;
+		border-color: #FFB800;
+		color: #1a1a1a;
+		font-weight: 700;
+	}
+
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.75em;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.post-card {
+		background: white;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+	}
+
+	.post-card-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		height: 100%;
+	}
+
+	.post-card-image {
+		position: relative;
+		aspect-ratio: 16/9;
+		overflow: hidden;
+	}
+
+	.post-card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.4s ease;
+	}
+
+	.post-card:hover .post-card-image img {
+		transform: scale(1.06);
+	}
+
+	.post-card-placeholder {
+		position: relative;
+		aspect-ratio: 16/9;
+		background: linear-gradient(135deg, rgba(255, 184, 0, 0.1), rgba(255, 94, 138, 0.1));
+		display: flex;
+		align-items: flex-start;
+		padding: 1em;
+	}
+
+	.post-card-tags {
+		position: absolute;
+		bottom: 10px;
+		left: 12px;
+		display: flex;
+		gap: 0.4em;
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		display: inline-block;
+		background: rgba(255, 255, 255, 0.95);
+		color: #5B7FD4;
+		border-radius: 6px;
+		padding: 0.15em 0.6em;
+		font-size: 0.72em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	}
+
+	.post-card-body {
+		padding: 1.25em 1.4em 1.4em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+
+	.post-card-title {
+		font-size: 1.05em;
+		margin: 0;
+		line-height: 1.3;
+		color: rgb(15, 18, 25);
+	}
+
+	.post-card-desc {
+		font-size: 0.86em;
+		color: rgb(96, 115, 159);
+		margin: 0;
+		line-height: 1.5;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		flex: 1;
+	}
+
+	.post-card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.8em;
+		margin-top: 0.5em;
+		padding-top: 0.75em;
+		border-top: 1px solid rgba(0, 0, 0, 0.07);
+	}
+
+	.post-date { color: rgb(96, 115, 159); }
+
+	.read-more {
+		color: #FF6200;
+		font-weight: 700;
+	}
+
+	.post-card:hover .read-more { color: #FF5E8A; }
+
+	@media (max-width: 900px) {
+		.post-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (max-width: 600px) {
+		.post-grid { grid-template-columns: 1fr; }
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+		{ threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
