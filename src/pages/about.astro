@@ -1,0 +1,211 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<div class="page-blobs">
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+			<div class="blob blob-4"></div>
+			<div class="blob blob-5"></div>
+			<div class="blob blob-6"></div>
+		</div>
+		<Header />
+
+		<main>
+			<div class="page-header">
+				<span class="section-label">✦ WHO AM I</span>
+				<h1>About Me</h1>
+				<p class="page-subtitle">Engineer | Gamer | Storyteller.</p>
+			</div>
+
+			<!-- JOURNEY -->
+			<section class="journey-section">
+				<div class="section-inner">
+					<div class="journey-layout">
+						<div class="journey-text">
+							<span class="section-label">✦ MY JOURNEY</span>
+							<h2>From Player to Builder</h2>
+							<p>My path into game development didn't start with a computer. It started with a Hastings rental counter. Growing up, my family would rent GameCubes and Xboxes on weekends, and I'd lose myself in everything from Pikmin to Crash Bandicoot. When I got my first console, an original Nintendo DS, my friends and I turned Pokémon into a daily ritual: synced playthroughs, progress reports, and debates about which starter was objectively correct. I was already sketching my own Pokémon, designing routes and mechanics, imagining the game I'd someday build.</p>
+							<p>In junior high, that curiosity found its first outlet. My friend group ran a modded Minecraft server together with specialized roles, factories, and resource networks. One afternoon I found a YouTube tutorial for writing Minecraft mods. With my dad's help, I put together a Sapphire ore mod: a new gemstone sitting between Iron and Diamond in tier. It never fully worked, but digging into the code behind my favorite game lit something that never went out.</p>
+							<p>The moment it became real came in high school, when I built a small game to ask someone to prom. I was so nervous I sent it at 2 AM and went straight to bed, unaware she was still awake at a sleepover and played it almost immediately. She said yes. We graduated from Boise State together in 2021 and got married that same year. She still has the email saved, and she still teases me with it regularly.</p>
+							<p>That instinct to build carried into my career. At the Boise State GIMM Lab I shipped mixed reality AR experiences, a VR hunter safety simulator with 2,500+ downloads on SideQuest, and Gods and Shadows, a JRPG built for a Make-a-Wish recipient. I'm currently developing a multiplayer third-person shooter in Unreal Engine 5, and the same kid who sketched Pokémon routes in a notebook is still very much running the show.</p>
+						</div>
+						<div class="journey-photo">
+							<div class="photo-frame"><img src="/images/headshot.png" alt={SITE_AUTHOR} /></div>
+							<div class="photo-stats">
+								<div class="stat-pill">🎮 Multiple Shipped Projects</div>
+								<div class="stat-pill">🔀 Cross-Platform OOP Dev</div>
+								<div class="stat-pill">🎓 CS and Game Design Major</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- D&D STAT SHEET -->
+			<section class="dnd-section">
+				<div class="section-inner">
+					<div class="section-header">
+						<span class="section-label">✦ CHARACTER SHEET</span>
+						<h2>Adventure for Hire: Zachary DiNucci</h2>
+						<p>I built my own D&amp;D character sheet because if you're going to be on an Adventure, you might as well write the stat block yourself.</p>
+					</div>
+					<div class="sheet-window">
+						<div class="sheet-window-bar">
+							<span class="sheet-window-title">Adventure_Zachary_DiNucci.pdf</span>
+						</div>
+						<div class="sheet-window-body">
+							<iframe src="/dnd-statsheet.pdf" title="D&D Stat Sheet" loading="lazy"></iframe>
+						</div>
+					</div>
+					<div class="sheet-download">
+						<a href="/dnd-statsheet.pdf" download="Adventure_Zachary_DiNucci.pdf" class="btn-download">
+							⬇ Download Stat Sheet
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- INTERESTS & HOBBIES -->
+			<section class="hobbies-section">
+				<div class="section-inner">
+					<div class="section-header">
+						<span class="section-label">✦ OUTSIDE THE CODE</span>
+						<h2>Interests &amp; Hobbies</h2>
+						<p>What I do when the compiler isn't yelling at me.</p>
+					</div>
+					<div class="hobbies-grid">
+						<div class="hobby-card" style="--accent:#FFB800"><div class="hobby-icon">🎮</div><h3>Gaming</h3><p>RPGs, shooters, and anything in between with good world-building. I play games critically, always asking what makes a mechanic feel good and how I'd build it or incorporate it in what I am creating.</p></div>
+						<div class="hobby-card" style="--accent:#FF5E8A"><div class="hobby-icon">🐉</div><h3>Dungeons &amp; Dragons</h3><p>I play and DM. Building encounters and lore scratches the same design itch as game development, except the bugs are intentional and called "plot twists."</p></div>
+						<div class="hobby-card" style="--accent:#c01560"><div class="hobby-icon">🛠️</div><h3>Tinkering</h3><p>From both digital to physical tinkering I love getting my hands dirty. My wife and I are planning a Christmas light show where we program lights ourselves to play to music.</p></div>
+						<div class="hobby-card" style="--accent:#5B7FD4"><div class="hobby-icon">🥽</div><h3>Sports Stories</h3><p>I have played sports all my life and one thing this has given me was a love of the stories of them. While this might make me a bandwagoner I cannot help cheer for an underdog or someone with the better story in an event.</p></div>
+						<div class="hobby-card" style="--accent:#3DB553"><div class="hobby-icon">🎨</div><h3>Arts and Crafts</h3><p>I have gotten really into Warhammer and have been building a Astra Militarum army designed around World War 1 French uniforms with their bright red trowsers and dark blue coats.</p></div>
+						<div class="hobby-card" style="--accent:#FF6200"><div class="hobby-icon">🎬</div><h3>Sci-Fi &amp; Fantasy</h3><p>My wife and I are heavy consumers of these genras and will listen to audiobooks, play games, and watch movies together while discussing characters, themes, and anything about these generas.</p></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- BUILDING THIS SITE -->
+			<section class="site-section">
+				<div class="section-inner">
+					<div class="section-header">
+						<span class="section-label">❆ This part was written by the AI</span>
+						<h2>Building This Site with AI</h2>
+						<p>How this portfolio came together — and what I learned doing it.</p>
+					</div>
+					<div class="site-cards">
+						<div class="site-card">
+							<div class="site-card-icon" style="background:rgba(255,184,0,0.12);color:#cc7700">🚀</div>
+							<h3>The Stack</h3>
+							<p>Built on <strong>Astro</strong> using the Starwind template as a starting point, then heavily customized. Content collections made managing project pages painless.</p>
+						</div>
+						<div class="site-card">
+							<div class="site-card-icon" style="background:rgba(91,127,212,0.12);color:#5B7FD4">🤖</div>
+							<h3>Working with AI</h3>
+							<p>I used <strong>Claude Code</strong> as a collaborator throughout the build — wiring up carousels, tuning the visual system, migrating content from my old site, and iterating on layout and color. It handled the repetitive scaffolding while I focused on design decisions.</p>
+						</div>
+						<div class="site-card">
+							<div class="site-card-icon" style="background:rgba(61,181,83,0.12);color:#2a9e42">💡</div>
+							<h3>What I Learned</h3>
+							<p>AI pair-programming is most powerful when you have a clear vision and use it to accelerate execution — not replace thinking. I drove every design decision; the AI moved fast on implementation. The result: a fully custom portfolio in a fraction of the time.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body { position: relative; overflow-x: hidden; }
+	main { position: relative; z-index: 1; padding-bottom: 6em; }
+	header, footer { position: relative; z-index: 1; }
+
+	.page-blobs { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+	.blob { position: absolute; border-radius: 50%; filter: blur(110px); opacity: 0.18; animation: float 8s ease-in-out infinite; }
+	.blob-1 { width: 600px; height: 600px; background: #FFB800; top: -200px; right: -80px; }
+	.blob-2 { width: 400px; height: 400px; background: #FF5E8A; top: 10%; left: -100px; animation-delay: -3s; }
+	.blob-3 { width: 500px; height: 500px; background: #5B7FD4; top: 35%; right: -80px; animation-delay: -5s; }
+	.blob-4 { width: 350px; height: 350px; background: #FFB800; top: 55%; left: -60px; animation-delay: -2s; }
+	.blob-5 { width: 450px; height: 450px; background: #FF5E8A; top: 72%; right: 5%; animation-delay: -6s; }
+	.blob-6 { width: 300px; height: 300px; background: #3DB553; top: 88%; left: 20%; animation-delay: -4s; }
+	@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+
+	.section-inner { max-width: 1150px; margin: 0 auto; padding: 0 1.5em; width: 100%; box-sizing: border-box; }
+	.section-label { display: inline-block; background: rgba(200,30,90,0.22); color: #c01560; border-radius: 100px; padding: 0.25em 1em; font-size: 0.78em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6em; }
+	.section-header { margin-bottom: 2.5em; }
+	.section-header h2 { font-size: 2em; margin: 0 0 0.3em; }
+	.section-header p { color: rgb(96,115,159); margin: 0; }
+
+	.page-header { max-width: 1150px; margin: 0 auto; padding: 3em 1.5em 2em; position: relative; z-index: 1; }
+	.page-header h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0 0 0.2em; line-height: 1.1; }
+	.page-subtitle { color: rgb(96,115,159); font-size: 1.1em; margin: 0; }
+
+	.journey-section, .site-section, .dnd-section, .hobbies-section { padding: 4em 0; }
+	.journey-section::before, .site-section::before, .dnd-section::before, .hobbies-section::before { content: ""; display: block; height: 2px; width: min(1150px, calc(100% - 3em)); margin: 0 auto 4em; background: #4a4a4a; }
+
+	.journey-layout { display: grid; grid-template-columns: 1fr 280px; gap: 4em; align-items: start; }
+	.journey-text h2 { font-size: 2em; margin: 0.3em 0 0.8em; }
+	.journey-text p { color: rgb(60,70,90); line-height: 1.75; margin: 0 0 1.2em; font-size: 1.02em; word-break: break-word; }
+	.journey-text strong { color: rgb(15,18,25); }
+	.photo-frame { border-radius: 20px; overflow: hidden; border: 3px solid #FFB800; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+	.photo-frame img { width: 100%; display: block; object-fit: cover; object-position: center top; aspect-ratio: 3/4; }
+	.photo-stats { display: flex; flex-direction: column; gap: 0.6em; margin-top: 1em; }
+	.stat-pill { background: white; border: 2px solid rgba(0,0,0,0.08); border-radius: 10px; padding: 0.55em 1em; font-size: 0.85em; font-weight: 600; color: rgb(34,41,57); text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+	.authorship-note { display: flex; align-items: flex-start; gap: 1em; background: rgba(91,127,212,0.07); border: 2px solid rgba(91,127,212,0.2); border-radius: 14px; padding: 1.25em 1.5em; margin-bottom: 2em; }
+	.authorship-icon { font-size: 1.4em; flex-shrink: 0; margin-top: 0.1em; }
+	.authorship-note p { font-size: 0.9em; color: rgb(60,70,90); line-height: 1.7; margin: 0; }
+
+	.site-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5em; }
+	.site-card { background: white; border-radius: 16px; padding: 1.75em; border: 2px solid rgba(0,0,0,0.07); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+	.site-card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4em; margin-bottom: 1em; }
+	.site-card h3 { font-size: 1.05em; margin: 0 0 0.5em; }
+	.site-card p { font-size: 0.9em; color: rgb(80,90,110); line-height: 1.65; margin: 0; word-break: break-word; }
+	.site-card strong { color: rgb(15,18,25); }
+
+	.sheet-window { max-width: 760px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); border: 2px solid #FFB800; }
+	.sheet-window-bar { background: #f0f0f0; padding: 0.6em 1em; display: flex; align-items: center; gap: 0.4em; border-bottom: 1px solid rgba(0,0,0,0.08); }
+	.dot { width: 12px; height: 12px; border-radius: 50%; }
+	.dot.red { background: #ff5f57; }
+	.dot.yellow { background: #febc2e; }
+	.dot.green { background: #28c840; }
+	.sheet-window-title { font-size: 0.8em; color: rgb(100,110,130); margin-left: 0.5em; font-family: monospace; }
+	.sheet-window-body { height: 600px; display: flex; align-items: stretch; }
+	.sheet-window-body iframe { width: 100%; height: 100%; border: none; display: block; }
+	.sheet-window-body img { width: 100%; display: block; object-fit: contain; }
+	.sheet-download { display: flex; justify-content: center; margin-top: 1.25em; }
+	.btn-download { display: inline-flex; align-items: center; gap: 0.5em; background: #FFB800; color: #1a1a1a; font-weight: 700; padding: 0.7em 1.75em; border-radius: 12px; text-decoration: none; font-size: 0.95em; box-shadow: 0 4px 20px rgba(255,184,0,0.35); transition: transform 0.2s, box-shadow 0.2s; }
+	.btn-download:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,184,0,0.5); }
+
+	.hobbies-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; }
+	.hobby-card { background: white; border-radius: 16px; padding: 1.6em; border-top: 3px solid var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+	.hobby-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+	.hobby-icon { font-size: 2em; margin-bottom: 0.6em; }
+	.hobby-card h3 { font-size: 1.05em; margin: 0 0 0.4em; color: var(--accent); }
+	.hobby-card p { font-size: 0.88em; color: rgb(80,90,110); line-height: 1.65; margin: 0; }
+
+	@media (max-width: 900px) {
+		.journey-layout { grid-template-columns: 1fr; }
+		.journey-photo { display: grid; grid-template-columns: 180px 1fr; gap: 1.5em; align-items: center; }
+		.photo-stats { margin-top: 0; }
+		.site-cards { grid-template-columns: 1fr; }
+		.hobbies-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+	@media (max-width: 600px) {
+		.hobbies-grid { grid-template-columns: 1fr; }
+		.journey-photo { grid-template-columns: 1fr; }
+	}
+</style>
